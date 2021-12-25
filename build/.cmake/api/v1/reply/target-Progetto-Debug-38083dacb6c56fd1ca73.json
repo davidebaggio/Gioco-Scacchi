@@ -58,14 +58,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-O3 -DNDEBUG   -std=c++11"
+					"fragment" : "-g   -std=c++11"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/include"
+					"path" : "C:/Users/david/Universit\u00e0/Lezioni programmazione/Progetto Finale/include"
 				}
 			],
 			"language" : "CXX",
@@ -92,7 +92,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-O3 -DNDEBUG",
+				"fragment" : "-g",
 				"role" : "flags"
 			},
 			{

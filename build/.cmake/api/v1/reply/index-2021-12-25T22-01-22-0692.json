@@ -8,25 +8,25 @@
 		},
 		"paths" : 
 		{
-			"cmake" : "C:/Users/david/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/bin/cmake.exe",
-			"cpack" : "C:/Users/david/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/bin/cpack.exe",
-			"ctest" : "C:/Users/david/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/bin/ctest.exe",
-			"root" : "C:/Users/david/AppData/Local/Programs/Python/Python310/Lib/site-packages/cmake/data/share/cmake-3.21"
+			"cmake" : "C:/Program Files/CMake/bin/cmake.exe",
+			"cpack" : "C:/Program Files/CMake/bin/cpack.exe",
+			"ctest" : "C:/Program Files/CMake/bin/ctest.exe",
+			"root" : "C:/Program Files/CMake/share/cmake-3.22"
 		},
 		"version" : 
 		{
 			"isDirty" : false,
 			"major" : 3,
-			"minor" : 21,
-			"patch" : 4,
-			"string" : "3.21.4",
+			"minor" : 22,
+			"patch" : 1,
+			"string" : "3.22.1",
 			"suffix" : ""
 		}
 	},
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-56f1535826a4e391eb0b.json",
+			"jsonFile" : "codemodel-v2-919b41507528fa12c4d2.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-a5b74dba62ac87e7a07f.json",
+			"jsonFile" : "cache-v2-6be8ccd249bc8e634cfd.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -77,7 +77,7 @@
 				"responses" : 
 				[
 					{
-						"jsonFile" : "cache-v2-a5b74dba62ac87e7a07f.json",
+						"jsonFile" : "cache-v2-6be8ccd249bc8e634cfd.json",
 						"kind" : "cache",
 						"version" : 
 						{
@@ -86,7 +86,7 @@
 						}
 					},
 					{
-						"jsonFile" : "codemodel-v2-56f1535826a4e391eb0b.json",
+						"jsonFile" : "codemodel-v2-919b41507528fa12c4d2.json",
 						"kind" : "codemodel",
 						"version" : 
 						{
