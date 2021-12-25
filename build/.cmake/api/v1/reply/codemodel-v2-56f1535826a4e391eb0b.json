@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Release-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Progetto",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Pezzi::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Pezzi-Release-720b397dbf7ecde0bb9b.json",
+					"name" : "Pezzi",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Progetto::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Progetto-Release-ca499dcb7256a64298b3.json",
+					"name" : "Progetto",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Scacchiera::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Scacchiera-Release-3be407ce2dadc9926f37.json",
+					"name" : "Scacchiera",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/build",
+		"source" : "C:/Users/david/Università/Lezioni programmazione/Progetto Finale"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
