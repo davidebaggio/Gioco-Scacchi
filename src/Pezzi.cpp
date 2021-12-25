@@ -1,4 +1,4 @@
-//Melissa Maistro
+// Melissa Maistro
 
 #include "../include/Pezzi.h"
 #include "../include/Scacchiera.h"
@@ -6,104 +6,61 @@
 using namespace std;
 
 //_______________________________________PEDONE___________________________________________
-bool Pedone::move(int, int) 
+bool Pedone::move(int px, int py)
 {
     return false;
 }
-bool Pedone::checkPos() 
+bool Pedone::checkPos()
 {
     return false;
 }
 
-ostream& Pedone::operator<< (ostream& os)
-{
-    if(getColor())
-        os << "p";
-    else
-        os << "P";
-}
 //_______________________________________CAVALLO___________________________________________
-bool Cavallo::move(int, int) 
+bool Cavallo::move(int px, int py)
 {
     return false;
 }
-bool Cavallo::checkPos() 
+bool Cavallo::checkPos()
 {
     return false;
 }
 
-ostream& Cavallo::operator<< (ostream& os)
-{
-    if(getColor())
-        os << "c";
-    else
-        os << "C";
-}
 //_______________________________________ALFIERE___________________________________________
-bool Alfiere::move(int, int) 
+bool Alfiere::move(int px, int py)
 {
     return false;
 }
-bool Alfiere::checkPos() 
+bool Alfiere::checkPos()
 {
     return false;
 }
 
-ostream& Alfiere::operator<< (ostream& os)
-{
-    if(getColor())
-        os << "a";
-    else
-        os << "A";
-}
 //_______________________________________TORRE___________________________________________
-bool Torre::move(int, int) 
+bool Torre::move(int px, int py)
 {
     return false;
 }
-bool Torre::checkPos() 
+bool Torre::checkPos()
 {
     return false;
 }
 
-ostream& Torre::operator<< (ostream& os)
-{
-    if(getColor())
-        os << "t";
-    else
-        os << "T";
-}
 //_______________________________________RE___________________________________________
-bool Re::move(int, int) 
+bool Re::move(int px, int py)
 {
     return false;
 }
-bool Re::checkPos() 
+bool Re::checkPos()
 {
     return false;
 }
 
-ostream& Re::operator<< (ostream& os)
-{
-    if(getColor())
-        os << "r";
-    else
-        os << "R";
-}
 //_______________________________________REGINA___________________________________________
-bool Regina::move(int, int) 
+bool Regina::move(int px, int py)
 {
     return false;
 }
-bool Regina::checkPos() 
+bool Regina::checkPos()
 {
     return false;
-}
-
-ostream& Regina::operator<< (ostream& os)
-{
-    if(getColor())
-        os << "d";
-    else
-        os << "D";
 }

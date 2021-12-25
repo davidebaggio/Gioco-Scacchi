@@ -1,0 +1,1 @@
+g++ src/main.cpp src/Scacchiera.cpp src/Pedina.cpp src/Pezzi.cpp -o Progetto.exe

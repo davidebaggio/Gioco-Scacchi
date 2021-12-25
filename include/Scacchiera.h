@@ -1,9 +1,10 @@
-#include<iostream>
-#include<fstream>
-using namespace std;
-
 #ifndef SCACCHIERA_H
 #define SCACCHIERA_H
+
+#include <iostream>
+#include <fstream>
+#include <cctype>
+using namespace std;
 
 //_________________________________ PEDINA ______________________________
 class Pedina
@@ -11,19 +12,20 @@ class Pedina
 private:
 	int x, y;
 	bool color;
+	char name;
 
 public:
 	Pedina();
-	Pedina(int, int, bool);	//pos x, pos y, colore(true bianco, false nero)
+	Pedina(int, int, bool, char); // pos x, pos y, colore(true bianco, false nero)
 
-	int getL() const {return x; }
-	int getN() const {return y; }
+	int getX() const { return x; }
+	int getY() const { return y; }
 	void setPos(int, int);
 	bool getColor() const;
+	void setName(const char &n);
+	char getName() const;
 
 	virtual bool move(int, int);
-	virtual ostream& operator<< (ostream& os);
-	
 	virtual bool checkPos();
 
 	class InvalidPosition
@@ -35,24 +37,25 @@ public:
 class Scacchiera
 {
 private:
-
-	Pedina* matrice[8][8];
+	Pedina *matrice[8][8];
 
 public:
 	Scacchiera();
 
-	
-	ostream& operator<<(ostream& os);
-
-	bool isEmpty(int x, int y) const { return matrice[x][y]==nullptr; }
-
-	Pedina* getPedina(int x, int y) const { return (matrice[x][y]); }
+	bool checkBoundaries(int, int);
+	bool isEmpty(int x, int y) const { return matrice[x][y] == nullptr; }
+	Pedina getPedina(int x, int y) const { return *matrice[x][y]; }
 
 	bool isScacco();
 	bool isScaccoMatto();
 	bool isPatta();
-	
+
+	class InvalidIndex
+	{
+	};
 };
 
+ostream &operator<<(ostream &os, const Scacchiera &);
+ostream &operator<<(ostream &os, const Pedina &);
 
 #endif
