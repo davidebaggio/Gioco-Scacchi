@@ -5,82 +5,120 @@
 
 Scacchiera::Scacchiera() // posiziona pedine nella posizione di partenza
 {
+	bool g1 = true;
+	Pedone p;
+	Torre t;
+	Cavallo c;
+	Alfiere a;
+	Regina d;
+	Re r;
+	Empty e;
 	for (int i = 0; i < 8; i++)
 	{
+		if (i > 3)
+			g1 = false;
 		for (int j = 0; j < 8; j++)
 		{
 			if (i == 1) // fila di pedoni bianchi
 			{
-				Pedina p = Pedone(j, i, true, 'p');
-				matrice[i][j] = &p;
+				p.setPos(i, j);
+				p.setColor(g1);
+				p.setName('p');
+				matrice[i][j] = p;
 			}
-
-			if (i == 0) // fila con pedine bianche
+			else if (i == 6) // fila di pedoni neri
+			{
+				p.setPos(i, j);
+				p.setColor(g1);
+				p.setName('p');
+				matrice[i][j] = p;
+			}
+			else if (i == 0) // fila con pedine bianche
 			{
 				if (j == 0 || j == 7)
 				{
-					Pedina t = Torre(j, i, true, 't');
-					matrice[i][j] = &t;
+					t.setPos(i, j);
+					t.setColor(g1);
+					t.setName('t');
+					matrice[i][j] = t;
 				}
 				if (j == 1 || j == 6)
 				{
-					Pedina c = Cavallo(j, i, true, 'c');
-					matrice[i][j] = &c;
+					c.setPos(i, j);
+					c.setColor(g1);
+					c.setName('c');
+					matrice[i][j] = c;
 				}
 				if (j == 2 || j == 5)
 				{
-					Pedina a = Alfiere(j, i, true, 'a');
-					matrice[i][j] = &a;
+					a.setPos(i, j);
+					a.setColor(g1);
+					a.setName('a');
+					matrice[i][j] = a;
 				}
 				if (j == 3)
 				{
-					Pedina d = Regina(j, i, true, 'd');
-					matrice[i][j] = &d;
+					d.setPos(i, j);
+					d.setColor(g1);
+					d.setName('d');
+					matrice[i][j] = d;
 				}
 				if (j == 4)
 				{
-					Pedina r = Re(j, i, true, 'r');
-					matrice[i][j] = &r;
+					r.setPos(i, j);
+					r.setColor(g1);
+					r.setName('r');
+					matrice[i][j] = r;
 				}
 			}
-
-			if (i == 7) // fila di pedoni neri
-			{
-				Pedina p = Pedone(j, i, false, 'p');
-				matrice[i][j] = &p;
-			}
-
-			if (i == 7) // fila con pedine nere
+			else if (i == 7) // fila con pedine nere
 			{
 				if (j == 0 || j == 7)
 				{
-					Pedina t = Torre(j, i, false, 't');
-					matrice[i][j] = &t;
+					t.setPos(i, j);
+					t.setColor(g1);
+					t.setName('t');
+					matrice[i][j] = t;
 				}
 				if (j == 1 || j == 6)
 				{
-					Pedina c = Cavallo(j, i, false, 'c');
-					matrice[i][j] = &c;
+					c.setPos(i, j);
+					c.setColor(g1);
+					c.setName('c');
+					matrice[i][j] = c;
 				}
 				if (j == 2 || j == 5)
 				{
-					Pedina a = Alfiere(j, i, false, 'a');
-					matrice[i][j] = &a;
+					a.setPos(i, j);
+					a.setColor(g1);
+					a.setName('a');
+					matrice[i][j] = a;
 				}
 				if (j == 3)
 				{
-					Pedina d = Regina(j, i, false, 'd');
-					matrice[i][j] = &d;
+					d.setPos(i, j);
+					d.setColor(g1);
+					d.setName('d');
+					matrice[i][j] = d;
 				}
 				if (j == 4)
 				{
-					Pedina r = Re(i, j, false, 'r');
-					matrice[i][j] = &r;
+					r.setPos(i, j);
+					r.setColor(g1);
+					r.setName('r');
+					matrice[i][j] = r;
 				}
 			}
 			else
-				matrice[i][j] = nullptr;
+			{
+				e.setPos(i, j);
+				e.setName(' ');
+				matrice[i][j] = e;
+			}
+
+			// cout << matrice[i][j].getName() << " ";
 		}
+		// cout << "\n";
 	}
 }
 
@@ -94,15 +132,18 @@ bool Scacchiera::checkBoundaries(int px, int py)
 
 ostream &operator<<(ostream &os, const Scacchiera &sca)
 {
-	/* for (int i = 0; i < 8; i++)
+	for (int i = 0; i < 8; i++)
 	{
+		os << 8 - i << "  ";
 		for (int j = 0; j < 8; j++)
 		{
-			os << sca.getPedina(i, j);
+			os << sca.getPedina(i, j).getName() << " ";
 		}
-	} */
+		os << "\n";
+	}
+	os << "\n   A B C D E F G H\n";
 	// Pedina p = sca.getPedina(1, 1);
-	os << 8 << " TCADRACT"
+	/* os << 8 << " TCADRACT"
 	   << "\n"
 	   << 7 << " PPPPPPPP"
 	   << "\n"
@@ -115,6 +156,6 @@ ostream &operator<<(ostream &os, const Scacchiera &sca)
 	   << 1 << " tcadract"
 	   << "\n"
 	   << "  ABCDEFGH"
-	   << "\n";
+	   << "\n"; */
 	return os;
 }

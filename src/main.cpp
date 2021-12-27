@@ -8,7 +8,8 @@ int main()
 {
     Scacchiera s = Scacchiera();
     cout << s;
-    Pedina p = Torre(1, 1, false, 't');
-    cout << p;
+    //   cout << *s.getPedina(1, 1);
+    /* Pedina p = Torre(1, 1, false, 't');
+    cout << p; */
     return 0;
 }
