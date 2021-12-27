@@ -94,12 +94,27 @@ bool Scacchiera::checkBoundaries(int px, int py)
 
 ostream &operator<<(ostream &os, const Scacchiera &sca)
 {
-	for (int i = 0; i < 8; i++)
+	/* for (int i = 0; i < 8; i++)
 	{
 		for (int j = 0; j < 8; j++)
 		{
 			os << sca.getPedina(i, j);
 		}
-	}
+	} */
+	// Pedina p = sca.getPedina(1, 1);
+	os << 8 << " TCADRACT"
+	   << "\n"
+	   << 7 << " PPPPPPPP"
+	   << "\n"
+	   << 6 << "\n"
+	   << 5 << "\n"
+	   << 4 << " \n"
+	   << 3 << "\n"
+	   << 2 << " pppppppp"
+	   << "\n"
+	   << 1 << " tcadract"
+	   << "\n"
+	   << "  ABCDEFGH"
+	   << "\n";
 	return os;
 }

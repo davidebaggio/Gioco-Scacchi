@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/david/Università/Lezioni programmazione/Progetto Finale
+# Install script for directory: C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

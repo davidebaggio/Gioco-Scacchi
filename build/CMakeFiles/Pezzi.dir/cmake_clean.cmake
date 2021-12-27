@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj"
+  "CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj.d"
   "CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj"
   "CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj.d"
   "libPezzi.a"

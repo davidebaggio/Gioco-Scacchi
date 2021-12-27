@@ -1,7 +1,6 @@
 // Melissa Maistro
 
 #include "../include/Scacchiera.h"
-#include "../include/Pezzi.h"
 
 Pedina::Pedina(int l, int n, bool c, char na)
 {

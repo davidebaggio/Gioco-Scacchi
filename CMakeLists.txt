@@ -11,7 +11,9 @@ add_library(Scacchiera
     src/Scacchiera.cpp
 )
 add_library(Pezzi
+    include/Scacchiera.h
     include/Pezzi.h
+    src/Pedina.cpp
     src/Pezzi.cpp
 )
 

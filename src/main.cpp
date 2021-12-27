@@ -7,6 +7,8 @@ using namespace std;
 int main()
 {
     Scacchiera s = Scacchiera();
-    cout << s.getPedina(0, 0);
+    cout << s;
+    Pedina p = Torre(1, 1, false, 't');
+    cout << p;
     return 0;
 }

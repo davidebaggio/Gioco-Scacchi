@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/src/Pezzi.cpp" "CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj" "gcc" "CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj.d"
+  "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Pedina.cpp" "CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj" "gcc" "CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj.d"
+  "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Pezzi.cpp" "CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj" "gcc" "CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj.d"
   )
 
 # Targets to which this target links.

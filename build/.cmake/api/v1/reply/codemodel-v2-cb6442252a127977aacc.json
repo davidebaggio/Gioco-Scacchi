@@ -43,21 +43,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Pezzi::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Pezzi-Debug-030d13ae547f4e7731e9.json",
+					"jsonFile" : "target-Pezzi-Debug-b7dfc2b9ae8f0e8d07e3.json",
 					"name" : "Pezzi",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Progetto::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Progetto-Debug-38083dacb6c56fd1ca73.json",
+					"jsonFile" : "target-Progetto-Debug-f8873e5a403b8d62b370.json",
 					"name" : "Progetto",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Scacchiera::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Scacchiera-Debug-781693aea55b410f9298.json",
+					"jsonFile" : "target-Scacchiera-Debug-85ae37dd2ce79aa01995.json",
 					"name" : "Scacchiera",
 					"projectIndex" : 0
 				}
@@ -67,8 +67,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/david/Universit\u00e0/Lezioni programmazione/Progetto Finale/build",
-		"source" : "C:/Users/david/Universit\u00e0/Lezioni programmazione/Progetto Finale"
+		"build" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+		"source" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi"
 	},
 	"version" : 
 	{

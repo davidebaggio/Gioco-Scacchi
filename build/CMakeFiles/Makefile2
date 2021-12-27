@@ -53,10 +53,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\david\Università\Lezioni programmazione\Progetto Finale"
+CMAKE_SOURCE_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build"
+CMAKE_BINARY_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build"
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -84,14 +84,14 @@ clean: CMakeFiles/Progetto.dir/clean
 CMakeFiles/Scacchiera.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" --progress-num=5,6 "Built target Scacchiera"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=6,7 "Built target Scacchiera"
 .PHONY : CMakeFiles/Scacchiera.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Scacchiera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Scacchiera.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 0
 .PHONY : CMakeFiles/Scacchiera.dir/rule
 
 # Convenience name for target.
@@ -110,14 +110,14 @@ CMakeFiles/Scacchiera.dir/clean:
 CMakeFiles/Pezzi.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" --progress-num=1,2 "Built target Pezzi"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=1,2,3 "Built target Pezzi"
 .PHONY : CMakeFiles/Pezzi.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Pezzi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" 2
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Pezzi.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 0
 .PHONY : CMakeFiles/Pezzi.dir/rule
 
 # Convenience name for target.
@@ -137,14 +137,14 @@ CMakeFiles/Progetto.dir/all: CMakeFiles/Scacchiera.dir/all
 CMakeFiles/Progetto.dir/all: CMakeFiles/Pezzi.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Progetto.dir\build.make CMakeFiles/Progetto.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Progetto.dir\build.make CMakeFiles/Progetto.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" --progress-num=3,4 "Built target Progetto"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=4,5 "Built target Progetto"
 .PHONY : CMakeFiles/Progetto.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Progetto.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" 6
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 7
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Progetto.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 0
 .PHONY : CMakeFiles/Progetto.dir/rule
 
 # Convenience name for target.

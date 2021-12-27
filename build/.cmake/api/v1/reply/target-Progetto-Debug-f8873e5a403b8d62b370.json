@@ -29,19 +29,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 18,
+				"line" : 20,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 21,
+				"line" : 23,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 22,
+				"line" : 24,
 				"parent" : 0
 			},
 			{
@@ -65,7 +65,7 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/david/Universit\u00e0/Lezioni programmazione/Progetto Finale/include"
+					"path" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/include"
 				}
 			],
 			"language" : "CXX",

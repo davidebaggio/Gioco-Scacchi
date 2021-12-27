@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\david\Università\Lezioni programmazione\Progetto Finale"
+CMAKE_SOURCE_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build"
+CMAKE_BINARY_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Università\Lezioni programmazione\Progetto Finale\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -153,6 +153,30 @@ Progetto: cmake_check_build_system
 Progetto/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Progetto.dir\build.make CMakeFiles/Progetto.dir/build
 .PHONY : Progetto/fast
+
+src/Pedina.obj: src/Pedina.cpp.obj
+.PHONY : src/Pedina.obj
+
+# target to build an object file
+src/Pedina.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj
+.PHONY : src/Pedina.cpp.obj
+
+src/Pedina.i: src/Pedina.cpp.i
+.PHONY : src/Pedina.i
+
+# target to preprocess a source file
+src/Pedina.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/src/Pedina.cpp.i
+.PHONY : src/Pedina.cpp.i
+
+src/Pedina.s: src/Pedina.cpp.s
+.PHONY : src/Pedina.s
+
+# target to generate assembly for a file
+src/Pedina.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/src/Pedina.cpp.s
+.PHONY : src/Pedina.cpp.s
 
 src/Pezzi.obj: src/Pezzi.cpp.obj
 .PHONY : src/Pezzi.obj
@@ -237,6 +261,9 @@ help:
 	@echo ... Pezzi
 	@echo ... Progetto
 	@echo ... Scacchiera
+	@echo ... src/Pedina.obj
+	@echo ... src/Pedina.i
+	@echo ... src/Pedina.s
 	@echo ... src/Pezzi.obj
 	@echo ... src/Pezzi.i
 	@echo ... src/Pezzi.s

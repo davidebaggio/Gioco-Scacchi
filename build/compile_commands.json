@@ -1,17 +1,22 @@
 [
 {
-  "directory": "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/build",
-  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/Scacchiera.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\Scacchiera.dir\\src\\Scacchiera.cpp.obj -c \"C:\\Users\\david\\Università\\Lezioni programmazione\\Progetto Finale\\src\\Scacchiera.cpp\"",
-  "file": "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/src/Scacchiera.cpp"
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/Scacchiera.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\Scacchiera.dir\\src\\Scacchiera.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\Scacchiera.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Scacchiera.cpp"
 },
 {
-  "directory": "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/build",
-  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/Pezzi.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\Pezzi.dir\\src\\Pezzi.cpp.obj -c \"C:\\Users\\david\\Università\\Lezioni programmazione\\Progetto Finale\\src\\Pezzi.cpp\"",
-  "file": "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/src/Pezzi.cpp"
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/Pezzi.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\Pezzi.dir\\src\\Pedina.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\Pedina.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Pedina.cpp"
 },
 {
-  "directory": "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/build",
-  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/Progetto.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\Progetto.dir\\src\\main.cpp.obj -c \"C:\\Users\\david\\Università\\Lezioni programmazione\\Progetto Finale\\src\\main.cpp\"",
-  "file": "C:/Users/david/Università/Lezioni programmazione/Progetto Finale/src/main.cpp"
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/Pezzi.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\Pezzi.dir\\src\\Pezzi.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\Pezzi.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Pezzi.cpp"
+},
+{
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/Progetto.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\Progetto.dir\\src\\main.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\main.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/main.cpp"
 }
 ]
