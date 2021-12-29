@@ -6,28 +6,44 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-	if (argc <= 1)
+	if (argc <= 1 || argc > 3)
 	{
-		cout << "[Error] Not enough arguments. Type: " << endl
+		cout << "[Error] Incorrect arguments. Type: " << endl
 			 << "\t [input_file_name]: to watch the replay of the match." << endl
 			 << "\t [input_file_name] [output_file_name]: to watch the replay on the output file." << endl;
 		return 0;
 	}
 	else if (argc == 2)
 	{
-		cout << "Replay on command prompt\n";
-		return 0;
-	}
-	else if (argc == 3)
-	{
-		cout << "Replay on [file] = " << argv[2];
-		return 0;
+		ifstream inputFile(argv[1]);
+		if (!inputFile.is_open())
+		{
+			cout << "[Error] File = " << argv[1] << " not found\n";
+			return 0;
+		}
+		else
+		{
+			cout << "Replay on command prompt\n";
+			inputFile.close();
+			return 0;
+		}
 	}
 	else
 	{
-		cout << "[Error] Too many arguments. Type: " << endl
-			 << "\t [input_file_name]: to watch the replay of the match." << endl
-			 << "\t [input_file_name] [output_file_name]: to watch the replay on the output file." << endl;
+		ifstream inputFile(argv[1]);
+		ofstream outputFile(argv[2]);
+		if (!inputFile.is_open() || !outputFile.is_open())
+		{
+			cout << "[Error] Cannot open argument files. Check file names again.\n";
+			return 0;
+		}
+		else
+		{
+			cout << "Replay on [file] = " << argv[2];
+			inputFile.close();
+			return 0;
+		}
+
 		return 0;
 	}
 }

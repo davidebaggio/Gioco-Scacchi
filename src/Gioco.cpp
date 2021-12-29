@@ -5,18 +5,6 @@
 
 using namespace std;
 
-class InvalidArgumentException
-{
-private:
-    string error;
-
-public:
-    InvalidArgumentException(string err)
-    {
-        error = err;
-    }
-};
-
 int main(int argc, char *argv[])
 {
     if (argc <= 1)
@@ -37,14 +25,17 @@ int main(int argc, char *argv[])
     {
         cout << "Partita giocatore vs computer\n";
         Scacchiera s = Scacchiera();
-        cout << s;
+        cout << "Scacchiera iniziale: \n"
+             << s << "\n";
         return 0;
     }
     else
     {
         cout << "Partita computer vs computer\n";
         Scacchiera s = Scacchiera();
-        cout << s;
+        cout << "Scacchiera iniziale: \n"
+             << s << "\n";
+        int mosseMax = 30;
         return 0;
     }
     /*
