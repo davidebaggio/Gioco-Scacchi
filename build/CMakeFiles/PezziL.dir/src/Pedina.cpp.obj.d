@@ -1,6 +1,8 @@
 CMakeFiles/PezziL.dir/src/Pedina.cpp.obj: \
  C:\Users\david\Universita\Lezioni\ programmazione\Gioco-Scacchi\src\Pedina.cpp \
  C:/Users/david/Universita/Lezioni\ programmazione/Gioco-Scacchi/include/Scacchiera.h \
+ C:/Users/david/Universita/Lezioni\ programmazione/Gioco-Scacchi/include/Header.h \
+ C:/Users/david/Universita/Lezioni\ programmazione/Gioco-Scacchi/include/Scacchiera.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
@@ -131,4 +133,5 @@ CMakeFiles/PezziL.dir/src/Pedina.cpp.obj: \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/codecvt.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
- C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc
+ C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/fstream.tcc \
+ C:/Users/david/Universita/Lezioni\ programmazione/Gioco-Scacchi/include/Pedina.h

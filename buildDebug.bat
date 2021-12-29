@@ -1,1 +1,1 @@
-g++ src/main.cpp src/Scacchiera.cpp src/Pedina.cpp src/Pezzi.cpp -o Scacchiera.exe
+g++ src/Gioco.cpp src/Scacchiera.cpp src/Pedina.cpp src/Pezzi.cpp -o Scacchiera.exe

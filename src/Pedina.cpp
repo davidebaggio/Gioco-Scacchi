@@ -55,17 +55,15 @@ char Pedina::getName() const
 	return name;
 }
 
-bool Pedina::move(int px, int py)
+bool move(Pedina &p, int px, int py, Scacchiera &sca)
 {
 	return false;
 }
 
-
-bool Pedina::checkPos(int, int) 
+bool checkPos(Pedina &p, int, int, Scacchiera &)
 {
-    return false;
+	return false;
 }
-
 
 ostream &operator<<(ostream &os, const Pedina &ped)
 {
