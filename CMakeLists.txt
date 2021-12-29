@@ -6,21 +6,24 @@ project (Progetto)
 
 include_directories(include)
 
-add_library(Scacchiera
+add_library(ScacchieraL
     include/Scacchiera.h
     src/Scacchiera.cpp
 )
-add_library(Pezzi
+add_library(PezziL
     include/Scacchiera.h
     include/Pezzi.h
     src/Pedina.cpp
     src/Pezzi.cpp
 )
 
-add_executable (Progetto
-    src/main.cpp)
+add_executable (Scacchiera
+    src/Gioco.cpp)
 
-target_link_libraries(Progetto Scacchiera)
-target_link_libraries(Progetto Pezzi)
+add_executable (Replay
+    src/Replay.cpp)
+
+target_link_libraries(Scacchiera ScacchieraL)
+target_link_libraries(Scacchiera PezziL)
 
 

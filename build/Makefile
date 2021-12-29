@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi
+CMAKE_SOURCE_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build
+CMAKE_BINARY_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build\CMakeFiles C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build\\CMakeFiles\progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build\CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -116,6 +116,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named ScacchieraL
+
+# Build rule for target.
+ScacchieraL: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 ScacchieraL
+.PHONY : ScacchieraL
+
+# fast build rule for target.
+ScacchieraL/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/build
+.PHONY : ScacchieraL/fast
+
+#=============================================================================
+# Target rules for targets named PezziL
+
+# Build rule for target.
+PezziL: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 PezziL
+.PHONY : PezziL
+
+# fast build rule for target.
+PezziL/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PezziL.dir\build.make CMakeFiles/PezziL.dir/build
+.PHONY : PezziL/fast
+
+#=============================================================================
 # Target rules for targets named Scacchiera
 
 # Build rule for target.
@@ -129,37 +155,48 @@ Scacchiera/fast:
 .PHONY : Scacchiera/fast
 
 #=============================================================================
-# Target rules for targets named Pezzi
+# Target rules for targets named Replay
 
 # Build rule for target.
-Pezzi: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Pezzi
-.PHONY : Pezzi
+Replay: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Replay
+.PHONY : Replay
 
 # fast build rule for target.
-Pezzi/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/build
-.PHONY : Pezzi/fast
+Replay/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Replay.dir\build.make CMakeFiles/Replay.dir/build
+.PHONY : Replay/fast
 
-#=============================================================================
-# Target rules for targets named Progetto
+src/Gioco.obj: src/Gioco.cpp.obj
+.PHONY : src/Gioco.obj
 
-# Build rule for target.
-Progetto: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Progetto
-.PHONY : Progetto
+# target to build an object file
+src/Gioco.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj
+.PHONY : src/Gioco.cpp.obj
 
-# fast build rule for target.
-Progetto/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Progetto.dir\build.make CMakeFiles/Progetto.dir/build
-.PHONY : Progetto/fast
+src/Gioco.i: src/Gioco.cpp.i
+.PHONY : src/Gioco.i
+
+# target to preprocess a source file
+src/Gioco.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/src/Gioco.cpp.i
+.PHONY : src/Gioco.cpp.i
+
+src/Gioco.s: src/Gioco.cpp.s
+.PHONY : src/Gioco.s
+
+# target to generate assembly for a file
+src/Gioco.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/src/Gioco.cpp.s
+.PHONY : src/Gioco.cpp.s
 
 src/Pedina.obj: src/Pedina.cpp.obj
 .PHONY : src/Pedina.obj
 
 # target to build an object file
 src/Pedina.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PezziL.dir\build.make CMakeFiles/PezziL.dir/src/Pedina.cpp.obj
 .PHONY : src/Pedina.cpp.obj
 
 src/Pedina.i: src/Pedina.cpp.i
@@ -167,7 +204,7 @@ src/Pedina.i: src/Pedina.cpp.i
 
 # target to preprocess a source file
 src/Pedina.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/src/Pedina.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PezziL.dir\build.make CMakeFiles/PezziL.dir/src/Pedina.cpp.i
 .PHONY : src/Pedina.cpp.i
 
 src/Pedina.s: src/Pedina.cpp.s
@@ -175,7 +212,7 @@ src/Pedina.s: src/Pedina.cpp.s
 
 # target to generate assembly for a file
 src/Pedina.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/src/Pedina.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PezziL.dir\build.make CMakeFiles/PezziL.dir/src/Pedina.cpp.s
 .PHONY : src/Pedina.cpp.s
 
 src/Pezzi.obj: src/Pezzi.cpp.obj
@@ -183,7 +220,7 @@ src/Pezzi.obj: src/Pezzi.cpp.obj
 
 # target to build an object file
 src/Pezzi.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PezziL.dir\build.make CMakeFiles/PezziL.dir/src/Pezzi.cpp.obj
 .PHONY : src/Pezzi.cpp.obj
 
 src/Pezzi.i: src/Pezzi.cpp.i
@@ -191,7 +228,7 @@ src/Pezzi.i: src/Pezzi.cpp.i
 
 # target to preprocess a source file
 src/Pezzi.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/src/Pezzi.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PezziL.dir\build.make CMakeFiles/PezziL.dir/src/Pezzi.cpp.i
 .PHONY : src/Pezzi.cpp.i
 
 src/Pezzi.s: src/Pezzi.cpp.s
@@ -199,15 +236,39 @@ src/Pezzi.s: src/Pezzi.cpp.s
 
 # target to generate assembly for a file
 src/Pezzi.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pezzi.dir\build.make CMakeFiles/Pezzi.dir/src/Pezzi.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PezziL.dir\build.make CMakeFiles/PezziL.dir/src/Pezzi.cpp.s
 .PHONY : src/Pezzi.cpp.s
+
+src/Replay.obj: src/Replay.cpp.obj
+.PHONY : src/Replay.obj
+
+# target to build an object file
+src/Replay.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Replay.dir\build.make CMakeFiles/Replay.dir/src/Replay.cpp.obj
+.PHONY : src/Replay.cpp.obj
+
+src/Replay.i: src/Replay.cpp.i
+.PHONY : src/Replay.i
+
+# target to preprocess a source file
+src/Replay.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Replay.dir\build.make CMakeFiles/Replay.dir/src/Replay.cpp.i
+.PHONY : src/Replay.cpp.i
+
+src/Replay.s: src/Replay.cpp.s
+.PHONY : src/Replay.s
+
+# target to generate assembly for a file
+src/Replay.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Replay.dir\build.make CMakeFiles/Replay.dir/src/Replay.cpp.s
+.PHONY : src/Replay.cpp.s
 
 src/Scacchiera.obj: src/Scacchiera.cpp.obj
 .PHONY : src/Scacchiera.obj
 
 # target to build an object file
 src/Scacchiera.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/src/Scacchiera.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj
 .PHONY : src/Scacchiera.cpp.obj
 
 src/Scacchiera.i: src/Scacchiera.cpp.i
@@ -215,7 +276,7 @@ src/Scacchiera.i: src/Scacchiera.cpp.i
 
 # target to preprocess a source file
 src/Scacchiera.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/src/Scacchiera.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.i
 .PHONY : src/Scacchiera.cpp.i
 
 src/Scacchiera.s: src/Scacchiera.cpp.s
@@ -223,32 +284,8 @@ src/Scacchiera.s: src/Scacchiera.cpp.s
 
 # target to generate assembly for a file
 src/Scacchiera.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/src/Scacchiera.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.s
 .PHONY : src/Scacchiera.cpp.s
-
-src/main.obj: src/main.cpp.obj
-.PHONY : src/main.obj
-
-# target to build an object file
-src/main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Progetto.dir\build.make CMakeFiles/Progetto.dir/src/main.cpp.obj
-.PHONY : src/main.cpp.obj
-
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Progetto.dir\build.make CMakeFiles/Progetto.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Progetto.dir\build.make CMakeFiles/Progetto.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
 
 # Help Target
 help:
@@ -258,21 +295,25 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Pezzi
-	@echo ... Progetto
+	@echo ... PezziL
+	@echo ... Replay
 	@echo ... Scacchiera
+	@echo ... ScacchieraL
+	@echo ... src/Gioco.obj
+	@echo ... src/Gioco.i
+	@echo ... src/Gioco.s
 	@echo ... src/Pedina.obj
 	@echo ... src/Pedina.i
 	@echo ... src/Pedina.s
 	@echo ... src/Pezzi.obj
 	@echo ... src/Pezzi.i
 	@echo ... src/Pezzi.s
+	@echo ... src/Replay.obj
+	@echo ... src/Replay.i
+	@echo ... src/Replay.s
 	@echo ... src/Scacchiera.obj
 	@echo ... src/Scacchiera.i
 	@echo ... src/Scacchiera.s
-	@echo ... src/main.obj
-	@echo ... src/main.i
-	@echo ... src/main.s
 .PHONY : help
 
 

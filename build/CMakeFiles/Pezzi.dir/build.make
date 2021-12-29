@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi
+CMAKE_SOURCE_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build
+CMAKE_BINARY_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Pezzi.dir/depend.make
@@ -72,31 +72,31 @@ CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj: CMakeFiles/Pezzi.dir/flags.make
 CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj: CMakeFiles/Pezzi.dir/includes_CXX.rsp
 CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj: ../src/Pedina.cpp
 CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj: CMakeFiles/Pezzi.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj -MF CMakeFiles\Pezzi.dir\src\Pedina.cpp.obj.d -o CMakeFiles\Pezzi.dir\src\Pedina.cpp.obj -c C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\src\Pedina.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj -MF CMakeFiles\Pezzi.dir\src\Pedina.cpp.obj.d -o CMakeFiles\Pezzi.dir\src\Pedina.cpp.obj -c "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\Pedina.cpp"
 
 CMakeFiles/Pezzi.dir/src/Pedina.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Pezzi.dir/src/Pedina.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\src\Pedina.cpp > CMakeFiles\Pezzi.dir\src\Pedina.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\Pedina.cpp" > CMakeFiles\Pezzi.dir\src\Pedina.cpp.i
 
 CMakeFiles/Pezzi.dir/src/Pedina.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Pezzi.dir/src/Pedina.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\src\Pedina.cpp -o CMakeFiles\Pezzi.dir\src\Pedina.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\Pedina.cpp" -o CMakeFiles\Pezzi.dir\src\Pedina.cpp.s
 
 CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj: CMakeFiles/Pezzi.dir/flags.make
 CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj: CMakeFiles/Pezzi.dir/includes_CXX.rsp
 CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj: ../src/Pezzi.cpp
 CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj: CMakeFiles/Pezzi.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj -MF CMakeFiles\Pezzi.dir\src\Pezzi.cpp.obj.d -o CMakeFiles\Pezzi.dir\src\Pezzi.cpp.obj -c C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\src\Pezzi.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj -MF CMakeFiles\Pezzi.dir\src\Pezzi.cpp.obj.d -o CMakeFiles\Pezzi.dir\src\Pezzi.cpp.obj -c "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\Pezzi.cpp"
 
 CMakeFiles/Pezzi.dir/src/Pezzi.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Pezzi.dir/src/Pezzi.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\src\Pezzi.cpp > CMakeFiles\Pezzi.dir\src\Pezzi.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\Pezzi.cpp" > CMakeFiles\Pezzi.dir\src\Pezzi.cpp.i
 
 CMakeFiles/Pezzi.dir/src/Pezzi.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Pezzi.dir/src/Pezzi.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\src\Pezzi.cpp -o CMakeFiles\Pezzi.dir\src\Pezzi.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\Pezzi.cpp" -o CMakeFiles\Pezzi.dir\src\Pezzi.cpp.s
 
 # Object files for target Pezzi
 Pezzi_OBJECTS = \
@@ -110,7 +110,7 @@ libPezzi.a: CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj
 libPezzi.a: CMakeFiles/Pezzi.dir/src/Pezzi.cpp.obj
 libPezzi.a: CMakeFiles/Pezzi.dir/build.make
 libPezzi.a: CMakeFiles/Pezzi.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libPezzi.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libPezzi.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\Pezzi.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Pezzi.dir\link.txt --verbose=$(VERBOSE)
 
@@ -123,6 +123,6 @@ CMakeFiles/Pezzi.dir/clean:
 .PHONY : CMakeFiles/Pezzi.dir/clean
 
 CMakeFiles/Pezzi.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\build\CMakeFiles\Pezzi.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi" "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi" "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build" "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build" "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles\Pezzi.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Pezzi.dir/depend
 
