@@ -28,7 +28,7 @@ public:
 	char getName() const;
 
 	virtual bool move(int, int);
-	virtual bool checkPos();
+	virtual bool checkPos(int, int);
 
 	friend ostream &operator<<(ostream &os, const Pedina &);
 
@@ -49,6 +49,7 @@ public:
 	bool checkBoundaries(int, int);
 	bool isEmpty(int x, int y) const { return matrice[x][y].getName() == 'e'; }
 	Pedina getPedina(int x, int y) const { return matrice[x][y]; }
+	void setPedina(Pedina p);
 
 	bool isScacco();
 	bool isScaccoMatto();

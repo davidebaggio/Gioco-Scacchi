@@ -60,13 +60,15 @@ bool Pedina::move(int px, int py)
 	return false;
 }
 
-bool Pedina::checkPos()
+
+bool Pedina::checkPos(int, int) 
 {
-	return false;
+    return false;
 }
+
 
 ostream &operator<<(ostream &os, const Pedina &ped)
 {
-	// os << ped.x;
+	os << ped.name;
 	return os;
 }

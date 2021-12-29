@@ -10,7 +10,12 @@ bool Pedone::move(int px, int py)
 {
     return false;
 }
-bool Pedone::checkPos()
+bool Pedone::checkPos(int, int) 
+{
+    return false;
+}
+
+bool Pedone::checkCattura(int, int)
 {
     return false;
 }
@@ -21,15 +26,18 @@ ostream &operator<<(ostream &os, const Pedone &p)
     return os;
 }
 
+
 //_______________________________________CAVALLO___________________________________________
 bool Cavallo::move(int px, int py)
 {
     return false;
 }
-bool Cavallo::checkPos()
+
+bool Cavallo::checkPos(int, int)
 {
     return false;
 }
+
 
 ostream &operator<<(ostream &os, const Cavallo &c)
 {
@@ -42,7 +50,8 @@ bool Alfiere::move(int px, int py)
 {
     return false;
 }
-bool Alfiere::checkPos()
+
+bool Alfiere::checkPos(int, int) 
 {
     return false;
 }
@@ -58,10 +67,12 @@ bool Torre::move(int px, int py)
 {
     return false;
 }
-bool Torre::checkPos()
+
+bool Torre::checkPos(int, int) 
 {
     return false;
 }
+
 
 ostream &operator<<(ostream &os, const Torre &t)
 {
@@ -74,10 +85,12 @@ bool Re::move(int px, int py)
 {
     return false;
 }
-bool Re::checkPos()
+
+bool Re::checkPos(int, int) 
 {
     return false;
 }
+
 
 ostream &operator<<(ostream &os, const Re &r)
 {
@@ -90,10 +103,12 @@ bool Regina::move(int px, int py)
 {
     return false;
 }
-bool Regina::checkPos()
+
+bool Regina::checkPos(int, int) 
 {
     return false;
 }
+
 
 ostream &operator<<(ostream &os, const Regina &d)
 {
@@ -102,17 +117,18 @@ ostream &operator<<(ostream &os, const Regina &d)
 }
 
 //_______________________________________EMPTY___________________________________________
-bool Empty::move(int px, int py)
-{
-    return false;
-}
-bool Empty::checkPos()
-{
-    return false;
-}
 
 ostream &operator<<(ostream &os, const Empty &e)
 {
     os << e.getName();
     return os;
+}
+
+bool Empty::move(int, int)
+{
+    return false;
+}
+bool Empty::checkPos(int, int)
+{
+    return false;
 }

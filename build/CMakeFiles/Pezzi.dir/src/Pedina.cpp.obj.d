@@ -1,6 +1,6 @@
 CMakeFiles/Pezzi.dir/src/Pedina.cpp.obj: \
- C:\Users\david\Universita\Lezioni\ programmazione\Gioco-Scacchi\src\Pedina.cpp \
- C:/Users/david/Universita/Lezioni\ programmazione/Gioco-Scacchi/include/Scacchiera.h \
+ C:\Users\david\Desktop\Gioco-Scacchi\Gioco-Scacchi\src\Pedina.cpp \
+ C:/Users/david/Desktop/Gioco-Scacchi/Gioco-Scacchi/include/Scacchiera.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
