@@ -1,2 +1,2 @@
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe qc libScacchieraL.a CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ranlib.exe libScacchieraL.a
+/Library/Developer/CommandLineTools/usr/bin/ar qc libScacchieraL.a CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.o CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libScacchieraL.a

@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libPedinaL.a CMakeFiles/PedinaL.dir/src/Pedina.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libPedinaL.a

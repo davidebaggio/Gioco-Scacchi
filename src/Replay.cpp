@@ -5,7 +5,6 @@
 #include <chrono>
 #include <thread>
 #include "../include/Scacchiera.h"
-#include "../include/Pezzi.h"
 
 using namespace std;
 
@@ -15,7 +14,7 @@ void computeCommand(Scacchiera &sca, const string &cmd)
 	int yi = ((int)cmd[1]) - 49; //-49 per ascii table 1
 	int xf = ((int)cmd[3]) - 65; //-65 per ascii table B
 	int yf = ((int)cmd[4]) - 49; //-49 per ascii table 3
-	Pedina &temp = sca.getPedina(xi, yi);
+	Pedina &temp = *sca.getPedina(xi, yi);				//<----------------------------------------------------
 	temp.move(xf, yf, sca);
 }
 

@@ -8,22 +8,27 @@ include_directories(include)
 
 add_library(ScacchieraL
     include/Scacchiera.h
-    src/Scacchiera.cpp
-)
-add_library(PezziL
-    include/Scacchiera.h
     include/Pezzi.h
-    src/Pedina.cpp
+    src/Scacchiera.cpp
     src/Pezzi.cpp
 )
 
+add_library(PedinaL
+    include/Scacchiera.h
+    src/Pedina.cpp
+)
+
 add_executable (Scacchiera
-    src/Gioco.cpp)
+    src/Gioco.cpp
+)
 
 add_executable (Replay
-    src/Replay.cpp)
+    src/Replay.cpp
+)
 
 target_link_libraries(Scacchiera ScacchieraL)
-target_link_libraries(Scacchiera PezziL)
+target_link_libraries(Scacchiera PedinaL)
 
+target_link_libraries(Replay ScacchieraL)
+target_link_libraries(Replay PedinaL)
 

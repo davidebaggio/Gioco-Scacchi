@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj"
-  "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj.d"
+  "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.o"
+  "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.o.d"
+  "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.o"
+  "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.o.d"
   "libScacchieraL.a"
   "libScacchieraL.pdb"
 )

@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj"
-  "CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj.d"
-  "Scacchiera.exe"
-  "Scacchiera.exe.manifest"
+  "CMakeFiles/Scacchiera.dir/src/Gioco.cpp.o"
+  "CMakeFiles/Scacchiera.dir/src/Gioco.cpp.o.d"
+  "Scacchiera"
   "Scacchiera.pdb"
-  "libScacchiera.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

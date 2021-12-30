@@ -10,16 +10,12 @@
 //_______________________________________PEDONE___________________________________________
 class Pedone : public Pedina
 {
-private:
-    bool firstMove;
-
 public:
-    Pedone() : Pedina() { firstMove = true; }
+    Pedone() : Pedina() {}
     Pedone(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
 
-    friend ostream &operator<<(ostream &os, const Pedone &);
 };
 //_______________________________________CAVALLO___________________________________________
 class Cavallo : public Pedina
@@ -29,7 +25,7 @@ public:
     Cavallo(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-    friend ostream &operator<<(ostream &os, const Cavallo &);
+   
 };
 //_______________________________________ALFIERE___________________________________________
 class Alfiere : public Pedina
@@ -39,7 +35,7 @@ public:
     Alfiere(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-    friend ostream &operator<<(ostream &os, const Alfiere &);
+    
 };
 //_______________________________________TORRE___________________________________________
 class Torre : public Pedina
@@ -49,7 +45,6 @@ public:
     Torre(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-    friend ostream &operator<<(ostream &os, const Torre &);
 };
 //_______________________________________RE___________________________________________
 class Re : public Pedina
@@ -59,7 +54,7 @@ public:
     Re(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-    friend ostream &operator<<(ostream &os, const Re &);
+    
 };
 //_______________________________________REGINA___________________________________________
 class Regina : public Pedina
@@ -69,7 +64,7 @@ public:
     Regina(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-    friend ostream &operator<<(ostream &os, const Regina &);
+    
 };
 //_______________________________________EMPTY___________________________________________
 class Empty : public Pedina
@@ -79,7 +74,7 @@ public:
     Empty(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-    friend ostream &operator<<(ostream &os, const Empty &);
+   
 };
 
 #endif

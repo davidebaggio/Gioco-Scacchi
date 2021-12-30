@@ -8,7 +8,6 @@
 #include <time.h>
 #include <sstream>
 #include "../include/Scacchiera.h"
-#include "../include/Pezzi.h"
 
 using namespace std;
 
@@ -29,11 +28,12 @@ bool computeCommand(Scacchiera &sca, const string &cmd, bool col)
     int yi = ((int)cmd[1]) - 49; //-49 per ascii table 1
     int xf = ((int)cmd[3]) - 65; //-65 per ascii table B
     int yf = ((int)cmd[4]) - 49; //-49 per ascii table 3
-    Pedina &temp = sca.getPedina(xi, yi);
+    Pedina &temp = *sca.getPedina(xi, yi);    //<----------------------------------------------------
     if (temp.getColor() != col)
         return false;
     try
     {
+
         temp.move(xf, yf, sca);
     }
     catch (const Pedina::InvalidPosition &e)
@@ -55,14 +55,14 @@ int main(int argc, char *argv[])
              << "\t -cc: to watch a match computer vs computer." << endl;
         return 0;
     }
-    else if (_strcmpi(argv[1], "-pc") != 0 && _strcmpi(argv[1], "-cc") != 0)
+    else if (strcmp(argv[1], "-pc") != 0 && strcmp(argv[1], "-cc") != 0)  //<----------------------------------------------------
     {
         cout << "[Error] Incorrect arguments. Type: " << endl
              << "\t -pc: to play vs computer." << endl
              << "\t -cc: to watch a match computer vs computer." << endl;
         return 0;
     }
-    else if (_strcmpi(argv[1], "-pc") == 0)
+    else if (strcmp(argv[1], "-pc") == 0)  //<----------------------------------------------------
     {
         cout << "Partita giocatore (Bianco) vs computer(Nero)\n";
         cout << "Per giocare inserire la posizione di cella iniziale e finale\nEs: A2 C3";

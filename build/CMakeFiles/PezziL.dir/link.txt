@@ -1,2 +1,2 @@
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ar.exe qc libPezziL.a CMakeFiles/PezziL.dir/src/Pedina.cpp.obj CMakeFiles/PezziL.dir/src/Pezzi.cpp.obj
-C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\ranlib.exe libPezziL.a
+/Library/Developer/CommandLineTools/usr/bin/ar qc libPezziL.a CMakeFiles/PezziL.dir/src/Pezzi.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libPezziL.a

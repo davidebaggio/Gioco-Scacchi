@@ -2,12 +2,14 @@
 
 #include "../include/Scacchiera.h"
 
+
 Pedina::Pedina()
 {
 	x = -1;
 	y = -1;
 	color = false;
 	name = 'e';
+	firstMove = true;
 }
 
 Pedina::Pedina(int l, int n, bool c, char na)
@@ -16,6 +18,7 @@ Pedina::Pedina(int l, int n, bool c, char na)
 	y = n;
 	color = c;
 	setName(na);
+	firstMove = true;
 }
 
 /* Pedina::Pedina(const Pedina &ped)
@@ -55,18 +58,10 @@ char Pedina::getName() const
 	return name;
 }
 
-bool move(Pedina &p, int px, int py, Scacchiera &sca)
-{
-	return false;
-}
-
-bool checkPos(Pedina &p, int, int, Scacchiera &)
-{
-	return false;
-}
 
 ostream &operator<<(ostream &os, const Pedina &ped)
 {
-	os << ped.name;
+	os << ped.getName();
 	return os;
 }
+

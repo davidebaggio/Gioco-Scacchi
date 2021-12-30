@@ -1,6 +1,6 @@
-C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build/CMakeFiles/ScacchieraL.dir
-C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build/CMakeFiles/PezziL.dir
-C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build/CMakeFiles/Scacchiera.dir
-C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build/CMakeFiles/Replay.dir
-C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build/CMakeFiles/edit_cache.dir
-C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build/CMakeFiles/rebuild_cache.dir
+/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/build/CMakeFiles/ScacchieraL.dir
+/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/build/CMakeFiles/PedinaL.dir
+/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/build/CMakeFiles/Scacchiera.dir
+/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/build/CMakeFiles/Replay.dir
+/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/build/CMakeFiles/edit_cache.dir
+/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/build/CMakeFiles/rebuild_cache.dir

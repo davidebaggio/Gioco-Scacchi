@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/PezziL.dir/src/Pedina.cpp.obj"
-  "CMakeFiles/PezziL.dir/src/Pedina.cpp.obj.d"
-  "CMakeFiles/PezziL.dir/src/Pezzi.cpp.obj"
-  "CMakeFiles/PezziL.dir/src/Pezzi.cpp.obj.d"
+  "CMakeFiles/PezziL.dir/src/Pezzi.cpp.o"
+  "CMakeFiles/PezziL.dir/src/Pezzi.cpp.o.d"
   "libPezziL.a"
   "libPezziL.pdb"
 )
