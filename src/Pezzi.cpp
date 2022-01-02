@@ -1,7 +1,6 @@
 // Melissa Maistro
 
 #include "../include/Pezzi.h"
-#include "../include/Scacchiera.h"
 #include <iostream>
 using namespace std;
 
@@ -61,7 +60,6 @@ bool Pedone::checkPos(int j, int i, Scacchiera &sca) // controlla se puo' muover
     return false; // ritorna false se non puo' spostarsi nella casella
 }
 
-
 //_______________________________________CAVALLO___________________________________________
 bool Cavallo::move(int px, int py, Scacchiera &sca)
 {
@@ -83,7 +81,6 @@ bool Cavallo::checkPos(int j, int i, Scacchiera &sca) // si sposta a L in tutte 
         return true;
     return false;
 }
-
 
 //_______________________________________ALFIERE___________________________________________
 bool Alfiere::move(int px, int py, Scacchiera &sca)
@@ -132,7 +129,6 @@ bool Alfiere::checkPos(int j, int i, Scacchiera &sca) // si muove nelle 4 diagon
     }
     return false;
 }
-
 
 //_______________________________________TORRE___________________________________________
 bool Torre::move(int px, int py, Scacchiera &sca)
@@ -190,7 +186,6 @@ bool Torre::checkPos(int j, int i, Scacchiera &sca)
     return false;
 }
 
-
 //_______________________________________RE___________________________________________
 bool Re::move(int px, int py, Scacchiera &sca)
 {
@@ -220,7 +215,6 @@ bool Re::checkPos(int j, int i, Scacchiera &sca)
     }
     return false;
 }
-
 
 //_______________________________________REGINA___________________________________________
 bool Regina::move(int px, int py, Scacchiera &sca)
@@ -311,17 +305,5 @@ bool Regina::checkPos(int j, int i, Scacchiera &sca)
             return true;
         }
     }
-    return false;
-}
-
-//_______________________________________EMPTY___________________________________________
-
-
-bool Empty::move(int x, int y, Scacchiera &sca)
-{
-    return false;
-}
-bool Empty::checkPos(int x, int y, Scacchiera &sca)
-{
     return false;
 }

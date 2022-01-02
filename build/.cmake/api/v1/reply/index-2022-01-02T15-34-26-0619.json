@@ -4,29 +4,29 @@
 		"generator" : 
 		{
 			"multiConfig" : false,
-			"name" : "Unix Makefiles"
+			"name" : "MinGW Makefiles"
 		},
 		"paths" : 
 		{
-			"cmake" : "/usr/local/Cellar/cmake/3.22.0/bin/cmake",
-			"cpack" : "/usr/local/Cellar/cmake/3.22.0/bin/cpack",
-			"ctest" : "/usr/local/Cellar/cmake/3.22.0/bin/ctest",
-			"root" : "/usr/local/Cellar/cmake/3.22.0/share/cmake"
+			"cmake" : "C:/Program Files/CMake/bin/cmake.exe",
+			"cpack" : "C:/Program Files/CMake/bin/cpack.exe",
+			"ctest" : "C:/Program Files/CMake/bin/ctest.exe",
+			"root" : "C:/Program Files/CMake/share/cmake-3.22"
 		},
 		"version" : 
 		{
 			"isDirty" : false,
 			"major" : 3,
 			"minor" : 22,
-			"patch" : 0,
-			"string" : "3.22.0",
+			"patch" : 1,
+			"string" : "3.22.1",
 			"suffix" : ""
 		}
 	},
 	"objects" : 
 	[
 		{
-			"jsonFile" : "codemodel-v2-98183678264611e46a3f.json",
+			"jsonFile" : "codemodel-v2-0bc492fe88fff625f5a2.json",
 			"kind" : "codemodel",
 			"version" : 
 			{
@@ -35,7 +35,7 @@
 			}
 		},
 		{
-			"jsonFile" : "cache-v2-9f013509341ad1e416f2.json",
+			"jsonFile" : "cache-v2-5f0190062f9a0c38d048.json",
 			"kind" : "cache",
 			"version" : 
 			{
@@ -44,7 +44,7 @@
 			}
 		},
 		{
-			"jsonFile" : "toolchains-v1-bc2add9ee6b3ed08514a.json",
+			"jsonFile" : "toolchains-v1-03d2dae357eff9307272.json",
 			"kind" : "toolchains",
 			"version" : 
 			{
@@ -77,7 +77,7 @@
 				"responses" : 
 				[
 					{
-						"jsonFile" : "cache-v2-9f013509341ad1e416f2.json",
+						"jsonFile" : "cache-v2-5f0190062f9a0c38d048.json",
 						"kind" : "cache",
 						"version" : 
 						{
@@ -86,7 +86,7 @@
 						}
 					},
 					{
-						"jsonFile" : "codemodel-v2-98183678264611e46a3f.json",
+						"jsonFile" : "codemodel-v2-0bc492fe88fff625f5a2.json",
 						"kind" : "codemodel",
 						"version" : 
 						{
@@ -95,7 +95,7 @@
 						}
 					},
 					{
-						"jsonFile" : "toolchains-v1-bc2add9ee6b3ed08514a.json",
+						"jsonFile" : "toolchains-v1-03d2dae357eff9307272.json",
 						"kind" : "toolchains",
 						"version" : 
 						{

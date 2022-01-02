@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/PedinaL.dir/src/Pedina.cpp.o"
-  "CMakeFiles/PedinaL.dir/src/Pedina.cpp.o.d"
+  "CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj"
+  "CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj.d"
   "libPedinaL.a"
   "libPedinaL.pdb"
 )

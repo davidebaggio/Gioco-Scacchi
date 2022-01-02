@@ -1,8 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Replay.dir/src/Replay.cpp.o"
-  "CMakeFiles/Replay.dir/src/Replay.cpp.o.d"
-  "Replay"
+  "CMakeFiles/Replay.dir/src/Replay.cpp.obj"
+  "CMakeFiles/Replay.dir/src/Replay.cpp.obj.d"
+  "Replay.exe"
+  "Replay.exe.manifest"
   "Replay.pdb"
+  "libReplay.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

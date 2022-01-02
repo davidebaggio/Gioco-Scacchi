@@ -15,7 +15,6 @@ public:
     Pedone(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-
 };
 //_______________________________________CAVALLO___________________________________________
 class Cavallo : public Pedina
@@ -25,7 +24,6 @@ public:
     Cavallo(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-   
 };
 //_______________________________________ALFIERE___________________________________________
 class Alfiere : public Pedina
@@ -35,7 +33,6 @@ public:
     Alfiere(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-    
 };
 //_______________________________________TORRE___________________________________________
 class Torre : public Pedina
@@ -54,7 +51,6 @@ public:
     Re(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-    
 };
 //_______________________________________REGINA___________________________________________
 class Regina : public Pedina
@@ -64,17 +60,6 @@ public:
     Regina(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
     bool move(int, int, Scacchiera &) override;
     bool checkPos(int, int, Scacchiera &) override;
-    
-};
-//_______________________________________EMPTY___________________________________________
-class Empty : public Pedina
-{
-public:
-    Empty() : Pedina() {}
-    Empty(int l, int n, bool color, char na) : Pedina(l, n, color, na) {}
-    bool move(int, int, Scacchiera &) override;
-    bool checkPos(int, int, Scacchiera &) override;
-   
 };
 
 #endif

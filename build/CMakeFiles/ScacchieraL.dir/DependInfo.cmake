@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/src/Pezzi.cpp" "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.o" "gcc" "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.o.d"
-  "/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/src/Scacchiera.cpp" "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.o" "gcc" "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.o.d"
+  "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Pezzi.cpp" "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.obj" "gcc" "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.obj.d"
+  "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Scacchiera.cpp" "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj" "gcc" "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj.d"
   )
 
 # Targets to which this target links.

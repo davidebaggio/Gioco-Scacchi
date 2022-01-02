@@ -22,6 +22,7 @@ private:
 public:
 	Pedina();
 	Pedina(int, int, bool, char); // pos x, pos y, colore(true bianco, false nero), lettera ref
+	//~Pedina();
 
 	int getX() const { return x; }
 	int getY() const { return y; }
@@ -30,7 +31,7 @@ public:
 	void setColor(bool);
 	void setName(const char &n);
 	char getName() const;
-	bool isFirstMove() {return firstMove;}
+	bool isFirstMove() { return firstMove; }
 
 	virtual bool move(int, int, Scacchiera &);
 	virtual bool checkPos(int, int, Scacchiera &);
@@ -46,15 +47,16 @@ public:
 class Scacchiera
 {
 private:
-	Pedina* matrice[8][8];
+	static Pedina *matrice[8][8];
 
 public:
 	Scacchiera();
 
 	bool checkBoundaries(int, int);
 	bool isEmpty(int x, int y) const { return matrice[x][y] == nullptr; }
+	// Pedina **getMatrice() { return matrice; }
 	Pedina *getPedina(int x, int y) const { return matrice[x][y]; }
-	void setPedina(Pedina*);
+	void setPedina(Pedina *);
 
 	bool isScacco();
 	bool isScaccoMatto();

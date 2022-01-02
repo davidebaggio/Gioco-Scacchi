@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/src/Pedina.cpp" "CMakeFiles/PedinaL.dir/src/Pedina.cpp.o" "gcc" "CMakeFiles/PedinaL.dir/src/Pedina.cpp.o.d"
+  "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Pedina.cpp" "CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj" "gcc" "CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj.d"
   )
 
 # Targets to which this target links.

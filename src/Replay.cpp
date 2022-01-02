@@ -14,8 +14,9 @@ void computeCommand(Scacchiera &sca, const string &cmd)
 	int yi = ((int)cmd[1]) - 49; //-49 per ascii table 1
 	int xf = ((int)cmd[3]) - 65; //-65 per ascii table B
 	int yf = ((int)cmd[4]) - 49; //-49 per ascii table 3
-	Pedina &temp = *sca.getPedina(xi, yi);				//<----------------------------------------------------
-	temp.move(xf, yf, sca);
+	Pedina *temp = sca.getPedina(xi, yi);
+	temp->move(xf, yf, sca);
+	delete temp;
 }
 
 int main(int argc, char *argv[])
@@ -99,7 +100,6 @@ int main(int argc, char *argv[])
 					outputFile << s;
 				}
 				g *= -1;
-				sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
 			}
 			inputFile.close();
 			outputFile.close();

@@ -43,14 +43,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk   -std=c++11"
+					"fragment" : "-g   -std=c++11"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 2,
-					"path" : "/Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/include"
+					"path" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/include"
 				}
 			],
 			"language" : "CXX",
