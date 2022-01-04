@@ -15,8 +15,8 @@ using namespace std;
 
 bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' muoversi nella posizione data
 {
-    checkBoundaries(j, i); // controllo indici
-    if (getColor())        // se bianco
+    // checkBoundaries(j, i); // controllo indici
+    if (getColor()) // se bianco
     {
         if (j == getX() && (i == getY() - 1)) // se avanti di 1
         {
@@ -32,7 +32,7 @@ bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' 
         }
         if ((i == getY() - 1 && (j == getX() - 1 || j == getX() + 1))) // se nelle due celle diagonali
         {
-            if (!emptyBox(matrice, j, i) && !(*matrice[j][i]).getColor()) // solo se c'e' una pedina nera
+            if (!emptyBox(matrice, j, i) && !matrice[j][i]->getColor()) // solo se c'e' una pedina nera
                 return true;
             return false;
         }
@@ -53,7 +53,7 @@ bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' 
         }
         if ((i == getY() + 1 && (j == getX() - 1 || j == getX() + 1))) // se nelle due celle diagonali
         {
-            if (!emptyBox(matrice, j, i) && (*matrice[j][i]).getColor()) // solo se c'e' una pedina bianca
+            if (!emptyBox(matrice, j, i) && matrice[j][i]->getColor()) // solo se c'e' una pedina bianca
                 return true;
             return false;
         }
@@ -69,7 +69,7 @@ bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' 
 
 bool Cavallo::checkPos(int j, int i, Pedina *matrice[8][8]) // si sposta a L in tutte le direzioni anche se ci sono pedine
 {                                                           // j colonne, i righe
-    checkBoundaries(j, i);
+    // checkBoundaries(j, i);
     if (j == getX() && (i == getY() - 1 || i == getY() - 2 || i == getY() + 1 || i == getY() + 2))
         return true;
     else if (j == getX() - 1 && (i == getY() || i == getY() - 1 || i == getY() - 2 || i == getY() + 1 || i == getY() + 2))
@@ -91,11 +91,14 @@ bool Cavallo::checkPos(int j, int i, Pedina *matrice[8][8]) // si sposta a L in 
 
 bool Alfiere::checkPos(int j, int i, Pedina *matrice[8][8]) // si muove nelle 4 diagonali
 {
-    checkBoundaries(j, i);
+    // checkBoundaries(j, i);
     for (int n = 1; n < 8; n++) // diagonale nord-ovest
     {
-        if (!emptyBox(matrice, getX() - n, getY() - n) && ((*matrice[getX() - n][getY() - n]).getColor() == getColor()))
-            break; // se c'e' una pedina ed e' del suo colore non va oltre
+        if (getX() - n >= 0 && getY() - n >= 0 && !emptyBox(matrice, getX() - n, getY() - n))
+        {
+            if (matrice[getX() - n][getY() - n]->getColor() == getColor())
+                break; // se c'e' una pedina ed e' del suo colore non va oltre
+        }
         if (j == getX() - n && i == getY() - n)
         {
             return true;
@@ -103,7 +106,7 @@ bool Alfiere::checkPos(int j, int i, Pedina *matrice[8][8]) // si muove nelle 4 
     }
     for (int n = 1; n < 8; n++) // diagonale sud-ovest
     {
-        if (!emptyBox(matrice, getX() - n, getY() + n) && ((*matrice[getX() - n][getY() + n]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, getY() + n) && (matrice[getX() - n][getY() + n]->getColor() == getColor()))
             break;
         if (j == getX() - n && i == getY() + n)
         {
@@ -112,7 +115,7 @@ bool Alfiere::checkPos(int j, int i, Pedina *matrice[8][8]) // si muove nelle 4 
     }
     for (int n = 1; n < 8; n++) // diagonale sud-est
     {
-        if (!emptyBox(matrice, getX() + n, getY() + n) && ((*matrice[getX() + n][getY() + n]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, getY() + n) && (matrice[getX() + n][getY() + n]->getColor() == getColor()))
             break;
         if (j == getX() + n && i == getY() + n)
         {
@@ -121,7 +124,7 @@ bool Alfiere::checkPos(int j, int i, Pedina *matrice[8][8]) // si muove nelle 4 
     }
     for (int n = 1; n < 8; n++) // diagonale nord-est
     {
-        if (!emptyBox(matrice, getX() + n, getY() - n) && ((*matrice[getX() + n][getY() - n]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, getY() - n) && (matrice[getX() + n][getY() - n]->getColor() == getColor()))
             break;
         if (j == getX() + n && i == getY() - n)
         {
@@ -139,12 +142,12 @@ bool Alfiere::checkPos(int j, int i, Pedina *matrice[8][8]) // si muove nelle 4 
 
 bool Torre::checkPos(int j, int i, Pedina *matrice[8][8])
 {
-    checkBoundaries(j, i);
+    // checkBoundaries(j, i);
     for (int n = 1; n < 8; n++) // sinistra
     {
         if (i != getY()) // se riga diversa non puo' essere a sx o dx
             break;
-        if (!emptyBox(matrice, getX() - n, i) && ((*matrice[getX() - n][i]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, i) && (matrice[getX() - n][i]->getColor() == getColor()))
             break;
         if (j == getX() - n)
         {
@@ -155,7 +158,7 @@ bool Torre::checkPos(int j, int i, Pedina *matrice[8][8])
     {
         if (i != getY())
             break;
-        if (!emptyBox(matrice, getX() + n, i) && ((*matrice[getX() + n][i]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, i) && (matrice[getX() + n][i]->getColor() == getColor()))
             break;
         if (j == getX() + n)
         {
@@ -166,7 +169,7 @@ bool Torre::checkPos(int j, int i, Pedina *matrice[8][8])
     {
         if (j != getX()) // se colonna diversa non puo' essere su o giu
             break;
-        if (!emptyBox(matrice, j, getY() - n) && ((*matrice[j][getY() - n]).getColor() == getColor()))
+        if (!emptyBox(matrice, j, getY() - n) && (matrice[j][getY() - n]->getColor() == getColor()))
             break;
         if (i == getY() - n)
         {
@@ -177,7 +180,7 @@ bool Torre::checkPos(int j, int i, Pedina *matrice[8][8])
     {
         if (j != getX())
             break;
-        if (!emptyBox(matrice, j, getY() + n) && ((*matrice[j][getY() + n]).getColor() == getColor()))
+        if (!emptyBox(matrice, j, getY() + n) && (matrice[j][getY() + n]->getColor() == getColor()))
             break;
         if (i == getY() + n)
         {
@@ -195,22 +198,22 @@ bool Torre::checkPos(int j, int i, Pedina *matrice[8][8])
 
 bool Re::checkPos(int j, int i, Pedina *matrice[8][8])
 {
-    checkBoundaries(j, i);
+    // checkBoundaries(j, i);
     if (j == getX() && (i == getY() - 1 || i == getY() + 1))
     {
-        if (!emptyBox(matrice, j, i) && ((*matrice[j][i]).getColor() == getColor()))
+        if (!emptyBox(matrice, j, i) && (matrice[j][i]->getColor() == getColor()))
             return false;
         return true;
     }
     else if (j == getX() - 1 && (i == getY() || i == getY() - 1 || i == getY() + 1))
     {
-        if (!emptyBox(matrice, j, i) && ((*matrice[j][i]).getColor() == getColor()))
+        if (!emptyBox(matrice, j, i) && (matrice[j][i]->getColor() == getColor()))
             return false;
         return true;
     }
     else if (j == getX() + 1 && (i == getY() || i == getY() - 1 || i == getY() + 1))
     {
-        if (!emptyBox(matrice, j, i) && ((*matrice[j][i]).getColor() == getColor()))
+        if (!emptyBox(matrice, j, i) && (matrice[j][i]->getColor() == getColor()))
             return false;
         return true;
     }
@@ -225,12 +228,12 @@ bool Re::checkPos(int j, int i, Pedina *matrice[8][8])
 
 bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
 {
-    checkBoundaries(j, i);
+    // checkBoundaries(j, i);
     for (int n = 1; n < 8; n++) // sinistra
     {
         if (i != getY()) // se riga diversa non puo' essere a sx o dx
             break;
-        if (!emptyBox(matrice, getX() - n, i) && ((*matrice[getX() - n][i]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, i) && (matrice[getX() - n][i]->getColor() == getColor()))
             break;
         if (j == getX() - n)
         {
@@ -241,7 +244,7 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
     {
         if (i != getY())
             break;
-        if (!emptyBox(matrice, getX() + n, i) && ((*matrice[getX() + n][i]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, i) && (matrice[getX() + n][i]->getColor() == getColor()))
             break;
         if (j == getX() + n)
         {
@@ -252,7 +255,7 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
     {
         if (j != getX()) // se colonna diversa non puo' essere su o giu
             break;
-        if (!emptyBox(matrice, j, getY() - n) && ((*matrice[j][getY() - n]).getColor() == getColor()))
+        if (!emptyBox(matrice, j, getY() - n) && (matrice[j][getY() - n]->getColor() == getColor()))
             break;
         if (i == getY() - n)
         {
@@ -263,7 +266,7 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
     {
         if (j != getX())
             break;
-        if (!emptyBox(matrice, j, getY() + n) && ((*matrice[j][getY() + n]).getColor() == getColor()))
+        if (!emptyBox(matrice, j, getY() + n) && (matrice[j][getY() + n]->getColor() == getColor()))
             break;
         if (i == getY() + n)
         {
@@ -272,7 +275,7 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
     }
     for (int n = 1; n < 8; n++) // diagonale nord-ovest
     {
-        if (!emptyBox(matrice, getX() - n, getY() - n) && ((*matrice[getX() - n][getY() - n]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, getY() - n) && (matrice[getX() - n][getY() - n]->getColor() == getColor()))
             break; // se c'e' una pedina ed e' del suo colore non va oltre
         if (j == getX() - n && i == getY() - n)
         {
@@ -281,7 +284,7 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
     }
     for (int n = 1; n < 8; n++) // diagonale sud-ovest
     {
-        if (!emptyBox(matrice, getX() - n, getY() + n) && ((*matrice[getX() - n][getY() + n]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, getY() + n) && (matrice[getX() - n][getY() + n]->getColor() == getColor()))
             break;
         if (j == getX() - n && i == getY() + n)
         {
@@ -290,7 +293,7 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
     }
     for (int n = 1; n < 8; n++) // diagonale sud-est
     {
-        if (!emptyBox(matrice, getX() + n, getY() + n) && ((*matrice[getX() + n][getY() + n]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, getY() + n) && (matrice[getX() + n][getY() + n]->getColor() == getColor()))
             break;
         if (j == getX() + n && i == getY() + n)
         {
@@ -299,7 +302,7 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
     }
     for (int n = 1; n < 8; n++) // diagonale nord-est
     {
-        if (!emptyBox(matrice, getX() + n, getY() - n) && ((*matrice[getX() + n][getY() - n]).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, getY() - n) && (matrice[getX() + n][getY() - n]->getColor() == getColor()))
             break;
         if (j == getX() + n && i == getY() - n)
         {
@@ -313,7 +316,7 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
 
 void checkBoundaries(int i, int j)
 {
-    if (i < 0 || i > 8 || j < 0 || j > 8)
+    if (i < 0 || i > 7 || j < 0 || j > 7)
         throw InvalidIndex();
 }
 

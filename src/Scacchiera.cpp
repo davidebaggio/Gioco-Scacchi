@@ -7,13 +7,6 @@
 Scacchiera::Scacchiera() // posiziona pedine nella posizione di partenza
 {
 	bool gWhite = false; // colore pedine
-	// Pedone
-	// Torre t;
-	// Cavallo c;
-	// Alfiere a;
-	// Regina d;
-	// Re r;
-	// Empty e;
 	for (int i = 0; i < 8; i++)
 	{
 		if (i > 3) // meta' scacchiera
@@ -22,105 +15,60 @@ Scacchiera::Scacchiera() // posiziona pedine nella posizione di partenza
 		{
 			if (i == 1) // fila di pedoni neri
 			{
-				// p.setPos(i, j);
-				// p.setColor(gWhite);
-				// p.setName('p');
-				matrice[j][i] = new Pedone(j, i, gWhite, 'P');
+				matrice[j][i] = new Pedone(j, i, gWhite, 'p');
 			}
 			else if (i == 6) // fila di pedoni bianchi
 			{
-				// p.setPos(i, j);
-				// p.setColor(g1);
-				// p.setName('p');
-
 				matrice[j][i] = new Pedone(j, i, gWhite, 'p');
 			}
 			else if (i == 0) // fila con pedine nere
 			{
 				if (j == 0 || j == 7)
 				{
-					// t.setPos(i, j);
-					// t.setColor(g1);
-					// t.setName('t');
-
-					matrice[j][i] = new Torre(j, i, gWhite, 'T');
+					matrice[j][i] = new Torre(j, i, gWhite, 't');
 				}
 				if (j == 1 || j == 6)
 				{
-					// c.setPos(i, j);
-					// c.setColor(g1);
-					// c.setName('c');
-
-					matrice[j][i] = new Cavallo(j, i, gWhite, 'C');
+					matrice[j][i] = new Cavallo(j, i, gWhite, 'c');
 				}
 				if (j == 2 || j == 5)
 				{
-					// a.setPos(i, j);
-					// a.setColor(g1);
-					// a.setName('a');
-
-					matrice[j][i] = new Alfiere(j, i, gWhite, 'A');
+					matrice[j][i] = new Alfiere(j, i, gWhite, 'a');
 				}
 				if (j == 3)
 				{
-					// d.setPos(i, j);
-					// d.setColor(g1);
-					// d.setName('d');
-
-					matrice[j][i] = new Regina(j, i, gWhite, 'D');
+					matrice[j][i] = new Regina(j, i, gWhite, 'd');
 				}
 				if (j == 4)
 				{
-					// r.setPos(i, j);
-					// r.setColor(g1);
-					// r.setName('r');
-
-					matrice[j][i] = new Re(j, i, gWhite, 'R');
+					matrice[j][i] = new Re(j, i, gWhite, 'r');
 				}
 			}
 			else if (i == 7) // fila con pedine bianche
 			{
 				if (j == 0 || j == 7)
 				{
-					// t.setPos(i, j);
-					// t.setColor(g1);
-					// t.setName('t');
-
 					matrice[j][i] = new Torre(j, i, gWhite, 't');
 				}
 				if (j == 1 || j == 6)
 				{
-					// c.setPos(i, j);
-					// c.setColor(g1);
-					// c.setName('c');
 					matrice[j][i] = new Cavallo(j, i, gWhite, 'c');
 				}
 				if (j == 2 || j == 5)
 				{
-					// a.setPos(i, j);
-					// a.setColor(g1);
-					// a.setName('a');
 					matrice[j][i] = new Alfiere(j, i, gWhite, 'a');
 				}
 				if (j == 3)
 				{
-					// d.setPos(i, j);
-					// d.setColor(g1);
-					// d.setName('d');
 					matrice[j][i] = new Regina(j, i, gWhite, 'd');
 				}
 				if (j == 4)
 				{
-					// r.setPos(i, j);
-					// r.setColor(g1);
-					// r.setName('r');
 					matrice[j][i] = new Re(j, i, gWhite, 'r');
 				}
 			}
 			else
 			{
-				// e.setPos(i, j);
-				// e.setName(' ');
 				matrice[j][i] = nullptr;
 			}
 		}
@@ -137,12 +85,6 @@ Scacchiera::~Scacchiera()
 			matrice[i][j] = nullptr;
 		}
 	}
-}
-
-void Scacchiera::checkBoundaries(int px, int py)
-{
-	if (px < 0 || px > 8 || py < 0 || py > 8)
-		throw InvalidIndex();
 }
 
 ostream &operator<<(ostream &os, const Scacchiera &sca)
@@ -166,7 +108,7 @@ ostream &operator<<(ostream &os, const Scacchiera &sca)
 
 void Scacchiera::setPedina(Pedina *p)
 {
-	matrice[(*p).getX()][(*p).getY()] = p;
+	matrice[p->getX()][p->getY()] = p;
 }
 
 void Scacchiera::move(Pedina *p, int j, int i)
@@ -194,7 +136,7 @@ bool Scacchiera::isScacco()
 	int reBianco[2];
 	int reNero[2];
 
-	for (int i = 0; i < 8; i++) // trova posizioni re
+	/* for (int i = 0; i < 8; i++) // trova posizioni re
 	{
 		for (int j = 0; j < 8; j++)
 		{
@@ -205,8 +147,8 @@ bool Scacchiera::isScacco()
 			}
 			if (getPedina(j, i)->getName() == 'R') // re nero
 			{
-				reBianco[0] = j;
-				reBianco[1] = i;
+				reNero[0] = j;
+				reNero[1] = i;
 			}
 		}
 	}
@@ -228,7 +170,7 @@ bool Scacchiera::isScacco()
 				scacco = p->checkPos(reBianco[0], reBianco[1], matrice);
 			}
 		}
-	}
+	} */
 	return false;
 }
 
@@ -237,7 +179,7 @@ bool Scacchiera::isScaccoMatto()
 	if (!isScacco())
 		return false;
 
-	int reBianco[2];
+	/* int reBianco[2];
 	int reNero[2];
 
 	for (int i = 0; i < 8; i++) // trova posizioni re
@@ -251,11 +193,11 @@ bool Scacchiera::isScaccoMatto()
 			}
 			if ((*getPedina(j, i)).getName() == 'R') // re nero
 			{
-				reBianco[0] = j;
-				reBianco[1] = i;
+				reNero[0] = j;
+				reNero[1] = i;
 			}
 		}
-	}
+	} */
 
 	// 	// ------------------------------- controllo scacco re bianco (provo a muovere re in tutte le direzioni)-------------------------------
 	// 	bool posValidaBianco = false;
@@ -438,7 +380,7 @@ bool Scacchiera::KingsHaveValidPositions()
 	int reBiancoX, reBiancoY;
 	int reNeroX, reNeroY;
 
-	for (int i = 0; i < 8; i++) // trova posizioni re
+	/* for (int i = 0; i < 8; i++) // trova posizioni re
 	{
 		for (int j = 0; j < 8; j++)
 		{
@@ -449,11 +391,11 @@ bool Scacchiera::KingsHaveValidPositions()
 			}
 			if ((*getPedina(j, i)).getName() == 'R') // re nero
 			{
-				reBiancoX = j;
-				reBiancoY = i;
+				reNeroX = j;
+				reNeroY = i;
 			}
 		}
-	}
+	} */
 
 	// ------------------------------- controllo posizioni valide re bianco (provo a muovere re in tutte le direzioni)-------------------------------
 	// bool posValidaBianco = false;
@@ -619,7 +561,7 @@ bool Scacchiera::KingsHaveValidPositions()
 	// 		return true;
 	// 	}
 
-	return false;
+	return true;
 }
 
 bool Scacchiera::isPatta()

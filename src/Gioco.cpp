@@ -24,7 +24,7 @@ bool isValid(const string &cmd) // funzione che controlla se il comando inserito
         return true;
 }
 
-bool computeCommand(Scacchiera &sca, const string &cmd, bool col) // funzione che trasforma il comado 'stringa' in coordinate di partenza e arrivo della pedina
+bool computeCommand(Scacchiera &sca, const string &cmd, bool col, bool err) // funzione che trasforma il comado 'stringa' in coordinate di partenza e arrivo della pedina
 {
     if (!isValid(cmd))
         return false;
@@ -35,14 +35,16 @@ bool computeCommand(Scacchiera &sca, const string &cmd, bool col) // funzione ch
     Pedina *temp = sca.getPedina(xi, yi);
     if (temp == nullptr)
     {
-        cout << "Non stai spostando alcuna pedina\n";
-        delete temp;
+        if (err)
+            cout << "Non stai spostando alcuna pedina\n";
+        // delete temp;
         return false;
     }
     if (temp->getColor() != col)
     {
-        cout << "Stai spostando la pedina dell'altro colore.\n";
-        delete temp;
+        if (err)
+            cout << "Stai spostando la pedina dell'altro colore.\n";
+        // delete temp;
         return false;
     }
     try
@@ -51,11 +53,12 @@ bool computeCommand(Scacchiera &sca, const string &cmd, bool col) // funzione ch
     }
     catch (const InvalidPosition &e)
     {
-        cout << "Mossa non consentita.\n";
-        delete temp;
+        if (err)
+            cout << "Mossa non consentita.\n";
+        // delete temp;
         return false;
     }
-    delete temp;
+    // delete temp;
     return true;
 }
 
@@ -64,21 +67,25 @@ int main(int argc, char *argv[])
     srand(time(NULL));
     using namespace std::this_thread; // sleep_for
     using namespace std::chrono;      // seconds
-    if (argc <= 1)
+    // if (argc <= 1)
+    if (false)
     {
         cout << "[Error] Not enough arguments. Type: " << endl
              << "\t -pc: to play vs computer." << endl
              << "\t -cc: to watch a match computer vs computer." << endl;
         return 0;
     }
-    else if (strcmp(argv[1], "-pc") != 0 && strcmp(argv[1], "-cc") != 0) //<----------------------------------------------------
+
+    // else if (strcmp(argv[1], "-pc") != 0 && strcmp(argv[1], "-cc") != 0) //<----------------------------------------------------
+    else if (false)
     {
         cout << "[Error] Incorrect arguments. Type: " << endl
              << "\t -pc: to play vs computer." << endl
              << "\t -cc: to watch a match computer vs computer." << endl;
         return 0;
     }
-    else if (strcmp(argv[1], "-pc") == 0) //<----------------------------------------------------
+    // else if (strcmp(argv[1], "-pc") == 0) //<----------------------------------------------------
+    else if (true)
     {
         cout << "Partita giocatore (Bianco) vs computer (Nero)\n";
         cout << "Per giocare inserire la posizione di cella iniziale e finale separati da uno spazio. Es: A2 C3\n";
@@ -88,8 +95,7 @@ int main(int argc, char *argv[])
              << s << "\n";
         ofstream outputFile("output.txt");
         outputFile.clear();
-        // while (!s.isScacco() && !s.isPatta() && !s.isScaccoMatto())
-        while (true)
+        while (!s.isScacco() && !s.isPatta() && !s.isScaccoMatto())
         {
             // player
             cout << "player: \n";
@@ -97,7 +103,7 @@ int main(int argc, char *argv[])
             do
             {
                 getline(cin, commandPL);
-            } while (!computeCommand(s, commandPL, true));
+            } while (!computeCommand(s, commandPL, true, true));
             cout << "\n"
                  << s << "\n";
             outputFile << commandPL << "\n";
@@ -122,9 +128,9 @@ int main(int argc, char *argv[])
                     else
                         commandPC += " ";
                 }
-                cout << commandPC << " ";
-            } while (!computeCommand(s, commandPC, false));
-            cout << "\n"
+                // cout << commandPC << "\n";
+            } while (!computeCommand(s, commandPC, false, false));
+            cout << commandPC << "\n"
                  << s << "\n";
             outputFile << commandPC << "\n";
         }
@@ -141,8 +147,7 @@ int main(int argc, char *argv[])
         int mosseMax = 30;
         ofstream outputFile("output.txt");
         outputFile.clear();
-        // while (!s.isScacco() && !s.isPatta() && !s.isScaccoMatto() && mosseMax > 0)
-        while (mosseMax > 0)
+        while (!s.isScacco() && !s.isPatta() && !s.isScaccoMatto() && mosseMax > 0)
         {
             cout << "computer 1: \n";
             string commandPC1 = "";
@@ -161,13 +166,13 @@ int main(int argc, char *argv[])
                     else
                         commandPC1 += " ";
                 }
-                cout << commandPC1 << " ";
-            } while (!computeCommand(s, commandPC1, false));
-            cout << "\n"
-                 << s;
+                // cout << commandPC1 << "\n";
+            } while (!computeCommand(s, commandPC1, true, false));
+            cout << commandPC1 << "\n"
+                 << s << "\n";
             outputFile << commandPC1 << "\n";
 
-            // sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
+            sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
 
             cout << "computer 2: \n";
             string commandPC2 = "";
@@ -186,10 +191,10 @@ int main(int argc, char *argv[])
                     else
                         commandPC2 += " ";
                 }
-                cout << commandPC2 << " ";
-            } while (!computeCommand(s, commandPC2, false));
-            cout << "\n"
-                 << s;
+                // cout << commandPC2 << "\n";
+            } while (!computeCommand(s, commandPC2, false, false));
+            cout << commandPC2 << "\n"
+                 << s << "\n";
             outputFile << commandPC2 << "\n";
             mosseMax--;
         }

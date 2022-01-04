@@ -54,8 +54,6 @@ public:
 	Scacchiera();
 	~Scacchiera();
 
-	void checkBoundaries(int, int);
-
 	// Pedina **getMatrice() { return matrice; }
 
 	Pedina *getPedina(int x, int y) const { return matrice[x][y]; }
