@@ -215,8 +215,8 @@ int main2()
     s.move(ped1, 5, 5);
     s.move(ped2, 1, 4);
 
-    if (!s.move(cavallo, 1, 4))
-        cout << "mangiato!!" << endl;
+    /* if (!s.move(cavallo, 1, 4))
+        cout << "mangiato!!" << endl; */
 
     s.move((s.getPedina(0, 6)), 0, 5);
     s.move((s.getPedina(0, 5)), 1, 4);

@@ -139,12 +139,10 @@ Scacchiera::~Scacchiera()
 	}
 }
 
-bool Scacchiera::checkBoundaries(int px, int py)
+void Scacchiera::checkBoundaries(int px, int py)
 {
 	if (px < 0 || px > 8 || py < 0 || py > 8)
 		throw InvalidIndex();
-	else
-		return true;
 }
 
 ostream &operator<<(ostream &os, const Scacchiera &sca)
@@ -171,15 +169,14 @@ void Scacchiera::setPedina(Pedina *p)
 	matrice[(*p).getX()][(*p).getY()] = p;
 }
 
-bool Scacchiera::move(Pedina *p, int j, int i)
+void Scacchiera::move(Pedina *p, int j, int i)
 {
-	if (!p->checkPos(j, i, matrice))
+	if (!(p->checkPos(j, i, matrice)))
 		throw InvalidPosition();
 
-	bool libero = isEmpty(j, i);
-
-	if (!libero) // dealloca memoria della pedina mangiata
+	if (!isEmpty(j, i)) // dealloca memoria della pedina mangiata
 	{
+		cout << "Pedina : " << getPedina(j, i)->getName() << " mangiata\n";
 		delete matrice[j][i];
 	}
 
@@ -190,8 +187,6 @@ bool Scacchiera::move(Pedina *p, int j, int i)
 
 	matrice[j][i] = p;		 // aggiorna matrice
 	matrice[x][y] = nullptr; // libera cella di partenza
-
-	return libero; // true se non ha mangiato, false se ha mangiato
 }
 
 bool Scacchiera::isScacco()
