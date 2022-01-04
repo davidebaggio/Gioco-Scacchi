@@ -118,7 +118,7 @@ void Scacchiera::move(Pedina *p, int j, int i)
 
 	if (!isEmpty(j, i)) // dealloca memoria della pedina mangiata
 	{
-		cout << "Pedina : " << getPedina(j, i)->getName() << " mangiata\n";
+		cout << "Pedina : " << matrice[j][i]->getName() << " mangiata\n";
 		delete matrice[j][i];
 	}
 

@@ -21,8 +21,8 @@ void computeCommand(Scacchiera &sca, const string &cmd)
 
 int main(int argc, char *argv[])
 {
-	using namespace std::this_thread; // sleep_for
-	using namespace std::chrono;	  // seconds
+	// using namespace std::this_thread; // sleep_for
+	using namespace std::chrono; // seconds
 
 	if (argc <= 1 || argc > 3)
 	{
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
 					cout << s;
 				}
 				g *= -1;
-				sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
+				// sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
 			}
 		}
 		inputFile.close();

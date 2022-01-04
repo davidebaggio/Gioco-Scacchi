@@ -65,8 +65,8 @@ bool computeCommand(Scacchiera &sca, const string &cmd, bool col, bool err) // f
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
-    using namespace std::this_thread; // sleep_for
-    using namespace std::chrono;      // seconds
+    // using namespace std::this_thread; // sleep_for
+    using namespace std::chrono; // seconds
     // if (argc <= 1)
     if (false)
     {
@@ -172,7 +172,7 @@ int main(int argc, char *argv[])
                  << s << "\n";
             outputFile << commandPC1 << "\n";
 
-            sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
+            // sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
 
             cout << "computer 2: \n";
             string commandPC2 = "";

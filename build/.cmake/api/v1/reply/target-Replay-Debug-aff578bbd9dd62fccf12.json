@@ -65,7 +65,7 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/include"
+					"path" : "C:/Users/Davide Baggio/Desktop/Programmazione/Gioco-Scacchi/include"
 				}
 			],
 			"language" : "CXX",
@@ -78,12 +78,12 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 2,
-			"id" : "ScacchieraL::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 3,
 			"id" : "PedinaL::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "ScacchieraL::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "Replay::@6890427a1f51a3e7e1df",

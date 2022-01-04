@@ -6,6 +6,7 @@
         "vector": "cpp",
         "__tree": "cpp",
         "iterator": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "thread": "cpp"
     }
 }

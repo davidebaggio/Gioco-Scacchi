@@ -45,28 +45,28 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "PedinaL::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-PedinaL-Debug-0d08fde55a26bf87bd29.json",
+					"jsonFile" : "target-PedinaL-Debug-74e5375144d5303fe62b.json",
 					"name" : "PedinaL",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Replay::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Replay-Debug-1c82d8372543fb9e2d08.json",
+					"jsonFile" : "target-Replay-Debug-aff578bbd9dd62fccf12.json",
 					"name" : "Replay",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Scacchiera::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Scacchiera-Debug-7c9b7375bffc5d335bc0.json",
+					"jsonFile" : "target-Scacchiera-Debug-116122c24196bd74f0aa.json",
 					"name" : "Scacchiera",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ScacchieraL::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ScacchieraL-Debug-a27e4400c56de88ff5cd.json",
+					"jsonFile" : "target-ScacchieraL-Debug-3964257d99ef357e67ba.json",
 					"name" : "ScacchieraL",
 					"projectIndex" : 0
 				}
@@ -76,8 +76,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
-		"source" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi"
+		"build" : "C:/Users/Davide Baggio/Desktop/Programmazione/Gioco-Scacchi/build",
+		"source" : "C:/Users/Davide Baggio/Desktop/Programmazione/Gioco-Scacchi"
 	},
 	"version" : 
 	{
