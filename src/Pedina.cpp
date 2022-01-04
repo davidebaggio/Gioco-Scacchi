@@ -2,6 +2,7 @@
 
 #include "../include/Scacchiera.h"
 
+/*
 Pedina::Pedina()
 {
 	x = -1;
@@ -10,6 +11,7 @@ Pedina::Pedina()
 	name = 'e';
 	firstMove = true;
 }
+*/
 
 Pedina::Pedina(int l, int n, bool c, char na)
 {
@@ -20,10 +22,7 @@ Pedina::Pedina(int l, int n, bool c, char na)
 	firstMove = true;
 }
 
-/* Pedina::~Pedina()
-{
-	delete this;
-} */
+
 
 /* Pedina::Pedina(const Pedina &ped)
 {
@@ -39,11 +38,6 @@ void Pedina::setPos(int l, int n)
 	y = n;
 }
 
-bool Pedina::getColor() const
-{
-	return color;
-}
-
 void Pedina::setColor(bool c)
 {
 	color = c;
@@ -55,11 +49,6 @@ void Pedina::setName(const char &n)
 		name = toupper(n);
 	else
 		name = n;
-}
-
-char Pedina::getName() const
-{
-	return name;
 }
 
 ostream &operator<<(ostream &os, const Pedina &ped)

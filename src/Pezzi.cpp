@@ -1,37 +1,38 @@
 // Melissa Maistro
 
 #include "../include/Pezzi.h"
+#include "../include/Scacchiera.h"
 #include <iostream>
 using namespace std;
 
 //_______________________________________PEDONE___________________________________________
-bool Pedone::move(int j, int i, Scacchiera &sca)
-{
-    if (Pedone::checkPos(j, i, sca))
-        return true; // da finire...
-    return false;
-}
+// bool Pedone::move(int j, int i, Scacchiera &sca)
+// {
+//     if (Pedone::checkPos(j, i, sca))
+//         return true; // da finire...
+//     return false;
+// }
 
-bool Pedone::checkPos(int j, int i, Scacchiera &sca) // controlla se puo' muoversi nella posizione data
+bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' muoversi nella posizione data
 {
-    sca.checkBoundaries(j, i); // controllo indici
-    if (getColor())            // se bianco
+    checkBoundaries(j, i); // controllo indici
+    if (getColor())        // se bianco
     {
         if (j == getX() && (i == getY() - 1)) // se avanti di 1
         {
-            if (sca.getPedina(j, i)->getName() != 'e') // se c'e' una pedina non puo'
+            if (!emptyBox(matrice, j, i)) // se c'e' una pedina non puo'
                 return false;
             return true;
         }
         if (isFirstMove() && (j == getX() && i == getY() - 2)) // se prima mossa e avanti di 2
         {
-            if ((sca.getPedina(j, i)->getName() != 'e') || (sca.getPedina(j, getY() - 1)->getName() != 'e'))
+            if (!emptyBox(matrice, j, i) || !emptyBox(matrice, j, getY() - 1))
                 return false; // se c'e' una pedina nella prima o seconda cella non puo'
             return true;
         }
         if ((i == getY() - 1 && (j == getX() - 1 || j == getX() + 1))) // se nelle due celle diagonali
         {
-            if ((sca.getPedina(j, i)->getName() != 'e') && (!sca.getPedina(j, i)->getColor())) // solo se c'e' una pedina nera
+            if (!emptyBox(matrice, j, i) && !(*matrice[j][i]).getColor()) // solo se c'e' una pedina nera
                 return true;
             return false;
         }
@@ -40,19 +41,19 @@ bool Pedone::checkPos(int j, int i, Scacchiera &sca) // controlla se puo' muover
     {
         if (j == getX() && (i == getY() + 1)) // se avanti di 1
         {
-            if (sca.getPedina(j, i)->getName() != 'e') // se c'e' una pedina non puo'
+            if (!emptyBox(matrice, j, i)) // se c'e' una pedina non puo'
                 return false;
             return true;
         }
         if (isFirstMove() && (j == getX() && i == getY() + 2)) // se prima mossa e avanti di 2
         {
-            if ((sca.getPedina(j, i)->getName() != 'e') || (sca.getPedina(j, getY() + 1)->getName() != 'e'))
+            if (!emptyBox(matrice, j, i) || !emptyBox(matrice, j, getY() + 1))
                 return false; // se c'e' una pedina nella prima o seconda cella non puo'
             return true;
         }
         if ((i == getY() + 1 && (j == getX() - 1 || j == getX() + 1))) // se nelle due celle diagonali
         {
-            if ((sca.getPedina(j, i)->getName() != 'e') && (sca.getPedina(j, i)->getColor())) // solo se c'e' una pedina bianca
+            if (!emptyBox(matrice, j, i) && (*matrice[j][i]).getColor()) // solo se c'e' una pedina bianca
                 return true;
             return false;
         }
@@ -61,14 +62,14 @@ bool Pedone::checkPos(int j, int i, Scacchiera &sca) // controlla se puo' muover
 }
 
 //_______________________________________CAVALLO___________________________________________
-bool Cavallo::move(int px, int py, Scacchiera &sca)
-{
-    return false;
-}
+// bool Cavallo::move(int px, int py, Scacchiera &sca)
+// {
+//     return false;
+// }
 
-bool Cavallo::checkPos(int j, int i, Scacchiera &sca) // si sposta a L in tutte le direzioni anche se ci sono pedine
-{                                                     // j colonne, i righe
-    sca.checkBoundaries(j, i);
+bool Cavallo::checkPos(int j, int i, Pedina *matrice[8][8]) // si sposta a L in tutte le direzioni anche se ci sono pedine
+{                                                           // j colonne, i righe
+    checkBoundaries(j, i);
     if (j == getX() && (i == getY() - 1 || i == getY() - 2 || i == getY() + 1 || i == getY() + 2))
         return true;
     else if (j == getX() - 1 && (i == getY() || i == getY() - 1 || i == getY() - 2 || i == getY() + 1 || i == getY() + 2))
@@ -83,17 +84,17 @@ bool Cavallo::checkPos(int j, int i, Scacchiera &sca) // si sposta a L in tutte 
 }
 
 //_______________________________________ALFIERE___________________________________________
-bool Alfiere::move(int px, int py, Scacchiera &sca)
-{
-    return false;
-}
+// bool Alfiere::move(int px, int py, Scacchiera &sca)
+// {
+//     return false;
+// }
 
-bool Alfiere::checkPos(int j, int i, Scacchiera &sca) // si muove nelle 4 diagonali
+bool Alfiere::checkPos(int j, int i, Pedina *matrice[8][8]) // si muove nelle 4 diagonali
 {
-    sca.checkBoundaries(j, i);
+    checkBoundaries(j, i);
     for (int n = 1; n < 8; n++) // diagonale nord-ovest
     {
-        if ((sca.getPedina(getX() - n, getY() - n)->getName() != 'e') && (sca.getPedina(getX() - n, getY() - n)->getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, getY() - n) && ((*matrice[getX() - n][getY() - n]).getColor() == getColor()))
             break; // se c'e' una pedina ed e' del suo colore non va oltre
         if (j == getX() - n && i == getY() - n)
         {
@@ -102,7 +103,7 @@ bool Alfiere::checkPos(int j, int i, Scacchiera &sca) // si muove nelle 4 diagon
     }
     for (int n = 1; n < 8; n++) // diagonale sud-ovest
     {
-        if ((sca.getPedina(getX() - n, getY() + n)->getName() != 'e') && (sca.getPedina(getX() - n, getY() + n)->getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, getY() + n) && ((*matrice[getX() - n][getY() + n]).getColor() == getColor()))
             break;
         if (j == getX() - n && i == getY() + n)
         {
@@ -111,7 +112,7 @@ bool Alfiere::checkPos(int j, int i, Scacchiera &sca) // si muove nelle 4 diagon
     }
     for (int n = 1; n < 8; n++) // diagonale sud-est
     {
-        if ((sca.getPedina(getX() + n, getY() + n)->getName() != 'e') && (sca.getPedina(getX() + n, getY() + n)->getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, getY() + n) && ((*matrice[getX() + n][getY() + n]).getColor() == getColor()))
             break;
         if (j == getX() + n && i == getY() + n)
         {
@@ -120,7 +121,7 @@ bool Alfiere::checkPos(int j, int i, Scacchiera &sca) // si muove nelle 4 diagon
     }
     for (int n = 1; n < 8; n++) // diagonale nord-est
     {
-        if ((sca.getPedina(getX() + n, getY() - n)->getName() != 'e') && (sca.getPedina(getX() + n, getY() - n)->getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, getY() - n) && ((*matrice[getX() + n][getY() - n]).getColor() == getColor()))
             break;
         if (j == getX() + n && i == getY() - n)
         {
@@ -131,19 +132,19 @@ bool Alfiere::checkPos(int j, int i, Scacchiera &sca) // si muove nelle 4 diagon
 }
 
 //_______________________________________TORRE___________________________________________
-bool Torre::move(int px, int py, Scacchiera &sca)
-{
-    return false;
-}
+// bool Torre::move(int px, int py, Scacchiera &sca)
+// {
+//     return false;
+// }
 
-bool Torre::checkPos(int j, int i, Scacchiera &sca)
+bool Torre::checkPos(int j, int i, Pedina *matrice[8][8])
 {
-    sca.checkBoundaries(j, i);
+    checkBoundaries(j, i);
     for (int n = 1; n < 8; n++) // sinistra
     {
         if (i != getY()) // se riga diversa non puo' essere a sx o dx
             break;
-        if ((sca.getPedina(getX() - n, i)->getName() != 'e') && (sca.getPedina(getX() - n, i)->getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, i) && ((*matrice[getX() - n][i]).getColor() == getColor()))
             break;
         if (j == getX() - n)
         {
@@ -154,7 +155,7 @@ bool Torre::checkPos(int j, int i, Scacchiera &sca)
     {
         if (i != getY())
             break;
-        if ((sca.getPedina(getX() + n, i)->getName() != 'e') && (sca.getPedina(getX() + n, i)->getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, i) && ((*matrice[getX() + n][i]).getColor() == getColor()))
             break;
         if (j == getX() + n)
         {
@@ -165,7 +166,7 @@ bool Torre::checkPos(int j, int i, Scacchiera &sca)
     {
         if (j != getX()) // se colonna diversa non puo' essere su o giu
             break;
-        if ((sca.getPedina(j, getY() - n)->getName() != 'e') && (sca.getPedina(j, getY() - n)->getColor() == getColor()))
+        if (!emptyBox(matrice, j, getY() - n) && ((*matrice[j][getY() - n]).getColor() == getColor()))
             break;
         if (i == getY() - n)
         {
@@ -176,7 +177,7 @@ bool Torre::checkPos(int j, int i, Scacchiera &sca)
     {
         if (j != getX())
             break;
-        if ((sca.getPedina(j, getY() + n)->getName() != 'e') && (sca.getPedina(j, getY() + n)->getColor() == getColor()))
+        if (!emptyBox(matrice, j, getY() + n) && ((*matrice[j][getY() + n]).getColor() == getColor()))
             break;
         if (i == getY() + n)
         {
@@ -187,49 +188,49 @@ bool Torre::checkPos(int j, int i, Scacchiera &sca)
 }
 
 //_______________________________________RE___________________________________________
-bool Re::move(int px, int py, Scacchiera &sca)
-{
-    return false;
-}
+// bool Re::move(int px, int py, Scacchiera &sca)
+// {
+//     return false;
+// }
 
-bool Re::checkPos(int j, int i, Scacchiera &sca)
+bool Re::checkPos(int j, int i, Pedina *matrice[8][8])
 {
-    sca.checkBoundaries(j, i);
+    checkBoundaries(j, i);
     if (j == getX() && (i == getY() - 1 || i == getY() + 1))
     {
-        if ((sca.getPedina(j, i)->getName() != 'e') && (sca.getPedina(j, i)->getColor() == getColor()))
+        if (!emptyBox(matrice, j, i) && ((*matrice[j][i]).getColor() == getColor()))
             return false;
         return true;
     }
     else if (j == getX() - 1 && (i == getY() || i == getY() - 1 || i == getY() + 1))
     {
-        if (((*sca.getPedina(j, i)).getName() != 'e') && ((*sca.getPedina(j, i)).getColor() == getColor()))
+        if (!emptyBox(matrice, j, i) && ((*matrice[j][i]).getColor() == getColor()))
             return false;
         return true;
     }
     else if (j == getX() + 1 && (i == getY() || i == getY() - 1 || i == getY() + 1))
     {
-        if (((*sca.getPedina(j, i)).getName() != 'e') && ((*sca.getPedina(j, i)).getColor() == getColor()))
+        if (!emptyBox(matrice, j, i) && ((*matrice[j][i]).getColor() == getColor()))
             return false;
         return true;
     }
     return false;
 }
 
-//_______________________________________REGINA___________________________________________
-bool Regina::move(int px, int py, Scacchiera &sca)
-{
-    return false;
-}
+// //_______________________________________REGINA___________________________________________
+// bool Regina::move(int px, int py, Scacchiera &sca)
+// {
+//     return false;
+// }
 
-bool Regina::checkPos(int j, int i, Scacchiera &sca)
+bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
 {
-    sca.checkBoundaries(j, i);
+    checkBoundaries(j, i);
     for (int n = 1; n < 8; n++) // sinistra
     {
         if (i != getY()) // se riga diversa non puo' essere a sx o dx
             break;
-        if (((*sca.getPedina(getX() - n, i)).getName() != 'e') && ((*sca.getPedina(getX() - n, i)).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, i) && ((*matrice[getX() - n][i]).getColor() == getColor()))
             break;
         if (j == getX() - n)
         {
@@ -240,7 +241,7 @@ bool Regina::checkPos(int j, int i, Scacchiera &sca)
     {
         if (i != getY())
             break;
-        if (((*sca.getPedina(getX() + n, i)).getName() != 'e') && ((*sca.getPedina(getX() + n, i)).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, i) && ((*matrice[getX() + n][i]).getColor() == getColor()))
             break;
         if (j == getX() + n)
         {
@@ -251,7 +252,7 @@ bool Regina::checkPos(int j, int i, Scacchiera &sca)
     {
         if (j != getX()) // se colonna diversa non puo' essere su o giu
             break;
-        if (((*sca.getPedina(j, getY() - n)).getName() != 'e') && ((*sca.getPedina(j, getY() - n)).getColor() == getColor()))
+        if (!emptyBox(matrice, j, getY() - n) && ((*matrice[j][getY() - n]).getColor() == getColor()))
             break;
         if (i == getY() - n)
         {
@@ -262,7 +263,7 @@ bool Regina::checkPos(int j, int i, Scacchiera &sca)
     {
         if (j != getX())
             break;
-        if (((*sca.getPedina(j, getY() + n)).getName() != 'e') && ((*sca.getPedina(j, getY() + n)).getColor() == getColor()))
+        if (!emptyBox(matrice, j, getY() + n) && ((*matrice[j][getY() + n]).getColor() == getColor()))
             break;
         if (i == getY() + n)
         {
@@ -271,8 +272,8 @@ bool Regina::checkPos(int j, int i, Scacchiera &sca)
     }
     for (int n = 1; n < 8; n++) // diagonale nord-ovest
     {
-        if (((*sca.getPedina(getX() - n, getY() - n)).getName() != 'e') && ((*sca.getPedina(getX() - n, getY() - n)).getColor() == getColor()))
-            break;
+        if (!emptyBox(matrice, getX() - n, getY() - n) && ((*matrice[getX() - n][getY() - n]).getColor() == getColor()))
+            break; // se c'e' una pedina ed e' del suo colore non va oltre
         if (j == getX() - n && i == getY() - n)
         {
             return true;
@@ -280,7 +281,7 @@ bool Regina::checkPos(int j, int i, Scacchiera &sca)
     }
     for (int n = 1; n < 8; n++) // diagonale sud-ovest
     {
-        if (((*sca.getPedina(getX() - n, getY() + n)).getName() != 'e') && ((*sca.getPedina(getX() - n, getY() + n)).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() - n, getY() + n) && ((*matrice[getX() - n][getY() + n]).getColor() == getColor()))
             break;
         if (j == getX() - n && i == getY() + n)
         {
@@ -289,7 +290,7 @@ bool Regina::checkPos(int j, int i, Scacchiera &sca)
     }
     for (int n = 1; n < 8; n++) // diagonale sud-est
     {
-        if (((*sca.getPedina(getX() + n, getY() + n)).getName() != 'e') && ((*sca.getPedina(getX() + n, getY() + n)).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, getY() + n) && ((*matrice[getX() + n][getY() + n]).getColor() == getColor()))
             break;
         if (j == getX() + n && i == getY() + n)
         {
@@ -298,7 +299,7 @@ bool Regina::checkPos(int j, int i, Scacchiera &sca)
     }
     for (int n = 1; n < 8; n++) // diagonale nord-est
     {
-        if (((*sca.getPedina(getX() + n, getY() - n)).getName() != 'e') && ((*sca.getPedina(getX() + n, getY() - n)).getColor() == getColor()))
+        if (!emptyBox(matrice, getX() + n, getY() - n) && ((*matrice[getX() + n][getY() - n]).getColor() == getColor()))
             break;
         if (j == getX() + n && i == getY() - n)
         {
@@ -306,4 +307,17 @@ bool Regina::checkPos(int j, int i, Scacchiera &sca)
         }
     }
     return false;
+}
+
+//-------------------------------------------- HELPER FUNCTIONS --------------------------------------------
+
+void checkBoundaries(int i, int j)
+{
+    if (i < 0 || i > 8 || j < 0 || j > 8)
+        throw InvalidIndex();
+}
+
+bool emptyBox(Pedina *matrice[8][8], int x, int y)
+{
+    return matrice[x][y] == nullptr;
 }
