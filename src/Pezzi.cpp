@@ -281,7 +281,7 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
 
 bool checkBoundaries(int j, int i)
 {
-    return (i >= 0 || i <= 7 || j >= 0 || j <= 7);
+    return (i >= 0 && i <= 7 && j >= 0 && j <= 7);
 }
 
 bool emptyBox(Pedina *matrice[8][8], int x, int y)

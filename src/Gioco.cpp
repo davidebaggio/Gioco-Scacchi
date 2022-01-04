@@ -67,8 +67,8 @@ int main(int argc, char *argv[])
     srand(time(NULL));
     // using namespace std::this_thread; // sleep_for
     using namespace std::chrono; // seconds
-    // if (argc <= 1)
-    if (false)
+    if (argc <= 1)
+    /* if (false) */
     {
         cout << "[Error] Not enough arguments. Type: " << endl
              << "\t -pc: to play vs computer." << endl
@@ -76,16 +76,16 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    // else if (strcmp(argv[1], "-pc") != 0 && strcmp(argv[1], "-cc") != 0) //<----------------------------------------------------
-    else if (false)
+    else if (strcmp(argv[1], "-pc") != 0 && strcmp(argv[1], "-cc") != 0) //<----------------------------------------------------
+    // else if (false)
     {
         cout << "[Error] Incorrect arguments. Type: " << endl
              << "\t -pc: to play vs computer." << endl
              << "\t -cc: to watch a match computer vs computer." << endl;
         return 0;
     }
-    // else if (strcmp(argv[1], "-pc") == 0) //<----------------------------------------------------
-    else if (true)
+    else if (strcmp(argv[1], "-pc") == 0) //<----------------------------------------------------
+    // else if (false)
     {
         cout << "Partita giocatore (Bianco) vs computer (Nero)\n";
         cout << "Per giocare inserire la posizione di cella iniziale e finale separati da uno spazio. Es: A2 C3\n";
@@ -187,7 +187,7 @@ int main(int argc, char *argv[])
                     else
                         c1 = (char)(rand() % 8 + 49);
                     if (i != 2)
-                        commandPC2 += to_string(c1);
+                        commandPC2 += c1;
                     else
                         commandPC2 += " ";
                 }

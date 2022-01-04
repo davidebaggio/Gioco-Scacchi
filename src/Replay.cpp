@@ -24,16 +24,19 @@ int main(int argc, char *argv[])
 	// using namespace std::this_thread; // sleep_for
 	using namespace std::chrono; // seconds
 
-	if (argc <= 1 || argc > 3)
+	// if (argc <= 1 || argc > 3)
+	if (false)
 	{
 		cout << "[Error] Incorrect arguments. Type: " << endl
 			 << "\t [input_file_name]: to watch the replay of the match." << endl
 			 << "\t [input_file_name] [output_file_name]: to watch the replay on the output file." << endl;
 		return 0;
 	}
-	else if (argc == 2)
+	// else if (argc == 2)
+	else if (true)
 	{
-		ifstream inputFile(argv[1]);
+		// ifstream inputFile(argv[1]);
+		ifstream inputFile("output.txt");
 		if (!inputFile.is_open())
 		{
 			cout << "[Error] File = " << argv[1] << " not found\n";
@@ -42,7 +45,7 @@ int main(int argc, char *argv[])
 		else
 		{
 			cout << "Replay on command prompt\n";
-			Scacchiera s = Scacchiera();
+			Scacchiera s{};
 			cout << "Scacchiera iniziale: \n"
 				 << s << "\n";
 			string command;
@@ -80,7 +83,7 @@ int main(int argc, char *argv[])
 		{
 			outputFile.clear();
 			cout << "Replay on [file] = " << argv[2];
-			Scacchiera s = Scacchiera();
+			Scacchiera s{};
 			outputFile << "Scacchiera iniziale: \n"
 					   << s << "\n";
 			string command;
