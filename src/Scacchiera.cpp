@@ -118,7 +118,7 @@ void Scacchiera::move(Pedina *p, int j, int i)
 
 	if (!isEmpty(j, i)) // dealloca memoria della pedina mangiata
 	{
-		cout << "Pedina : " << matrice[j][i]->getName() << " mangiata\n";
+		cout << "Pedina : " << getPedina(j, i)->getName() << " mangiata\n";
 		delete matrice[j][i];
 	}
 
@@ -129,249 +129,84 @@ void Scacchiera::move(Pedina *p, int j, int i)
 
 	matrice[j][i] = p;		 // aggiorna matrice
 	matrice[x][y] = nullptr; // libera cella di partenza
+
+	p->increaseCount();
 }
 
-bool Scacchiera::isScacco()
+int Scacchiera::isScacco()
 {
-	int reBianco[2];
-	int reNero[2];
-
-	/* for (int i = 0; i < 8; i++) // trova posizioni re
-	{
-		for (int j = 0; j < 8; j++)
-		{
-			if (getPedina(j, i)->getName() == 'r') // re bianco
-			{
-				reBianco[0] = j;
-				reBianco[1] = i;
-			}
-			if (getPedina(j, i)->getName() == 'R') // re nero
-			{
-				reNero[0] = j;
-				reNero[1] = i;
-			}
-		}
-	}
-
-	bool scacco = false;
-
-	for (int i = 0; i < 8; i++)
-	{
-		for (int j = 0; j < 8; j++)
-		{
-			Pedina *p = getPedina(j, i);
-
-			if (p != nullptr && p->getColor()) // se c'e' una pedina ed e' bianca
-			{
-				scacco = p->checkPos(reNero[0], reNero[1], matrice);
-			}
-			if (p != nullptr && !p->getColor()) // se c'e' una pedina ed e' nera
-			{
-				scacco = p->checkPos(reBianco[0], reBianco[1], matrice);
-			}
-		}
-	} */
-	return false;
-}
-
-bool Scacchiera::isScaccoMatto()
-{
-	if (!isScacco())
-		return false;
-
-	/* int reBianco[2];
-	int reNero[2];
+	int reBiancoX, reBiancoY;
+	int reNeroX, reNeroY;
 
 	for (int i = 0; i < 8; i++) // trova posizioni re
 	{
 		for (int j = 0; j < 8; j++)
 		{
-			if ((*getPedina(j, i)).getName() == 'r') // re bianco
+			if (!isEmpty(j, i))
 			{
-				reBianco[0] = j;
-				reBianco[1] = i;
-			}
-			if ((*getPedina(j, i)).getName() == 'R') // re nero
-			{
-				reNero[0] = j;
-				reNero[1] = i;
+				if (getPedina(j, i)->getName() == 'r') // re bianco
+				{
+					reBiancoX = j;
+					reBiancoY = i;
+				}
+				if (getPedina(j, i)->getName() == 'R') // re nero
+				{
+					reNeroX = j;
+					reNeroY = i;
+				}
 			}
 		}
-	} */
+	}
 
-	// 	// ------------------------------- controllo scacco re bianco (provo a muovere re in tutte le direzioni)-------------------------------
-	// 	bool posValidaBianco = false;
-	// 	try
-	// 	{
-	// 		(*getPedina(reBianco[0], reBianco[1])).move(reBianco[0], reBianco[1] - 1, *this); // su
-	// 		(*getPedina(reBianco[0], reBianco[1] - 1)).move(reBianco[0], reBianco[1], *this); // torna
-	// 		posValidaBianco = true;														   // esiste posizione valida
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e) // ignora eccezioni ma posValida rimane false
-	// 	{
-	// 	}
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			if (!isEmpty(j, i))
+			{
+				Pedina *p = getPedina(j, i);
 
-	// 	try
-	// 	{
-	// 		(*getPedina(reBianco[0], reBianco[1])).move(reBianco[0] + 1, reBianco[1] - 1, *this); // su dx
-	// 		(*getPedina(reBianco[0] + 1, reBianco[1] - 1)).move(reBianco[0], reBianco[1], *this); // torna
-	// 		posValidaBianco = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
+				if (p->getColor()) // se c'e' una pedina ed e' bianca
+				{
+					if (p->checkPos(reNeroX, reNeroY, matrice)) // scacco al nero
+						return 2;
+				}
+				if (!p->getColor()) // se c'e' una pedina ed e' nera
+				{
+					if (p->checkPos(reBiancoX, reBiancoY, matrice)) // scacco al bianco
+						return 1;
+				}
+			}
+		}
+	}
+	return 0; // nessuno scacco
+}
 
-	// 	try
-	// 	{
-	// 		(*getPedina(reBianco[0], reBianco[1])).move(reBianco[0] + 1, reBianco[1], *this); // dx
-	// 		(*getPedina(reBianco[0] + 1, reBianco[1])).move(reBianco[0], reBianco[1], *this); // torna
-	// 		posValidaBianco = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
+int Scacchiera::isScaccoMatto()
+{
+	if (isScacco() != 0)
+	{
+		if (hasValidPositions() == 2) // bianco non ha pos valide
+			return 1;				  // scacco matto al bianco
 
-	// 	try
-	// 	{
-	// 		(*getPedina(reBianco[0], reBianco[1])).move(reBianco[0] + 1, reBianco[1] + 1, *this); // giu dx
-	// 		(*getPedina(reBianco[0] + 1, reBianco[1] + 1)).move(reBianco[0], reBianco[1], *this); // torna
-	// 		posValidaBianco = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
+		else if (hasValidPositions() == 1) // nero non ha pos valide
+			return 2;					   // scacco matto al nero
 
-	// 	try
-	// 	{
-	// 		(*getPedina(reBianco[0], reBianco[1])).move(reBianco[0], reBianco[1] + 1, *this); // giu
-	// 		(*getPedina(reBianco[0], reBianco[1] + 1)).move(reBianco[0], reBianco[1], *this); // torna
-	// 		posValidaBianco = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
+		else // scacco non matto
+			return 0;
+	}
 
-	// 	try
-	// 	{
-	// 		(*getPedina(reBianco[0], reBianco[1])).move(reBianco[0] - 1, reBianco[1] + 1, *this); // giu sx
-	// 		(*getPedina(reBianco[0] - 1, reBianco[1] + 1)).move(reBianco[0], reBianco[1], *this); // torna
-	// 		posValidaBianco = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
+	return 0; // se non e' scacco
+}
 
-	// 	try
-	// 	{
-	// 		(*getPedina(reBianco[0], reBianco[1])).move(reBianco[0] - 1, reBianco[1], *this); // sx
-	// 		(*getPedina(reBianco[0] - 1, reBianco[1])).move(reBianco[0], reBianco[1], *this); // torna
-	// 		posValidaBianco = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-
-	// 	try
-	// 	{
-	// 		(*getPedina(reBianco[0], reBianco[1])).move(reBianco[0] - 1, reBianco[1] - 1, *this); // su sx
-	// 		(*getPedina(reBianco[0] - 1, reBianco[1] - 1)).move(reBianco[0], reBianco[1], *this); // torna
-	// 		posValidaBianco = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-
-	// 	// ---------------------------------------------- controllo scaccomatto re nero ----------------------------------------------
-	// 	bool posValidaNero = false;
-
-	// 	try
-	// 	{
-	// 		(*getPedina(reNero[0], reNero[1])).move(reNero[0], reNero[1] - 1, *this); // su
-	// 		(*getPedina(reNero[0], reNero[1] - 1)).move(reNero[0], reNero[1], *this); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*getPedina(reNero[0], reNero[1])).move(reNero[0] + 1, reNero[1] - 1, *this); // su dx
-	// 		(*getPedina(reNero[0] + 1, reNero[1] - 1)).move(reNero[0], reNero[1], *this); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*getPedina(reNero[0], reNero[1])).move(reNero[0] + 1, reNero[1], *this); // dx
-	// 		(*getPedina(reNero[0] + 1, reNero[1])).move(reNero[0], reNero[1], *this); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*getPedina(reNero[0], reNero[1])).move(reNero[0] + 1, reNero[1] + 1, *this); // giu dx
-	// 		(*getPedina(reNero[0] + 1, reNero[1] + 1)).move(reNero[0], reNero[1], *this); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*getPedina(reNero[0], reNero[1])).move(reNero[0], reNero[1] + 1, *this); // giu
-	// 		(*getPedina(reNero[0], reNero[1] + 1)).move(reNero[0], reNero[1], *this); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*getPedina(reNero[0], reNero[1])).move(reNero[0] - 1, reNero[1] + 1, *this); // giu sx
-	// 		(*getPedina(reNero[0] - 1, reNero[1] + 1)).move(reNero[0], reNero[1], *this); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*getPedina(reNero[0], reNero[1])).move(reNero[0] - 1, reNero[1], *this); // sx
-	// 		(*getPedina(reNero[0] - 1, reNero[1])).move(reNero[0], reNero[1], *this); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*getPedina(reNero[0], reNero[1])).move(reNero[0] - 1, reNero[1] - 1, *this); // su sx
-	// 		(*getPedina(reNero[0] - 1, reNero[1] - 1)).move(reNero[0], reNero[1], *this); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-
-	// 	if (posValidaBianco || posValidaNero) // se esiste almeno una pos valida NON e' scacco matto
-	// 	{
-	// 		return false;
-	// 	}
-
-	// 	return true;
-	// }
-
-	// bool Scacchiera::isPatta()
-	// {
-	// 	ifstream input("output.txt");
-
-	// 	// se il re non ha posizioni valide per muoversi ma NON e' scacco
-
+bool Scacchiera::isPatta()
+{
+	if (isScacco() == 0 && hasValidPositions() != 0) // se non è scacco e uno dei due non ha pos valide
+	{
+		return true;
+	}
 	return false;
+	// da finire (tre mosse ripetute) <---------------------------------
 }
 
 bool Scacchiera::KingsHaveValidPositions()
@@ -380,7 +215,7 @@ bool Scacchiera::KingsHaveValidPositions()
 	int reBiancoX, reBiancoY;
 	int reNeroX, reNeroY;
 
-	/* for (int i = 0; i < 8; i++) // trova posizioni re
+	for (int i = 0; i < 8; i++) // trova posizioni re
 	{
 		for (int j = 0; j < 8; j++)
 		{
@@ -395,176 +230,226 @@ bool Scacchiera::KingsHaveValidPositions()
 				reNeroY = i;
 			}
 		}
-	} */
+	}
 
 	// ------------------------------- controllo posizioni valide re bianco (provo a muovere re in tutte le direzioni)-------------------------------
-	// bool posValidaBianco = false;
-	// try
-	// {
-	// 	move((*getPedina(reBiancoX,reBiancoY)), reBiancoX, reBiancoY-1)
-	// 	(*s.getPedina(reBianco[0], reBianco[1])).move(reBianco[0], reBianco[1] - 1, s); // su
-	// 	(*s.getPedina(reBianco[0], reBianco[1] - 1)).move(reBianco[0], reBianco[1], s); // torna
-	// 	posValidaBianco = true;														 // esiste posizione valida
-	// }
-	// catch (const Pedina::InvalidPosition &e) // ignora eccezioni ma posValida rimane false
-	// {
-	// }
+	bool posValidaBianco = false;
+	try
+	{
+		move((getPedina(reBiancoX, reBiancoY)), reBiancoX, reBiancoY - 1); // su
+		move((getPedina(reBiancoX, reBiancoY - 1)), reBiancoX, reBiancoY); // torna
+		posValidaBianco = true;											   // esiste posizione valida
+	}
+	catch (const InvalidPosition &e) // ignora eccezioni ma posValida rimane false
+	{
+	}
 
-	// try
-	// {
-	// 	(*s.getPedina(reBianco[0], reBianco[1])).move(reBianco[0] + 1, reBianco[1] - 1, s); // su dx
-	// 	(*s.getPedina(reBianco[0] + 1, reBianco[1] - 1)).move(reBianco[0], reBianco[1], s); // torna
-	// 	posValidaBianco = true;
-	// }
-	// catch (const Pedina::InvalidPosition &e)
-	// {
-	// }
+	try
+	{
+		move((getPedina(reBiancoX, reBiancoY)), reBiancoX + 1, reBiancoY - 1); // su dx
+		move((getPedina(reBiancoX + 1, reBiancoY - 1)), reBiancoX, reBiancoY); // torna
+		posValidaBianco = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
 
-	// try
-	// {
-	// 	(*s.getPedina(reBianco[0], reBianco[1])).move(reBianco[0] + 1, reBianco[1], s); // dx
-	// 	(*s.getPedina(reBianco[0] + 1, reBianco[1])).move(reBianco[0], reBianco[1], s); // torna
-	// 	posValidaBianco = true;
-	// }
-	// catch (const Pedina::InvalidPosition &e)
-	// {
-	// }
+	try
+	{
+		move((getPedina(reBiancoX, reBiancoY)), reBiancoX + 1, reBiancoY); // dx
+		move((getPedina(reBiancoX + 1, reBiancoY)), reBiancoX, reBiancoY); // torna
+		posValidaBianco = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
 
-	// try
-	// {
-	// 	(*s.getPedina(reBianco[0], reBianco[1])).move(reBianco[0] + 1, reBianco[1] + 1, s); // giu dx
-	// 	(*s.getPedina(reBianco[0] + 1, reBianco[1] + 1)).move(reBianco[0], reBianco[1], s); // torna
-	// 	posValidaBianco = true;
-	// }
-	// catch (const Pedina::InvalidPosition &e)
-	// {
-	// }
+	try
+	{
+		move((getPedina(reBiancoX, reBiancoY)), reBiancoX + 1, reBiancoY + 1); // giu dx
+		move((getPedina(reBiancoX + 1, reBiancoY + 1)), reBiancoX, reBiancoY); // torna
+		posValidaBianco = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
 
-	// try
-	// {
-	// 	(*s.getPedina(reBianco[0], reBianco[1])).move(reBianco[0], reBianco[1] + 1, s); // giu
-	// 	(*s.getPedina(reBianco[0], reBianco[1] + 1)).move(reBianco[0], reBianco[1], s); // torna
-	// 	posValidaBianco = true;
-	// }
-	// catch (const Pedina::InvalidPosition &e)
-	// {
-	// }
+	try
+	{
+		move((getPedina(reBiancoX, reBiancoY)), reBiancoX, reBiancoY + 1); // giu
+		move((getPedina(reBiancoX, reBiancoY + 1)), reBiancoX, reBiancoY); // torna
+		posValidaBianco = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
 
-	// try
-	// {
-	// 	(*s.getPedina(reBianco[0], reBianco[1])).move(reBianco[0] - 1, reBianco[1] + 1, s); // giu sx
-	// 	(*s.getPedina(reBianco[0] - 1, reBianco[1] + 1)).move(reBianco[0], reBianco[1], s); // torna
-	// 	posValidaBianco = true;
-	// }
-	// catch (const Pedina::InvalidPosition &e)
-	// {
-	// }
+	try
+	{
+		move((getPedina(reBiancoX, reBiancoY)), reBiancoX - 1, reBiancoY - 1); // giu sx
+		move((getPedina(reBiancoX - 1, reBiancoY - 1)), reBiancoX, reBiancoY); // torna
+		posValidaBianco = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
 
-	// try
-	// {
-	// 	(*s.getPedina(reBianco[0], reBianco[1])).move(reBianco[0] - 1, reBianco[1], s); // sx
-	// 	(*s.getPedina(reBianco[0] - 1, reBianco[1])).move(reBianco[0], reBianco[1], s); // torna
-	// 	posValidaBianco = true;
-	// }
-	// catch (const Pedina::InvalidPosition &e)
-	// {
-	// }
+	try
+	{
+		move((getPedina(reBiancoX, reBiancoY)), reBiancoX - 1, reBiancoY); // sx
+		move((getPedina(reBiancoX - 1, reBiancoY)), reBiancoX, reBiancoY); // torna
+		posValidaBianco = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
 
-	// try
-	// {
-	// 	(*s.getPedina(reBianco[0], reBianco[1])).move(reBianco[0] - 1, reBianco[1] - 1, s); // su sx
-	// 	(*s.getPedina(reBianco[0] - 1, reBianco[1] - 1)).move(reBianco[0], reBianco[1], s); // torna
-	// 	posValidaBianco = true;
-	// }
-	// catch (const Pedina::InvalidPosition &e)
-	// {
-	// }
+	try
+	{
+		move((getPedina(reBiancoX, reBiancoY)), reBiancoX - 1, reBiancoY - 1); // su sx
+		move((getPedina(reBiancoX - 1, reBiancoY - 1)), reBiancoX, reBiancoY); // torna
+		posValidaBianco = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
 
 	// 	// ---------------------------------------------- controllo posizioni valide re nero ----------------------------------------------
-	// 	bool posValidaNero = false;
+	bool posValidaNero = false;
 
-	// 	try
-	// 	{
-	// 		(*s.getPedina(reNero[0], reNero[1])).move(reNero[0], reNero[1] - 1, s); // su
-	// 		(*s.getPedina(reNero[0], reNero[1] - 1)).move(reNero[0], reNero[1], s); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*s.getPedina(reNero[0], reNero[1])).move(reNero[0] + 1, reNero[1] - 1, s); // su dx
-	// 		(*s.getPedina(reNero[0] + 1, reNero[1] - 1)).move(reNero[0], reNero[1], s); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*s.getPedina(reNero[0], reNero[1])).move(reNero[0] + 1, reNero[1], s); // dx
-	// 		(*s.getPedina(reNero[0] + 1, reNero[1])).move(reNero[0], reNero[1], s); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*s.getPedina(reNero[0], reNero[1])).move(reNero[0] + 1, reNero[1] + 1, s); // giu dx
-	// 		(*s.getPedina(reNero[0] + 1, reNero[1] + 1)).move(reNero[0], reNero[1], s); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*s.getPedina(reNero[0], reNero[1])).move(reNero[0], reNero[1] + 1, s); // giu
-	// 		(*s.getPedina(reNero[0], reNero[1] + 1)).move(reNero[0], reNero[1], s); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*s.getPedina(reNero[0], reNero[1])).move(reNero[0] - 1, reNero[1] + 1, s); // giu sx
-	// 		(*s.getPedina(reNero[0] - 1, reNero[1] + 1)).move(reNero[0], reNero[1], s); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*s.getPedina(reNero[0], reNero[1])).move(reNero[0] - 1, reNero[1], s); // sx
-	// 		(*s.getPedina(reNero[0] - 1, reNero[1])).move(reNero[0], reNero[1], s); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
-	// 	try
-	// 	{
-	// 		(*s.getPedina(reNero[0], reNero[1])).move(reNero[0] - 1, reNero[1] - 1, s); // su sx
-	// 		(*s.getPedina(reNero[0] - 1, reNero[1] - 1)).move(reNero[0], reNero[1], s); // torna
-	// 		posValidaNero = true;
-	// 	}
-	// 	catch (const Pedina::InvalidPosition &e)
-	// 	{
-	// 	}
+	try
+	{
+		move((getPedina(reNeroX, reNeroY)), reNeroX, reNeroY - 1); // su
+		move((getPedina(reNeroX, reNeroY - 1)), reNeroX, reNeroY); // torna
+		posValidaNero = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
+	try
+	{
+		move((getPedina(reNeroX, reNeroY)), reNeroX + 1, reNeroY - 1); // su dx
+		move((getPedina(reNeroX + 1, reNeroY - 1)), reNeroX, reNeroY); // torna
+		posValidaNero = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
+	try
+	{
+		move((getPedina(reNeroX, reNeroY)), reNeroX + 1, reNeroY); // dx
+		move((getPedina(reNeroX + 1, reNeroY)), reNeroX, reNeroY); // torna
+		posValidaNero = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
+	try
+	{
+		move((getPedina(reNeroX, reNeroY)), reNeroX + 1, reNeroY + 1); // giu dx
+		move((getPedina(reNeroX + 1, reNeroY + 1)), reNeroX, reNeroY); // torna
+		posValidaNero = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
+	try
+	{
+		move((getPedina(reNeroX, reNeroY)), reNeroX, reNeroY + 1); // giu
+		move((getPedina(reNeroX, reNeroY + 1)), reNeroX, reNeroY); // torna
+		posValidaNero = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
+	try
+	{
+		move((getPedina(reNeroX, reNeroY)), reNeroX - 1, reNeroY + 1); // giu sx
+		move((getPedina(reNeroX - 1, reNeroY + 1)), reNeroX, reNeroY); // torna
+		posValidaNero = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
+	try
+	{
+		move((getPedina(reNeroX, reNeroY)), reNeroX - 1, reNeroY); // sx
+		move((getPedina(reNeroX - 1, reNeroY)), reNeroX, reNeroY); // torna
+		posValidaNero = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
+	try
+	{
+		move((getPedina(reNeroX, reNeroY)), reNeroX - 1, reNeroY - 1); // su sx
+		move((getPedina(reNeroX - 1, reNeroY - 1)), reNeroX, reNeroY); // torna
+		posValidaNero = true;
+	}
+	catch (const InvalidPosition &e)
+	{
+	}
 
-	// 	if (posValidaBianco || posValidaNero) // se esiste almeno una pos valida
-	// 	{
-	// 		return true;
-	// 	}
+	if (posValidaBianco || posValidaNero) // se esiste almeno una pos valida
+	{
+		return true;
+	}
 
 	return true;
 }
 
-bool Scacchiera::isPatta()
+int Scacchiera::hasValidPositions()
 {
-	return false;
+	// esamina ogni pedina
+	bool biancoHasPosition;
+	bool neroHasPosition;
+
+	for (int i = 0; i < 8; i++)
+	{
+		for (int j = 0; j < 8; j++)
+		{
+			if (!isEmpty(j, i))
+			{
+				Pedina *p = matrice[j][i];
+				// prova tutti i movimenti della pedina esaminata e vede se è scacco
+				for (int y = 0; y < 8; y++)
+				{
+					for (int x = 0; x < 8; x++)
+					{
+						if (p->getColor()) // se è bianca
+						{
+							Pedina *temp = matrice[x][y];
+							// prova movimento (NON si puo fare move perche mangerebbe le pedine)
+							matrice[x][y] = matrice[j][i];
+							matrice[j][i] = nullptr;
+							biancoHasPosition = (isScacco() != 1);
+							// torna indietro
+							matrice[j][i] = matrice[x][y];
+							matrice[x][y] = temp;
+						}
+
+						if (!p->getColor()) // se è nera
+						{
+							Pedina *temp = matrice[x][y];
+							// prova movimento (NON si puo fare move perche mangerebbe le pedine)
+							matrice[x][y] = matrice[j][i];
+							matrice[j][i] = nullptr;
+							neroHasPosition = (isScacco() != 2);
+							// torna indietro
+							matrice[j][i] = matrice[x][y];
+							matrice[x][y] = temp;
+						}
+					}
+				}
+			}
+		}
+	}
+	if (neroHasPosition && biancoHasPosition)
+		return 0;
+	else if (!neroHasPosition && biancoHasPosition)
+		return 1;
+	else if (neroHasPosition && !biancoHasPosition)
+		return 2;
+	else
+		return 3;
 }

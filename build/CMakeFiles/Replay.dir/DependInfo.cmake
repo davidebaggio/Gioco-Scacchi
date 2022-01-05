@@ -8,13 +8,13 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/Davide Baggio/Desktop/Programmazione/Gioco-Scacchi/src/Replay.cpp" "CMakeFiles/Replay.dir/src/Replay.cpp.obj" "gcc" "CMakeFiles/Replay.dir/src/Replay.cpp.obj.d"
+  "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Replay.cpp" "CMakeFiles/Replay.dir/src/Replay.cpp.obj" "gcc" "CMakeFiles/Replay.dir/src/Replay.cpp.obj.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "C:/Users/Davide Baggio/Desktop/Programmazione/Gioco-Scacchi/build/CMakeFiles/ScacchieraL.dir/DependInfo.cmake"
-  "C:/Users/Davide Baggio/Desktop/Programmazione/Gioco-Scacchi/build/CMakeFiles/PedinaL.dir/DependInfo.cmake"
+  "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build/CMakeFiles/ScacchieraL.dir/DependInfo.cmake"
+  "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build/CMakeFiles/PedinaL.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

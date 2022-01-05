@@ -19,10 +19,8 @@ Pedina::Pedina(int l, int n, bool c, char na)
 	y = n;
 	color = c;
 	setName(na);
-	firstMove = true;
+	moveCount = 0;
 }
-
-
 
 /* Pedina::Pedina(const Pedina &ped)
 {

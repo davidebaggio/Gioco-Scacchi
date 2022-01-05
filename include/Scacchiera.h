@@ -17,7 +17,7 @@ private:
 	int y;
 	bool color;
 	char name;
-	bool firstMove;
+	int moveCount;
 
 public:
 	// Pedina();
@@ -31,7 +31,8 @@ public:
 	void setColor(bool);
 	void setName(const char &n);
 	char getName() const { return name; }
-	bool isFirstMove() { return firstMove; }
+	int getMoveCount() const { return moveCount; }
+	void increaseCount() { moveCount++; }
 
 	// virtual bool move(int, int, Scacchiera &);
 	virtual bool checkPos(int destX, int destY, Pedina *matrice[8][8]) = 0;
@@ -49,6 +50,10 @@ private:
 	Pedina *matrice[8][8];
 
 	bool KingsHaveValidPositions();
+	int hasValidPositions(); // 0 se entrambi hanno pos valide
+							 // 1 se bianco ha pos valida e nero no
+							 // 2 se nero ha pos valida e bianco no
+							 // 3 se nessuno ha pos valide
 
 public:
 	Scacchiera();
@@ -62,9 +67,12 @@ public:
 
 	void move(Pedina *p, int destX, int destY);
 
-	bool isScacco();
-	bool isScaccoMatto();
+	// ritornano 0 se non e' scacco, 1 se bianco e' sotto scacco, 2 se nero e' sotto scacco
+	int isScacco();
+	int isScaccoMatto();
 	bool isPatta();
+
+	// MOSSE SPECIALI
 };
 
 ostream &operator<<(ostream &os, const Scacchiera &);

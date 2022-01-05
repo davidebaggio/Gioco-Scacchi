@@ -17,7 +17,7 @@ bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' 
                 return false;
             return true;
         }
-        if (isFirstMove() && j == getX() && i == getY() - 2) // se prima mossa e avanti di 2
+        if ((getMoveCount() == 0) && j == getX() && i == getY() - 2) // se prima mossa e avanti di 2
         {
             if (!emptyBox(matrice, j, i) || !emptyBox(matrice, j, getY() - 1))
                 return false; // se c'e' una pedina nella prima o seconda cella non puo'
@@ -38,7 +38,7 @@ bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' 
                 return false;
             return true;
         }
-        if (isFirstMove() && j == getX() && i == getY() + 2) // se prima mossa e avanti di 2
+        if ((getMoveCount() == 0) && j == getX() && i == getY() + 2) // se prima mossa e avanti di 2
         {
             if (!emptyBox(matrice, j, i) || !emptyBox(matrice, j, getY() + 1))
                 return false; // se c'e' una pedina nella prima o seconda cella non puo'

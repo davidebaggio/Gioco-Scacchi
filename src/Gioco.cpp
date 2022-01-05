@@ -65,10 +65,10 @@ bool computeCommand(Scacchiera &sca, const string &cmd, bool col, bool err) // f
 int main(int argc, char *argv[])
 {
     srand(time(NULL));
-    // using namespace std::this_thread; // sleep_for
-    using namespace std::chrono; // seconds
+    using namespace std::this_thread; // sleep_for
+    using namespace std::chrono;      // seconds
     if (argc <= 1)
-    /* if (false) */
+    // if (false)
     {
         cout << "[Error] Not enough arguments. Type: " << endl
              << "\t -pc: to play vs computer." << endl
@@ -95,7 +95,8 @@ int main(int argc, char *argv[])
              << s << "\n";
         ofstream outputFile("output.txt");
         outputFile.clear();
-        while (!s.isScacco() && !s.isPatta() && !s.isScaccoMatto())
+        // while (true)
+        while (s.isScacco() == 0 && !s.isPatta() && s.isScaccoMatto() == 0)
         {
             // player
             cout << "player: \n";
@@ -134,6 +135,18 @@ int main(int argc, char *argv[])
                  << s << "\n";
             outputFile << commandPC << "\n";
         }
+        if (s.isScacco() == 1 || s.isScaccoMatto() == 1)
+        {
+            cout << "Giocatore sotto scacco\n";
+        }
+        else if (s.isScacco() == 2 || s.isScaccoMatto() == 2)
+        {
+            cout << "Computer sotto scacco\n";
+        }
+        else if (s.isPatta())
+        {
+            cout << "E' patta\n";
+        }
         outputFile.close();
         return 0;
     }
@@ -147,6 +160,7 @@ int main(int argc, char *argv[])
         int mosseMax = 30;
         ofstream outputFile("output.txt");
         outputFile.clear();
+        // while (mosseMax > 0)
         while (!s.isScacco() && !s.isPatta() && !s.isScaccoMatto() && mosseMax > 0)
         {
             cout << "computer 1: \n";
@@ -172,7 +186,7 @@ int main(int argc, char *argv[])
                  << s << "\n";
             outputFile << commandPC1 << "\n";
 
-            // sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
+            sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
 
             cout << "computer 2: \n";
             string commandPC2 = "";
@@ -197,7 +211,22 @@ int main(int argc, char *argv[])
                  << s << "\n";
             outputFile << commandPC2 << "\n";
             mosseMax--;
+
+            sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
         }
+        if (s.isScacco() == 1 || s.isScaccoMatto() == 1)
+        {
+            cout << "PC1 sotto scacco\n";
+        }
+        else if (s.isScacco() == 2 || s.isScaccoMatto() == 2)
+        {
+            cout << "PC2 sotto scacco\n";
+        }
+        else if (s.isPatta())
+        {
+            cout << "E' patta\n";
+        }
+        outputFile.close();
         return 0;
     }
 }
@@ -231,8 +260,6 @@ int main2()
     s.move(regina, 2, 7);
     s.move(re, 5, 6);
 
-    //    Pedina* pp = s.getPedina(7,5);
-    //    cout << "posizione 7,5:" <<pp->getName() <<endl;
     cout << s;
 
     return 0;
