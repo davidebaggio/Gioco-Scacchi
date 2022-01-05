@@ -66,12 +66,13 @@ public:
 	void setPedina(Pedina *);
 	bool isEmpty(int x, int y) const { return matrice[x][y] == nullptr; }
 
+	void changePiece(int, int, Pedina *);
 	void move(Pedina *p, int destX, int destY);
 
 	// ritornano 0 se non e' scacco, 1 se bianco e' sotto scacco, 2 se nero e' sotto scacco
 	int isScacco();
 	int isScaccoMatto();
-	bool isPatta(fstream &);
+	bool isPatta();
 
 	// MOSSE SPECIALI
 };

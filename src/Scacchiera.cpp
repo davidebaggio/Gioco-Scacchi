@@ -109,6 +109,12 @@ void Scacchiera::setPedina(Pedina *p)
 	matrice[p->getX()][p->getY()] = p;
 }
 
+void Scacchiera::changePiece(int x, int y, Pedina *p)
+{
+	delete matrice[x][y];
+	matrice[x][y] = p;
+}
+
 void Scacchiera::move(Pedina *p, int j, int i)
 {
 	if (!(p->checkPos(j, i, matrice)))
@@ -197,9 +203,9 @@ int Scacchiera::isScaccoMatto()
 	return 0; // se non e' scacco
 }
 
-bool Scacchiera::isPatta(fstream &outputFile)
+bool Scacchiera::isPatta()
 {
-	if (isScacco() == 0 && hasValidPositions() != 0) // se non è scacco e uno dei due non ha pos valide
+	/* if (isScacco() == 0 && hasValidPositions() != 0) // se non è scacco e uno dei due non ha pos valide
 	{
 		return true;
 	}
@@ -226,7 +232,7 @@ bool Scacchiera::isPatta(fstream &outputFile)
 	catch (out_of_range &e) // se indice non valido non puo' essere patta (fine del vector)
 	{
 		return false;
-	}
+	} */
 	return false;
 }
 
