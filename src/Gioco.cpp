@@ -37,14 +37,12 @@ bool computeCommand(Scacchiera &sca, const string &cmd, bool col, bool err) // f
     {
         if (err)
             cout << "Non stai spostando alcuna pedina\n";
-        // delete temp;
         return false;
     }
     if (temp->getColor() != col)
     {
         if (err)
             cout << "Stai spostando la pedina dell'altro colore.\n";
-        // delete temp;
         return false;
     }
     try
@@ -55,10 +53,8 @@ bool computeCommand(Scacchiera &sca, const string &cmd, bool col, bool err) // f
     {
         if (err)
             cout << "Mossa non consentita.\n";
-        // delete temp;
         return false;
     }
-    // delete temp;
     return true;
 }
 
@@ -93,10 +89,10 @@ int main(int argc, char *argv[])
         cout << "Scacchiera iniziale: \n"
              << "\n"
              << s << "\n";
-        ofstream outputFile("output.txt");
+        fstream outputFile("output.txt");
         outputFile.clear();
         // while (true)
-        while (s.isScacco() == 0 && !s.isPatta() && s.isScaccoMatto() == 0)
+        while (s.isScacco() == 0 && !s.isPatta(outputFile) && s.isScaccoMatto() == 0)
         {
             // player
             cout << "player: \n";
@@ -108,8 +104,6 @@ int main(int argc, char *argv[])
             cout << "\n"
                  << s << "\n";
             outputFile << commandPL << "\n";
-
-            // sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
 
             // computer
             cout << "computer: \n";
@@ -143,7 +137,7 @@ int main(int argc, char *argv[])
         {
             cout << "Computer sotto scacco\n";
         }
-        else if (s.isPatta())
+        else if (s.isPatta(outputFile))
         {
             cout << "E' patta\n";
         }
@@ -158,10 +152,10 @@ int main(int argc, char *argv[])
              << "\n"
              << s << "\n";
         int mosseMax = 30;
-        ofstream outputFile("output.txt");
+        fstream outputFile("output.txt");
         outputFile.clear();
         // while (mosseMax > 0)
-        while (!s.isScacco() && !s.isPatta() && !s.isScaccoMatto() && mosseMax > 0)
+        while (!s.isScacco() && !s.isPatta(outputFile) && !s.isScaccoMatto() && mosseMax > 0)
         {
             cout << "computer 1: \n";
             string commandPC1 = "";
@@ -222,7 +216,7 @@ int main(int argc, char *argv[])
         {
             cout << "PC2 sotto scacco\n";
         }
-        else if (s.isPatta())
+        else if (s.isPatta(outputFile))
         {
             cout << "E' patta\n";
         }

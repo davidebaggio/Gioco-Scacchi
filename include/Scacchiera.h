@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <cctype>
+#include <vector>
 
 using namespace std;
 
@@ -70,7 +71,7 @@ public:
 	// ritornano 0 se non e' scacco, 1 se bianco e' sotto scacco, 2 se nero e' sotto scacco
 	int isScacco();
 	int isScaccoMatto();
-	bool isPatta();
+	bool isPatta(fstream &);
 
 	// MOSSE SPECIALI
 };

@@ -1,0 +1,166 @@
+Scacchiera iniziale: 
+1  T C A D R A C T 
+2  P P P P P P P P 
+3                  
+4                  
+5                  
+6                  
+7  p p p p p p p p 
+8  t c a d r a c t 
+
+   A B C D E F G H
+
+Player 1: 
+1  T C A D R A C T 
+2  P P P P P P P P 
+3                  
+4                  
+5                  
+6    p             
+7  p   p p p p p p 
+8  t c a d r a c t 
+
+   A B C D E F G H
+Player 2: 
+1  T C A D R A C T 
+2    P P P P P P P 
+3  P               
+4                  
+5                  
+6    p             
+7  p   p p p p p p 
+8  t c a d r a c t 
+
+   A B C D E F G H
+Player 1: 
+1  T C A D R A C T 
+2    P P P P P P P 
+3  P               
+4                  
+5  p               
+6    p             
+7      p p p p p p 
+8  t c a d r a c t 
+
+   A B C D E F G H
+Player 2: 
+1  T C A D R A C T 
+2    P P P   P P P 
+3  P               
+4          P       
+5  p               
+6    p             
+7      p p p p p p 
+8  t c a d r a c t 
+
+   A B C D E F G H
+Player 1: 
+1  T C A D R A C T 
+2    P P P   P P P 
+3  P               
+4          P       
+5  p               
+6  c p             
+7      p p p p p p 
+8  t   a d r a c t 
+
+   A B C D E F G H
+Player 2: 
+1  T C A   R A C T 
+2    P P P   P P P 
+3  P         D     
+4          P       
+5  p               
+6  c p             
+7      p p p p p p 
+8  t   a d r a c t 
+
+   A B C D E F G H
+Player 1: 
+1  T C A   R A C T 
+2    P P P   P P P 
+3  P         D     
+4          P       
+5  p               
+6  c p       p     
+7      p p p   p p 
+8  t   a d r a c t 
+
+   A B C D E F G H
+Player 2: 
+1  T C A   R A C T 
+2    P P P   P P   
+3  P         D     
+4          P     P 
+5  p               
+6  c p       p     
+7      p p p   p p 
+8  t   a d r a c t 
+
+   A B C D E F G H
+Player 1: 
+1  T C A   R A C T 
+2    P P P   P P   
+3  P         D     
+4          P     P 
+5  p               
+6  c p       p     
+7      p p p   p p 
+8    t a d r a c t 
+
+   A B C D E F G H
+Player 2: 
+1  T C A R   A C T 
+2    P P P   P P   
+3  P         D     
+4          P     P 
+5  p               
+6  c p       p     
+7      p p p   p p 
+8    t a d r a c t 
+
+   A B C D E F G H
+Player 1: 
+1  T C A R   A C T 
+2    P P P   P P   
+3  P         D     
+4          P     P 
+5  p   c           
+6    p       p     
+7      p p p   p p 
+8    t a d r a c t 
+
+   A B C D E F G H
+Player 2: 
+1  T C A R   A C   
+2    P P P   P P   
+3  P         D   T 
+4          P     P 
+5  p   c           
+6    p       p     
+7      p p p   p p 
+8    t a d r a c t 
+
+   A B C D E F G H
+Player 1: 
+1  T C A R   A C   
+2    P P P   P P   
+3  P         D   T 
+4          P     P 
+5  p       c       
+6    p       p     
+7      p p p   p p 
+8    t a d r a c t 
+
+   A B C D E F G H
+Player 2: 
+1  T C A R   A C   
+2    P P P   P P   
+3  P             T 
+4          P     P 
+5  p       c     D 
+6    p       p     
+7      p p p   p p 
+8    t a d r a c t 
+
+   A B C D E F G H

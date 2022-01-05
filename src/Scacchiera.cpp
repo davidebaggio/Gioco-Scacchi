@@ -1,6 +1,4 @@
 // Luca Mainardi
-
-#include <fstream>
 #include "../include/Scacchiera.h"
 #include "../include/Pezzi.h"
 
@@ -199,14 +197,37 @@ int Scacchiera::isScaccoMatto()
 	return 0; // se non e' scacco
 }
 
-bool Scacchiera::isPatta()
+bool Scacchiera::isPatta(fstream &outputFile)
 {
 	if (isScacco() == 0 && hasValidPositions() != 0) // se non è scacco e uno dei due non ha pos valide
 	{
 		return true;
 	}
+
+	vector<string> v{};
+
+	string s;
+	while (getline(outputFile, s)) // tutte le righe del file di output nel vector
+	{
+		v.push_back(s);
+	}
+
+	try
+	{
+		for (int i = 0; i < v.size(); i++) // verifica se tre mosse sono ripetute
+		{
+			string s1 = v.at(i);
+			string s2 = v.at(i + 1);
+
+			if (s1 == v.at(i + 4) && s1 == v.at(i + 8) && s2 == v.at(i + 5) && s2 == v.at(i + 9))
+				return true;
+		}
+	}
+	catch (out_of_range &e) // se indice non valido non puo' essere patta (fine del vector)
+	{
+		return false;
+	}
 	return false;
-	// da finire (tre mosse ripetute) <---------------------------------
 }
 
 bool Scacchiera::KingsHaveValidPositions()

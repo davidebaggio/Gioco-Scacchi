@@ -31,6 +31,7 @@ bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' 
         }
     }
     // se nero
+    else
     {
         if (j == getX() && (i == getY() + 1)) // se avanti di 1
         {
@@ -58,6 +59,8 @@ bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' 
 
 bool Cavallo::checkPos(int j, int i, Pedina *matrice[8][8]) // si sposta a L in tutte le direzioni anche se ci sono pedine
 {                                                           // j colonne, i righe
+    if (!emptyBox(matrice, j, i) && (matrice[j][i]->getColor() == getColor()))
+        return false;
     if (j == getX() && (i == getY() - 1 || i == getY() - 2 || i == getY() + 1 || i == getY() + 2))
         return true;
     if (j == getX() - 1 && (i == getY() || i == getY() - 1 || i == getY() - 2 || i == getY() + 1 || i == getY() + 2))
