@@ -78,12 +78,12 @@
 	"dependencies" : 
 	[
 		{
-			"backtrace" : 3,
-			"id" : "PedinaL::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 2,
 			"id" : "ScacchieraL::@6890427a1f51a3e7e1df"
+		},
+		{
+			"backtrace" : 3,
+			"id" : "PedinaL::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "Replay::@6890427a1f51a3e7e1df",

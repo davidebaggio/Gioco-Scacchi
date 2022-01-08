@@ -14,7 +14,6 @@ build/*.txt
 build/*.exe
 build/*.a
 build/*.json
-build/Makefile
 
 #consegna
 
