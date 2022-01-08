@@ -10,7 +10,11 @@ build/CMakeCache.txt
 
 #i vari file di testo generati dai programmi
 
-build/*
+build/*.txt
+build/*.exe
+build/*.a
+build/*.json
+build/Makefile
 
 #consegna
 
