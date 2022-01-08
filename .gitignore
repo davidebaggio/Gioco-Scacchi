@@ -12,6 +12,9 @@ build/CMakeCache.txt
 
 build/*.txt
 build/*.exe
+build/*.json
+build/Makefile
+build/*.a
 
 #consegna
 

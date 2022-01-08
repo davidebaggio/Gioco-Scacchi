@@ -45,28 +45,28 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "PedinaL::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-PedinaL-Debug-9cf0853f28f207b3d0d1.json",
+					"jsonFile" : "target-PedinaL-Debug-f99183785ff249cc71c7.json",
 					"name" : "PedinaL",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Replay::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Replay-Debug-f8d77e6fce69ef08bece.json",
+					"jsonFile" : "target-Replay-Debug-4e08bd02e4577a131eac.json",
 					"name" : "Replay",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Scacchiera::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Scacchiera-Debug-2f29e228a0573c6d9dd8.json",
+					"jsonFile" : "target-Scacchiera-Debug-589f16627611d22770c7.json",
 					"name" : "Scacchiera",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ScacchieraL::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ScacchieraL-Debug-b85377f3c80d744a39b7.json",
+					"jsonFile" : "target-ScacchieraL-Debug-fdf949fd6d71cb1852f3.json",
 					"name" : "ScacchieraL",
 					"projectIndex" : 0
 				}
