@@ -1,0 +1,32 @@
+[
+{
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/ScacchieraL.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\ScacchieraL.dir\\src\\Scacchiera.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\Scacchiera.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Scacchiera.cpp"
+},
+{
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/ScacchieraL.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\ScacchieraL.dir\\src\\Pezzi.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\Pezzi.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Pezzi.cpp"
+},
+{
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/ScacchieraL.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\ScacchieraL.dir\\src\\MosseSpeciali.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\MosseSpeciali.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/MosseSpeciali.cpp"
+},
+{
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/PedinaL.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\PedinaL.dir\\src\\Pedina.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\Pedina.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Pedina.cpp"
+},
+{
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/Scacchiera.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\Scacchiera.dir\\src\\Gioco.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\Gioco.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Gioco.cpp"
+},
+{
+  "directory": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
+  "command": "C:\\PROGRA~1\\MINGW-~1\\X86_64~1.0-P\\mingw64\\bin\\X86_64~2.EXE  @CMakeFiles/Replay.dir/includes_CXX.rsp -g   -std=c++11 -o CMakeFiles\\Replay.dir\\src\\Replay.cpp.obj -c \"C:\\Users\\david\\Universita\\Lezioni programmazione\\Gioco-Scacchi\\src\\Replay.cpp\"",
+  "file": "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/src/Replay.cpp"
+}
+]
