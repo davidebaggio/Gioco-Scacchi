@@ -237,4 +237,7 @@ CMakeFiles/Scacchiera.dir/src/Gioco.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iomanip \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/thread \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/sstream \
-  /Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/src/../include/Scacchiera.h
+  /Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/src/../include/Scacchiera.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/vector \
+  /Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/src/../include/Pezzi.h \
+  /Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/include/Scacchiera.h

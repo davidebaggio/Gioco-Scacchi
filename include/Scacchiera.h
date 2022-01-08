@@ -50,7 +50,6 @@ class Scacchiera
 private:
 	Pedina *matrice[8][8];
 
-	bool KingsHaveValidPositions();
 	int hasValidPositions(); // 0 se entrambi hanno pos valide
 							 // 1 se bianco ha pos valida e nero no
 							 // 2 se nero ha pos valida e bianco no
@@ -60,21 +59,24 @@ public:
 	Scacchiera();
 	~Scacchiera();
 
-	// Pedina **getMatrice() { return matrice; }
-
 	Pedina *getPedina(int x, int y) const { return matrice[x][y]; }
 	void setPedina(Pedina *);
 	bool isEmpty(int x, int y) const { return matrice[x][y] == nullptr; }
 
 	void changePiece(int, int, Pedina *);
-	void move(Pedina *p, int destX, int destY);
-
+	void setPtr(int, int);
+	void move(Pedina *, int, int); // lancia InvalidPosition se la posizione non e' valida
+								   // o se la mossa provoca uno scacco al giocatore che l'ha eseguita
 	// ritornano 0 se non e' scacco, 1 se bianco e' sotto scacco, 2 se nero e' sotto scacco
 	int isScacco();
 	int isScaccoMatto();
-	bool isPatta();
+	bool isPatta(vector<string> &);
 
 	// MOSSE SPECIALI
+	void replayPromo(Pedina *, string, bool);
+	void promozione(ofstream &, Pedina *, bool);
+	void arrocco(int, int, int, int);
+	void enPassant(Pedina *, int, int);
 };
 
 ostream &operator<<(ostream &os, const Scacchiera &);

@@ -191,6 +191,30 @@ src/Gioco.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/src/Gioco.cpp.s
 .PHONY : src/Gioco.cpp.s
 
+src/MosseSpeciali.obj: src/MosseSpeciali.cpp.obj
+.PHONY : src/MosseSpeciali.obj
+
+# target to build an object file
+src/MosseSpeciali.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj
+.PHONY : src/MosseSpeciali.cpp.obj
+
+src/MosseSpeciali.i: src/MosseSpeciali.cpp.i
+.PHONY : src/MosseSpeciali.i
+
+# target to preprocess a source file
+src/MosseSpeciali.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.i
+.PHONY : src/MosseSpeciali.cpp.i
+
+src/MosseSpeciali.s: src/MosseSpeciali.cpp.s
+.PHONY : src/MosseSpeciali.s
+
+# target to generate assembly for a file
+src/MosseSpeciali.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.s
+.PHONY : src/MosseSpeciali.cpp.s
+
 src/Pedina.obj: src/Pedina.cpp.obj
 .PHONY : src/Pedina.obj
 
@@ -302,6 +326,9 @@ help:
 	@echo ... src/Gioco.obj
 	@echo ... src/Gioco.i
 	@echo ... src/Gioco.s
+	@echo ... src/MosseSpeciali.obj
+	@echo ... src/MosseSpeciali.i
+	@echo ... src/MosseSpeciali.s
 	@echo ... src/Pedina.obj
 	@echo ... src/Pedina.i
 	@echo ... src/Pedina.s

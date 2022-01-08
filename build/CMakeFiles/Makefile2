@@ -86,12 +86,12 @@ clean: CMakeFiles/Replay.dir/clean
 CMakeFiles/ScacchieraL.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=7,8,9 "Built target ScacchieraL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=7,8,9,10 "Built target ScacchieraL"
 .PHONY : CMakeFiles/ScacchieraL.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ScacchieraL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/ScacchieraL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 0
 .PHONY : CMakeFiles/ScacchieraL.dir/rule
@@ -135,8 +135,8 @@ CMakeFiles/PedinaL.dir/clean:
 # Target rules for target CMakeFiles/Scacchiera.dir
 
 # All Build rule for target.
-CMakeFiles/Scacchiera.dir/all: CMakeFiles/ScacchieraL.dir/all
 CMakeFiles/Scacchiera.dir/all: CMakeFiles/PedinaL.dir/all
+CMakeFiles/Scacchiera.dir/all: CMakeFiles/ScacchieraL.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=5,6 "Built target Scacchiera"
@@ -144,7 +144,7 @@ CMakeFiles/Scacchiera.dir/all: CMakeFiles/PedinaL.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Scacchiera.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Scacchiera.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 0
 .PHONY : CMakeFiles/Scacchiera.dir/rule
@@ -162,8 +162,8 @@ CMakeFiles/Scacchiera.dir/clean:
 # Target rules for target CMakeFiles/Replay.dir
 
 # All Build rule for target.
-CMakeFiles/Replay.dir/all: CMakeFiles/ScacchieraL.dir/all
 CMakeFiles/Replay.dir/all: CMakeFiles/PedinaL.dir/all
+CMakeFiles/Replay.dir/all: CMakeFiles/ScacchieraL.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Replay.dir\build.make CMakeFiles/Replay.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Replay.dir\build.make CMakeFiles/Replay.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=3,4 "Built target Replay"
@@ -171,7 +171,7 @@ CMakeFiles/Replay.dir/all: CMakeFiles/PedinaL.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Replay.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 7
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Replay.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 0
 .PHONY : CMakeFiles/Replay.dir/rule

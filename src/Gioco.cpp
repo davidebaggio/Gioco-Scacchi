@@ -13,6 +13,46 @@
 
 using namespace std;
 
+bool canEnPassant(Scacchiera &sca, Pedina *p, int xf, int yf)
+{
+    // controllo se destinazione e' occupata da un pedone
+    Pedina *target;
+    if (!sca.isEmpty(xf, yf))
+    {
+        target = sca.getPedina(xf, yf);
+        // controlla che target sia un pedone
+        if (target->getName() != 'p' || target->getName() != 'P')
+            return false;
+    }
+    else
+    {
+        return false;
+    }
+    // controlla se destinazione  e' occupata da un pedone
+    if (p->getName() != 'p' || p->getName() != 'P')
+        return false;
+
+    if (p->getName() == 'p') // pedone bianco
+    {
+        if (p->getY() != 3)
+            return false;
+    }
+    else // pedone nero
+    {
+        if (p->getY() != 4)
+            return false;
+    }
+
+    // controlla se target ha eseguito solo un movimento (che e' di due caselle)
+    if (target->getMoveCount() != 1)
+        return false;
+
+    // controlla se destinazione e' di fianco al pedone (unica da verificare)
+    if (yf == p->getY() && (xf == p->getX() - 1 || xf == p->getX() + 1))
+        return true;
+
+    return false;
+}
 /**
  * @brief Funzione di promozione per i pedoni
  *
@@ -20,54 +60,26 @@ using namespace std;
  * @param p La pedina da modificare (utile per le sue coordinate)
  * @param player Parametro aggiuntivo per la stampa dei messaggi allo std::ostream.
  */
-void promozione(Scacchiera &sca, Pedina *p, bool player)
+/* void promozione(Scacchiera &sca, Pedina *p, bool player)
 {
-    if (p->getColor())
+} */
+
+string randomCommand()
+{
+    char c1;
+    string commandPC = "";
+    for (int i = 0; i < 5; i++)
     {
-        cout << "\nPromozione del Pedone Bianco\n";
-        if (player)
-        {
-            cout << "Inserire la pedina con il quale vogliamo promuovere:\n";
-            char name;
-            do
-            {
-                cin >> name;
-            } while (name != 't' && name != 'c' && name != 'a' && name != 'd' && name != 'r');
-            int x = p->getX();
-            int y = p->getY();
-            Pedina *temp;
-            if (name == 't')
-                temp = new Torre(x, y, player, name);
-            if (name == 'c')
-                temp = new Cavallo(x, y, player, name);
-            if (name == 'a')
-                temp = new Alfiere(x, y, player, name);
-            if (name == 'd')
-                temp = new Regina(x, y, player, name);
-            if (name == 'r')
-                temp = new Re(x, y, player, name);
-            sca.changePiece(x, y, temp);
-        }
+        if (i == 0 || i == 3)
+            c1 = (char)(rand() % 8 + 65);
         else
-        {
-            int x = p->getX();
-            int y = p->getY();
-            Pedina *temp;
-            if (y = 0)
-                temp = new Regina(x, y, true, 'd');
-            else
-                temp = new Regina(x, y, false, 'd');
-            sca.changePiece(x, y, temp);
-        }
+            c1 = (char)(rand() % 8 + 49);
+        if (i != 2)
+            commandPC += c1;
+        else
+            commandPC += " ";
     }
-    else
-    {
-        cout << "\nPromozione del pedone Nero\n";
-        int x = p->getX();
-        int y = p->getY();
-        Pedina *temp = new Regina(x, y, false, 'd');
-        sca.changePiece(x, y, temp);
-    }
+    return commandPC;
 }
 
 /**
@@ -101,14 +113,15 @@ bool isValid(const string &cmd) // funzione che controlla se il comando inserito
  * @return true Se la pedina viene mossa correttamente.
  * @return false Se la pedina non viene mossa. Vedi anche checkPos() delle pedine.
  */
-bool computeCommand(Scacchiera &sca, const string &cmd, bool col, bool err) // funzione che trasforma il comado 'stringa' in coordinate di partenza e arrivo della pedina
+bool computeCommand(ofstream &spec, Scacchiera &sca, const string &cmd, bool col, bool err) // funzione che trasforma il comado 'stringa' in coordinate di partenza e arrivo della pedina
 {
     if (!isValid(cmd))
         return false;
-    int xi = ((int)cmd[0]) - 65; //-65 per ascii table A
-    int yi = ((int)cmd[1]) - 49; //-49 per ascii table 1
-    int xf = ((int)cmd[3]) - 65; //-65 per ascii table A
-    int yf = ((int)cmd[4]) - 49; //-49 per ascii table 1
+    int xi = ((int)cmd[0]) - 65;       //-65 per ascii table A
+    int yi = 8 - (((int)cmd[1]) - 48); //-49 per ascii table 0
+    int xf = ((int)cmd[3]) - 65;       //-65 per ascii table A
+    int yf = 8 - (((int)cmd[4]) - 48); //-49 per ascii table 0
+
     Pedina *temp = sca.getPedina(xi, yi);
     if (temp == nullptr)
     {
@@ -124,7 +137,38 @@ bool computeCommand(Scacchiera &sca, const string &cmd, bool col, bool err) // f
     }
     try
     {
-        sca.move(temp, xf, yf);
+        // cattura en passant
+        if (canEnPassant(sca, temp, xf, yf))
+        {
+            sca.enPassant(temp, xf, yf);
+        }
+        // comando per arrocco   (si indicano la posizione del re e della torre che si vogliono spostare con l'arrocco)
+        //  le precondizioni vengono verificate anche nella funzione
+        else if (xi == 4 && yi == 0 && yf == 0 && (xf == 0 || xf == 7)) // arrocco nero
+        {
+            sca.arrocco(xi, yi, xf, yf);
+            cout << "Arrocco\n";
+            spec << "ArroccoN\n";
+        }
+        else if (xi == 4 && yi == 7 && yf == 7 && (xf == 0 || xf == 7)) // arrocco bianco
+        {
+            sca.arrocco(xi, yi, xf, yf);
+            cout << "Arrocco\n";
+            spec << "ArroccoB\n";
+        }
+        else
+        {
+            sca.move(temp, xf, yf);
+            // promozione
+            if ((temp->getName() == 'p' && temp->getY() == 0) || (temp->getName() == 'P' && temp->getY() == 7))
+            {
+                sca.promozione(spec, temp, err);
+            }
+            else
+            {
+                spec << "\n";
+            }
+        }
     }
     catch (const InvalidPosition &e)
     {
@@ -132,8 +176,13 @@ bool computeCommand(Scacchiera &sca, const string &cmd, bool col, bool err) // f
             cout << "Mossa non consentita.\n";
         return false;
     }
-    if ((temp->getName() == 'p' && temp->getY() == 0) || (temp->getName() == 'P' && temp->getY() == 7))
-        promozione(sca, temp, err);
+    catch (const InvalidIndex &e)
+    {
+        if (err)
+            cout << "Mossa non consentita: giocatore sotto scacco.\n";
+        return false;
+    }
+
     return true;
 }
 
@@ -189,10 +238,14 @@ int main(int argc, char *argv[])
 
         // Apertura di file di log dove verranno salvate tutte le mosse.
         ofstream outputFile("logPC.txt");
+        ofstream spec("spec.txt");
         outputFile.clear();
+        spec.clear();
+
+        vector<string> cmd{};
 
         // Ciclo per la partita, continua finchè una delle condizioni non sia verificata
-        while (s.isScacco() == 0 && !s.isPatta() && s.isScaccoMatto() == 0)
+        while (!s.isPatta(cmd) && s.isScaccoMatto() == 0)
         {
 
             cout << "Player: \n";
@@ -202,12 +255,20 @@ int main(int argc, char *argv[])
             do
             {
                 getline(cin, commandPL);
-            } while (!computeCommand(s, commandPL, true, true));
+            } while (!computeCommand(spec, s, commandPL, true, true));
+
+            cmd.push_back(commandPL);
+            outputFile << commandPL << "\n";
+
+            // controlla se computer e' sotto scacco
+            if (s.isScacco() == 2)
+            {
+                cout << "Computer sotto scacco\n";
+                outputFile << "Computer sotto scacco\n";
+            }
 
             cout << "\n"
                  << s << "\n";
-
-            outputFile << commandPL << "\n";
 
             cout << "Computer: \n";
             string commandPC = "";
@@ -215,43 +276,40 @@ int main(int argc, char *argv[])
             // Estrazione casuale del comando da parte del PC affinchè non sia valido.
             do
             {
-                char c1;
-                commandPC = "";
-                for (int i = 0; i < 5; i++)
-                {
-                    if (i == 0 || i == 3)
-                        c1 = (char)(rand() % 8 + 65);
-                    else
-                        c1 = (char)(rand() % 8 + 49);
-                    if (i != 2)
-                        commandPC += c1;
-                    else
-                        commandPC += " ";
-                }
-            } while (!computeCommand(s, commandPC, false, false));
+                commandPC = randomCommand();
+            } while (!computeCommand(spec, s, commandPC, false, false));
 
-            cout << commandPC << "\n"
-                 << s << "\n";
-
+            // stampa comando
+            cmd.push_back(commandPC);
+            cout << commandPC << "\n";
             outputFile << commandPC << "\n";
+
+            // controlla se giocatore e' sotto scacco
+            if (s.isScacco() == 1)
+            {
+                cout << "Giocatore sotto scacco\n";
+            }
+            // stampa scacchiera
+            cout << s << "\n";
         }
 
         /**
          * @brief Stampa delle condizioni per il quale la partita si è interrotta.
          *
          */
-        if (s.isScaccoMatto() == 1 || s.isScacco() == 1)
+        if (s.isScaccoMatto() == 1)
         {
-            cout << "Giocatore sotto scacco\n";
+            cout << "Giocatore sotto scacco matto\n";
         }
-        else if (s.isScaccoMatto() == 2 || s.isScacco() == 2)
+        else if (s.isScaccoMatto() == 2)
         {
-            cout << "Computer sotto scacco\n";
+            cout << "Computer sotto scacco matto\n";
         }
-        else if (s.isPatta())
+        else if (s.isPatta(cmd))
         {
             cout << "E' patta\n";
         }
+        spec.close();
         outputFile.close();
         return 0;
     }
@@ -272,63 +330,55 @@ int main(int argc, char *argv[])
 
         // Apertura di file di log dove verranno salvate tutte le mosse.
         ofstream outputFile("logCC.txt");
+        ofstream spec("spec.txt");
         outputFile.clear();
+        spec.clear();
 
+        vector<string> cmd{};
         // Ciclo per la partita, continua finchè una delle condizioni non sia verificata
-        while (!s.isScacco() && !s.isPatta() && !s.isScaccoMatto() && mosseMax > 0)
+        while (!s.isPatta(cmd) && s.isScaccoMatto() == 0 && mosseMax > 0)
         {
-            cout << "computer 1: \n";
+            cout << "computer 1 (bianco): \n";
             string commandPC1 = "";
 
             // Estrazione casuale del comando da parte del PC affinchè non sia valido.
             do
             {
-                char c1;
-                commandPC1 = "";
-                for (int i = 0; i < 5; i++)
-                {
-                    if (i == 0 || i == 3)
-                        c1 = (char)(rand() % 8 + 65);
-                    else
-                        c1 = (char)(rand() % 8 + 49);
-                    if (i != 2)
-                        commandPC1 += c1;
-                    else
-                        commandPC1 += " ";
-                }
-            } while (!computeCommand(s, commandPC1, true, false));
+                commandPC1 = randomCommand();
+            } while (!computeCommand(spec, s, commandPC1, true, false));
 
-            cout << commandPC1 << "\n"
-                 << s << "\n";
+            // stampa il comando
+            cmd.push_back(commandPC1);
+            cout << commandPC1 << "\n";
             outputFile << commandPC1 << "\n";
+
+            // stampa scacchiera
+            cout << s << "\n";
 
             sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
 
-            cout << "computer 2: \n";
+            cout << "computer 2 (nero): \n";
             string commandPC2 = "";
+
+            // controlla se PC2 e' sotto scacco
+            if (s.isScacco() == 2)
+            {
+                cout << "PC2 sotto scacco\n";
+            }
 
             // Estrazione casuale del comando da parte del PC affinchè non sia valido.
             do
             {
-                char c1;
-                commandPC2 = "";
-                for (int i = 0; i < 5; i++)
-                {
-                    if (i == 0 || i == 3)
-                        c1 = (char)(rand() % 8 + 65);
-                    else
-                        c1 = (char)(rand() % 8 + 49);
-                    if (i != 2)
-                        commandPC2 += c1;
-                    else
-                        commandPC2 += " ";
-                }
-            } while (!computeCommand(s, commandPC2, false, false));
+                commandPC2 = randomCommand();
+            } while (!computeCommand(spec, s, commandPC2, false, false));
 
-            cout << commandPC2 << "\n"
-                 << s << "\n";
-
+            // stampa comando
+            cmd.push_back(commandPC2);
+            cout << commandPC2 << "\n";
             outputFile << commandPC2 << "\n";
+
+            // stampa scacchiera
+            cout << s << "\n";
 
             mosseMax--;
 
@@ -339,18 +389,24 @@ int main(int argc, char *argv[])
          * @brief Stampa delle condizioni per il quale la partita si è interrotta.
          *
          */
-        if (s.isScacco() == 1 || s.isScaccoMatto() == 1)
+        if (s.isScaccoMatto() == 1)
         {
-            cout << "PC1 sotto scacco\n";
+            cout << "PC1 sotto scacco matto\n";
         }
-        else if (s.isScacco() == 2 || s.isScaccoMatto() == 2)
+        else if (s.isScaccoMatto() == 2)
         {
-            cout << "PC2 sotto scacco\n";
+            cout << "PC2 sotto scacco matto\n";
         }
-        else if (s.isPatta())
+        else if (s.isPatta(cmd))
         {
             cout << "E' patta\n";
         }
+        else if (mosseMax == 0)
+        {
+            cout << "Raggiunto limite di mosse\n";
+        }
+
+        spec.close();
         outputFile.close();
         return 0;
     }
@@ -367,8 +423,18 @@ int main2()
     cout << "Scacchiera iniziale: \n";
     cout << s << "\n";
 
-    Pedina *temp = s.getPedina(1, 6);
-    promozione(s, temp, true);
+    Pedina *p1 = s.getPedina(5, 6);
+    s.move(p1, 5, 4);
+    s.move(p1, 5, 3);
+
+    cout << s << "\n";
+
+    Pedina *p2 = s.getPedina(4, 1);
+    s.move(p2, 4, 3);
+
+    cout << s << "\n";
+
+    s.enPassant(p1, 4, 3);
 
     cout << s;
     return 0;

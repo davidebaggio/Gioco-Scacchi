@@ -16,14 +16,21 @@ using namespace std;
  * @param sca Riferimento alla Scacchiera
  * @param cmd Stringa del comando
  */
-void computeCommand(Scacchiera &sca, const string &cmd)
+void computeCommand(Scacchiera &sca, const string &cmd, const string &special)
 {
 	int xi = ((int)cmd[0]) - 65; //-65 per ascii table A
 	int yi = ((int)cmd[1]) - 49; //-49 per ascii table 1
 	int xf = ((int)cmd[3]) - 65; //-65 per ascii table B
 	int yf = ((int)cmd[4]) - 49; //-49 per ascii table 3
 	Pedina *temp = sca.getPedina(xi, yi);
-	sca.move(temp, xf, yf);
+	if (special == "")
+		sca.move(temp, xf, yf);
+	else if (special == "ArroccoN" || special == "ArroccoB")
+		sca.arrocco(xi, yi, xf, yf);
+	else if ((int)special[0] < 64)
+		sca.replayPromo(temp, special, false);
+	else if ((int)special[0] > 64)
+		sca.replayPromo(temp, special, true);
 }
 
 /**
@@ -57,6 +64,7 @@ int main(int argc, char *argv[])
 	{
 		// Apertura di file di log dove verranno lette tutte le mosse.
 		ifstream inputFile(argv[1]);
+		ifstream spec("spec.txt");
 		if (!inputFile.is_open())
 		{
 			cout << "[Error] File = " << argv[1] << " not found\n";
@@ -77,21 +85,24 @@ int main(int argc, char *argv[])
 			// Lettura dei comandi da inputFile affinchè non sono terminati.
 			while (getline(inputFile, command))
 			{
+				string special;
 				// Giocatore 1
 				if (g > 0)
 				{
+					getline(spec, special);
 					cout << "Player 1: \n";
+					computeCommand(s, command, special);
 					cout << command << "\n";
-					computeCommand(s, command);
 					cout << s << "\n\n";
 				}
 
 				// Giocatore 2
 				else
 				{
+					getline(spec, special);
 					cout << "Player 2: \n";
+					computeCommand(s, command, special);
 					cout << command << "\n";
-					computeCommand(s, command);
 					cout << s << "\n\n";
 				}
 
@@ -101,6 +112,7 @@ int main(int argc, char *argv[])
 				sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
 			}
 		}
+		spec.close();
 		inputFile.close();
 	}
 
@@ -110,6 +122,7 @@ int main(int argc, char *argv[])
 		// Apertura dei file di log dove verranno lette tutte le mosse e stampato il replay della partita.
 		ifstream inputFile(argv[1]);
 		ofstream outputFile(argv[2]);
+		ifstream spec("spec.txt");
 		if (!inputFile.is_open() || !outputFile.is_open())
 		{
 			cout << "[Error] Cannot open argument files. Check file names again.\n";
@@ -131,18 +144,21 @@ int main(int argc, char *argv[])
 			// Lettura dei comandi da inputFile affinchè non sono terminati.
 			while (getline(inputFile, command))
 			{
+				string special;
 				if (g > 0)
 				{
+					getline(spec, special);
 					outputFile << "Player 1: \n";
+					computeCommand(s, command, special);
 					outputFile << command << "\n";
-					computeCommand(s, command);
 					outputFile << s << "\n\n";
 				}
 				else
 				{
+					getline(spec, special);
 					outputFile << "Player 2: \n";
+					computeCommand(s, command, special);
 					outputFile << command << "\n";
-					computeCommand(s, command);
 					outputFile << s << "\n\n";
 				}
 
@@ -151,6 +167,7 @@ int main(int argc, char *argv[])
 			}
 			inputFile.close();
 			outputFile.close();
+			spec.close();
 			return 0;
 		}
 		return 0;

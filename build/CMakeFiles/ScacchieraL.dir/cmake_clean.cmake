@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj"
+  "CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj.d"
   "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.obj"
   "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.obj.d"
   "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj"

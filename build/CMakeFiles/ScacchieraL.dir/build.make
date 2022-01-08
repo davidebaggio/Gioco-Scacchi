@@ -98,19 +98,36 @@ CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.s"
 	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\Pezzi.cpp" -o CMakeFiles\ScacchieraL.dir\src\Pezzi.cpp.s
 
+CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj: CMakeFiles/ScacchieraL.dir/flags.make
+CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj: CMakeFiles/ScacchieraL.dir/includes_CXX.rsp
+CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj: ../src/MosseSpeciali.cpp
+CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj: CMakeFiles/ScacchieraL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj -MF CMakeFiles\ScacchieraL.dir\src\MosseSpeciali.cpp.obj.d -o CMakeFiles\ScacchieraL.dir\src\MosseSpeciali.cpp.obj -c "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\MosseSpeciali.cpp"
+
+CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.i"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\MosseSpeciali.cpp" > CMakeFiles\ScacchieraL.dir\src\MosseSpeciali.cpp.i
+
+CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.s"
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\src\MosseSpeciali.cpp" -o CMakeFiles\ScacchieraL.dir\src\MosseSpeciali.cpp.s
+
 # Object files for target ScacchieraL
 ScacchieraL_OBJECTS = \
 "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj" \
-"CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.obj"
+"CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.obj" \
+"CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj"
 
 # External object files for target ScacchieraL
 ScacchieraL_EXTERNAL_OBJECTS =
 
 libScacchieraL.a: CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj
 libScacchieraL.a: CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.obj
+libScacchieraL.a: CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj
 libScacchieraL.a: CMakeFiles/ScacchieraL.dir/build.make
 libScacchieraL.a: CMakeFiles/ScacchieraL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX static library libScacchieraL.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libScacchieraL.a"
 	$(CMAKE_COMMAND) -P CMakeFiles\ScacchieraL.dir\cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\ScacchieraL.dir\link.txt --verbose=$(VERBOSE)
 

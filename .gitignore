@@ -1,0 +1,27 @@
+
+#file da ignorare sono gli eseguibili che dipendono dal tipo di compilatore
+
+build/Scacchiera.exe
+build/Replay.exe
+
+#cmake-cache legato alla path del Pc in cui si complia con cmake
+
+build/CMakeCache.txt
+
+#i vari file di testo generati dai programmi
+
+build/*.txt
+build/*.json
+
+#consegna
+
+Assegnamento_scacchiera.pdf
+
+#starter di debug
+
+*.bat
+
+#editor di testo
+
+.vscode
+

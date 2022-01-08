@@ -89,7 +89,7 @@ ostream &operator<<(ostream &os, const Scacchiera &sca)
 {
 	for (int i = 0; i < 8; i++)
 	{
-		os << i + 1 << "  ";
+		os << 8 - i << "  ";
 		for (int j = 0; j < 8; j++)
 		{
 			if (sca.getPedina(j, i) == nullptr)
@@ -115,24 +115,109 @@ void Scacchiera::changePiece(int x, int y, Pedina *p)
 	matrice[x][y] = p;
 }
 
-void Scacchiera::move(Pedina *p, int j, int i)
+void Scacchiera::setPtr(int x, int y)
 {
+	matrice[x][y] = nullptr;
+}
+
+void Scacchiera::move(Pedina *p, int j, int i) //(j,i) coordinate destinazione
+{
+	// controlla che casella (j,i) sia valida per p
 	if (!(p->checkPos(j, i, matrice)))
 		throw InvalidPosition();
 
-	if (!isEmpty(j, i)) // dealloca memoria della pedina mangiata
+	// memorizza eventuale pedina in (j,i)
+	Pedina *temp = nullptr;
+	if (!isEmpty(j, i))
 	{
-		cout << "Pedina : " << getPedina(j, i)->getName() << " mangiata\n";
-		delete matrice[j][i];
+		temp = matrice[j][i];
 	}
-
+	// salva coordinate di partenza
 	int x = p->getX();
 	int y = p->getY();
 
-	p->setPos(j, i); // aggiorna coordinate della pedina
-
+	// provo a spostare la pedina
+	p->setPos(j, i);		 // aggiorna coordinate della pedina
 	matrice[j][i] = p;		 // aggiorna matrice
 	matrice[x][y] = nullptr; // libera cella di partenza
+
+	// controllo se dopo il movimento e' scacco, in tal caso non è possibile il movimento
+	//  int color = 2;
+	//  if(p->getColor())	//bianco e' colore 1 per lo scacco (se la pedina e' bianca devo controllare che bianco non sia sotto scacco)
+	//  	color = 1;
+	//  else
+	//  	color = 2;			//nero è colore 2 per lo scacco	(se la pedina e' nera devo controllare che nero non sia sotto scacco)
+
+	if (p->getColor()) // se e' bianca
+	{
+		if (isScacco() == 1) // se il giocatore che ha fatto la mossa e' sotto scacco	bisogna annullare la mossa e lanciare eccezione
+		{
+			matrice[x][y] = p;
+			matrice[j][i] = temp;
+			p->setPos(x, y);
+			throw InvalidIndex();
+		}
+		else // non e' scacco
+		{
+			// dealloca la memoria della pedina mangiata
+			if (temp != nullptr)
+			{
+				cout << "Pedina  " << temp->getName() << " mangiata\n";
+				delete temp;
+			}
+		}
+	}
+	else // e' nera
+	{
+		if (isScacco() == 2) // se il giocatore che ha fatto la mossa e' sotto scacco	bisogna annullare la mossa e lanciare eccezione
+		{
+			matrice[x][y] = p;
+			matrice[j][i] = temp;
+			p->setPos(x, y);
+			throw InvalidIndex();
+		}
+		else // non e' scacco
+		{
+			// dealloca la memoria della pedina mangiata
+			if (temp != nullptr)
+			{
+				cout << "Pedina  " << temp->getName() << " mangiata\n";
+				delete temp;
+			}
+		}
+	}
+
+	// if(isScacco() == color)	//se il giocatore che ha fatto la mossa e' sotto scacco	bisogna annullare la mossa e lanciare eccezione
+	// {
+	// 	matrice[x][y] = p;
+	// 	matrice[j][i] = temp;
+	// 	p->setPos(x, y);
+	// 	throw InvalidPosition();
+	// }
+	// else	//non e' scacco
+	// {
+	// 	//dealloca la memoria della pedina mangiata
+	// 	if(temp != nullptr)
+	// 	{
+	// 		cout << "Pedina  " << temp->getName() << " mangiata\n";
+	// 		delete temp;
+	// 	}
+
+	// }
+
+	// if (!isEmpty(j, i)) // dealloca memoria della pedina mangiata
+	// {
+	// 	cout << "Pedina : " << getPedina(j, i)->getName() << " mangiata\n";
+	// 	delete matrice[j][i];
+	// }
+
+	// int x = p->getX();
+	// int y = p->getY();
+
+	// p->setPos(j, i); // aggiorna coordinate della pedina
+
+	// matrice[j][i] = p;		 // aggiorna matrice
+	// matrice[x][y] = nullptr; // libera cella di partenza
 
 	p->increaseCount();
 }
@@ -203,233 +288,39 @@ int Scacchiera::isScaccoMatto()
 	return 0; // se non e' scacco
 }
 
-bool Scacchiera::isPatta()
+bool Scacchiera::isPatta(vector<string> &cmd)
 {
-	/* if (isScacco() == 0 && hasValidPositions() != 0) // se non è scacco e uno dei due non ha pos valide
+	// patta per assenza di posizioni valide
+	if (isScacco() == 0 && hasValidPositions() != 0) // se non è scacco e uno dei due non ha pos valide
 	{
 		return true;
 	}
 
-	vector<string> v{};
-
-	string s;
-	while (getline(outputFile, s)) // tutte le righe del file di output nel vector
-	{
-		v.push_back(s);
-	}
+	// patta per mosse ripetute
 
 	try
 	{
-		for (int i = 0; i < v.size(); i++) // verifica se tre mosse sono ripetute
+		for (int i = 0; i < cmd.size(); i++) // verifica se tre mosse sono ripetute
 		{
-			string s1 = v.at(i);
-			string s2 = v.at(i + 1);
+			string s1 = cmd.at(i);
+			string s2 = cmd.at(i + 1);
 
-			if (s1 == v.at(i + 4) && s1 == v.at(i + 8) && s2 == v.at(i + 5) && s2 == v.at(i + 9))
+			if (s1 == cmd.at(i + 4) && s1 == cmd.at(i + 8) && s2 == cmd.at(i + 5) && s2 == cmd.at(i + 9))
 				return true;
 		}
 	}
 	catch (out_of_range &e) // se indice non valido non puo' essere patta (fine del vector)
 	{
 		return false;
-	} */
+	}
 	return false;
-}
-
-bool Scacchiera::KingsHaveValidPositions()
-{
-	// cerco i due re nella scacchiera
-	int reBiancoX, reBiancoY;
-	int reNeroX, reNeroY;
-
-	for (int i = 0; i < 8; i++) // trova posizioni re
-	{
-		for (int j = 0; j < 8; j++)
-		{
-			if ((*getPedina(j, i)).getName() == 'r') // re bianco
-			{
-				reBiancoX = j;
-				reBiancoY = i;
-			}
-			if ((*getPedina(j, i)).getName() == 'R') // re nero
-			{
-				reNeroX = j;
-				reNeroY = i;
-			}
-		}
-	}
-
-	// ------------------------------- controllo posizioni valide re bianco (provo a muovere re in tutte le direzioni)-------------------------------
-	bool posValidaBianco = false;
-	try
-	{
-		move((getPedina(reBiancoX, reBiancoY)), reBiancoX, reBiancoY - 1); // su
-		move((getPedina(reBiancoX, reBiancoY - 1)), reBiancoX, reBiancoY); // torna
-		posValidaBianco = true;											   // esiste posizione valida
-	}
-	catch (const InvalidPosition &e) // ignora eccezioni ma posValida rimane false
-	{
-	}
-
-	try
-	{
-		move((getPedina(reBiancoX, reBiancoY)), reBiancoX + 1, reBiancoY - 1); // su dx
-		move((getPedina(reBiancoX + 1, reBiancoY - 1)), reBiancoX, reBiancoY); // torna
-		posValidaBianco = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-
-	try
-	{
-		move((getPedina(reBiancoX, reBiancoY)), reBiancoX + 1, reBiancoY); // dx
-		move((getPedina(reBiancoX + 1, reBiancoY)), reBiancoX, reBiancoY); // torna
-		posValidaBianco = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-
-	try
-	{
-		move((getPedina(reBiancoX, reBiancoY)), reBiancoX + 1, reBiancoY + 1); // giu dx
-		move((getPedina(reBiancoX + 1, reBiancoY + 1)), reBiancoX, reBiancoY); // torna
-		posValidaBianco = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-
-	try
-	{
-		move((getPedina(reBiancoX, reBiancoY)), reBiancoX, reBiancoY + 1); // giu
-		move((getPedina(reBiancoX, reBiancoY + 1)), reBiancoX, reBiancoY); // torna
-		posValidaBianco = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-
-	try
-	{
-		move((getPedina(reBiancoX, reBiancoY)), reBiancoX - 1, reBiancoY - 1); // giu sx
-		move((getPedina(reBiancoX - 1, reBiancoY - 1)), reBiancoX, reBiancoY); // torna
-		posValidaBianco = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-
-	try
-	{
-		move((getPedina(reBiancoX, reBiancoY)), reBiancoX - 1, reBiancoY); // sx
-		move((getPedina(reBiancoX - 1, reBiancoY)), reBiancoX, reBiancoY); // torna
-		posValidaBianco = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-
-	try
-	{
-		move((getPedina(reBiancoX, reBiancoY)), reBiancoX - 1, reBiancoY - 1); // su sx
-		move((getPedina(reBiancoX - 1, reBiancoY - 1)), reBiancoX, reBiancoY); // torna
-		posValidaBianco = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-
-	// 	// ---------------------------------------------- controllo posizioni valide re nero ----------------------------------------------
-	bool posValidaNero = false;
-
-	try
-	{
-		move((getPedina(reNeroX, reNeroY)), reNeroX, reNeroY - 1); // su
-		move((getPedina(reNeroX, reNeroY - 1)), reNeroX, reNeroY); // torna
-		posValidaNero = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-	try
-	{
-		move((getPedina(reNeroX, reNeroY)), reNeroX + 1, reNeroY - 1); // su dx
-		move((getPedina(reNeroX + 1, reNeroY - 1)), reNeroX, reNeroY); // torna
-		posValidaNero = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-	try
-	{
-		move((getPedina(reNeroX, reNeroY)), reNeroX + 1, reNeroY); // dx
-		move((getPedina(reNeroX + 1, reNeroY)), reNeroX, reNeroY); // torna
-		posValidaNero = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-	try
-	{
-		move((getPedina(reNeroX, reNeroY)), reNeroX + 1, reNeroY + 1); // giu dx
-		move((getPedina(reNeroX + 1, reNeroY + 1)), reNeroX, reNeroY); // torna
-		posValidaNero = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-	try
-	{
-		move((getPedina(reNeroX, reNeroY)), reNeroX, reNeroY + 1); // giu
-		move((getPedina(reNeroX, reNeroY + 1)), reNeroX, reNeroY); // torna
-		posValidaNero = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-	try
-	{
-		move((getPedina(reNeroX, reNeroY)), reNeroX - 1, reNeroY + 1); // giu sx
-		move((getPedina(reNeroX - 1, reNeroY + 1)), reNeroX, reNeroY); // torna
-		posValidaNero = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-	try
-	{
-		move((getPedina(reNeroX, reNeroY)), reNeroX - 1, reNeroY); // sx
-		move((getPedina(reNeroX - 1, reNeroY)), reNeroX, reNeroY); // torna
-		posValidaNero = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-	try
-	{
-		move((getPedina(reNeroX, reNeroY)), reNeroX - 1, reNeroY - 1); // su sx
-		move((getPedina(reNeroX - 1, reNeroY - 1)), reNeroX, reNeroY); // torna
-		posValidaNero = true;
-	}
-	catch (const InvalidPosition &e)
-	{
-	}
-
-	if (posValidaBianco || posValidaNero) // se esiste almeno una pos valida
-	{
-		return true;
-	}
-
-	return true;
 }
 
 int Scacchiera::hasValidPositions()
 {
 	// esamina ogni pedina
-	bool biancoHasPosition;
-	bool neroHasPosition;
+	bool biancoHasPosition = false;
+	bool neroHasPosition = false;
 
 	for (int i = 0; i < 8; i++)
 	{
@@ -443,28 +334,37 @@ int Scacchiera::hasValidPositions()
 				{
 					for (int x = 0; x < 8; x++)
 					{
-						if (p->getColor()) // se è bianca
+						// se la posizione e'valida per lo spostamento
+						if (p->checkPos(x, y, matrice))
 						{
-							Pedina *temp = matrice[x][y];
-							// prova movimento (NON si puo fare move perche mangerebbe le pedine)
-							matrice[x][y] = matrice[j][i];
-							matrice[j][i] = nullptr;
-							biancoHasPosition = (isScacco() != 1);
-							// torna indietro
-							matrice[j][i] = matrice[x][y];
-							matrice[x][y] = temp;
-						}
-
-						if (!p->getColor()) // se è nera
-						{
-							Pedina *temp = matrice[x][y];
-							// prova movimento (NON si puo fare move perche mangerebbe le pedine)
-							matrice[x][y] = matrice[j][i];
-							matrice[j][i] = nullptr;
-							neroHasPosition = (isScacco() != 2);
-							// torna indietro
-							matrice[j][i] = matrice[x][y];
-							matrice[x][y] = temp;
+							if (p->getColor()) // se è bianca
+							{
+								Pedina *temp = matrice[x][y];
+								// prova movimento (NON si puo fare move() perche mangerebbe le pedine)
+								matrice[x][y] = p;
+								matrice[j][i] = nullptr;
+								if (isScacco() != 1) // se non e' scacco allora il bianco ha almeno una posizione valida
+								{
+									biancoHasPosition = true;
+								}
+								// torna indietro
+								matrice[j][i] = matrice[x][y];
+								matrice[x][y] = temp;
+							}
+							else // se è nera
+							{
+								Pedina *temp = matrice[x][y];
+								// prova movimento (NON si puo fare move() perche mangerebbe le pedine)
+								matrice[x][y] = p;
+								matrice[j][i] = nullptr;
+								if (isScacco() != 2) // se non e' scacco allora il nero ha almeno una posizione valida
+								{
+									neroHasPosition = true;
+								}
+								// torna indietro
+								matrice[j][i] = matrice[x][y];
+								matrice[x][y] = temp;
+							}
 						}
 					}
 				}

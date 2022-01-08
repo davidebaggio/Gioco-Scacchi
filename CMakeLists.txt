@@ -11,6 +11,7 @@ add_library(ScacchieraL
     include/Pezzi.h
     src/Scacchiera.cpp
     src/Pezzi.cpp
+    src/MosseSpeciali.cpp
 )
 
 add_library(PedinaL

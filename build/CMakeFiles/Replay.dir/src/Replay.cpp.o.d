@@ -236,4 +236,5 @@ CMakeFiles/Replay.dir/src/Replay.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/__split_buffer \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/iomanip \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/thread \
-  /Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/src/../include/Scacchiera.h
+  /Users/lucamainardi/Desktop/Scacchi/Gioco-Scacchi/src/../include/Scacchiera.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX12.1.sdk/usr/include/c++/v1/vector
