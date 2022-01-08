@@ -1,2 +1,0 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libPezziL.a CMakeFiles/PezziL.dir/src/Pezzi.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libPezziL.a
