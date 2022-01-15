@@ -224,8 +224,10 @@ void Scacchiera::move(Pedina *p, int j, int i) //(j,i) coordinate destinazione
 
 int Scacchiera::isScacco()
 {
-	int reBiancoX, reBiancoY;
-	int reNeroX, reNeroY;
+	int reBiancoX = -1, reBiancoY = -1;
+	int reNeroX = -1, reNeroY = -1;
+	/* int reBiancoX, reBiancoY;
+	int reNeroX, reNeroY; */
 
 	for (int i = 0; i < 8; i++) // trova posizioni re
 	{
@@ -247,6 +249,12 @@ int Scacchiera::isScacco()
 		}
 	}
 
+	cout << "\n"
+		 << reBiancoX << " " << reBiancoY << " " << reNeroX << " " << reNeroY << "\n";
+
+	if (reBiancoX < 0 || reBiancoY < 0 || reNeroX < 0 || reNeroY < 0)
+		return 0;
+
 	for (int i = 0; i < 8; i++)
 	{
 		for (int j = 0; j < 8; j++)
@@ -254,13 +262,15 @@ int Scacchiera::isScacco()
 			if (!isEmpty(j, i))
 			{
 				Pedina *p = getPedina(j, i);
-
+				/* cout << "\n\n\n"
+					 << j << "\n"
+					 << i << "\n\n\n"; */
 				if (p->getColor()) // se c'e' una pedina ed e' bianca
 				{
 					if (p->checkPos(reNeroX, reNeroY, matrice)) // scacco al nero
 						return 2;
 				}
-				if (!p->getColor()) // se c'e' una pedina ed e' nera
+				else // se c'e' una pedina ed e' nera
 				{
 					if (p->checkPos(reBiancoX, reBiancoY, matrice)) // scacco al bianco
 						return 1;
