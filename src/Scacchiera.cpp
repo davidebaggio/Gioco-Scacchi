@@ -249,9 +249,9 @@ int Scacchiera::isScacco()
 		}
 	}
 
-	cout << "\n"
+	/* cout << "\n"
 		 << reBiancoX << " " << reBiancoY << " " << reNeroX << " " << reNeroY << "\n";
-
+	 */
 	if (reBiancoX < 0 || reBiancoY < 0 || reNeroX < 0 || reNeroY < 0)
 		return 0;
 
