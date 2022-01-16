@@ -118,9 +118,9 @@ bool computeCommand(ofstream &spec, Scacchiera &sca, const string &cmd, bool col
     if (!isValid(cmd))
         return false;
     int xi = ((int)cmd[0]) - 65;       //-65 per ascii table A
-    int yi = 8 - (((int)cmd[1]) - 48); //-49 per ascii table 0
+    int yi = 7 - (((int)cmd[1]) - 49); //-49 per ascii table 0
     int xf = ((int)cmd[3]) - 65;       //-65 per ascii table A
-    int yf = 8 - (((int)cmd[4]) - 48); //-49 per ascii table 0
+    int yf = 7 - (((int)cmd[4]) - 49); //-49 per ascii table 0
 
     Pedina *temp = sca.getPedina(xi, yi);
     if (temp == nullptr)
@@ -187,7 +187,7 @@ bool computeCommand(ofstream &spec, Scacchiera &sca, const string &cmd, bool col
 }
 
 /**
- * @brief Entry point dell'eseguibile Scacchiera.exe. Gestisce le partite
+ * @brief Entry point dell'eseguibile Scacchiera. Gestisce le partite
  *
  * @param argc Accetta al massimo 2 argomenti: l'eseguibile e gli argomenti da riga di comando
  *             -pc: per le partite giocatore vs PC
@@ -206,7 +206,7 @@ int main(int argc, char *argv[])
     using namespace std::this_thread;
     using namespace std::chrono;
 
-    // Se si avvia Scacchiera.exe senza argomenti
+    // Se si avvia Scacchiera senza argomenti
     if (argc <= 1)
     {
         cout << "[Error] Not enough arguments. Type: " << endl
@@ -215,7 +215,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    // Se si avvia Scacchiera.exe con argomenti errati
+    // Se si avvia Scacchiera con argomenti errati
     else if (strcmp(argv[1], "-pc") != 0 && strcmp(argv[1], "-cc") != 0)
     {
         cout << "[Error] Incorrect arguments. Type: " << endl
@@ -224,7 +224,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    // Se si avvia Scacchiera.exe -pc (Partita Giocatore vs PC)
+    // Se si avvia Scacchiera -pc (Partita Giocatore vs PC)
     else if (strcmp(argv[1], "-pc") == 0)
     {
         cout << "Partita giocatore (Bianco) vs computer (Nero)\n";

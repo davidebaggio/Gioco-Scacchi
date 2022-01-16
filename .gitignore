@@ -1,9 +1,5 @@
 
 #file da ignorare sono gli eseguibili che dipendono dal tipo di compilatore
-
-build/Scacchiera.exe
-build/Replay.exe
-
 #i vari file di testo generati dai programmi
 
 build/*.txt
@@ -11,14 +7,6 @@ build/*.exe
 build/*.json
 build/Makefile
 build/*.a
-
-#consegna
-
-Assegnamento_scacchiera.pdf
-
-#starter di debug
-
-*.bat
 
 #editor di testo
 

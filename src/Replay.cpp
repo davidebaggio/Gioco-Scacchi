@@ -18,10 +18,10 @@ using namespace std;
  */
 void computeCommand(Scacchiera &sca, const string &cmd, const string &special)
 {
-	int xi = ((int)cmd[0]) - 65; //-65 per ascii table A
-	int yi = ((int)cmd[1]) - 49; //-49 per ascii table 1
-	int xf = ((int)cmd[3]) - 65; //-65 per ascii table B
-	int yf = ((int)cmd[4]) - 49; //-49 per ascii table 3
+	int xi = ((int)cmd[0]) - 65;	   //-65 per ascii table A
+	int yi = 7 - (((int)cmd[1]) - 49); //-49 per ascii table 1
+	int xf = ((int)cmd[3]) - 65;	   //-65 per ascii table B
+	int yf = 7 - (((int)cmd[4]) - 49); //-49 per ascii table 3
 	Pedina *temp = sca.getPedina(xi, yi);
 	if (special == "")
 		sca.move(temp, xf, yf);
@@ -168,7 +168,6 @@ int main(int argc, char *argv[])
 			inputFile.close();
 			outputFile.close();
 			spec.close();
-			return 0;
 		}
 		return 0;
 	}

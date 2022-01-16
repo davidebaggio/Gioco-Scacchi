@@ -162,7 +162,7 @@ void Scacchiera::move(Pedina *p, int j, int i) //(j,i) coordinate destinazione
 			// dealloca la memoria della pedina mangiata
 			if (temp != nullptr)
 			{
-				cout << "Pedina  " << temp->getName() << " mangiata\n";
+				// cout << "\nPedina  " << temp->getName() << " mangiata\n";
 				delete temp;
 			}
 		}
