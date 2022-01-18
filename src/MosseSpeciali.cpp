@@ -1,5 +1,6 @@
 #include "../include/Scacchiera.h"
 #include "../include/Pezzi.h"
+using namespace std;
 
 void Scacchiera::promozione(ofstream &spec, Pedina *p, bool player)
 {
@@ -71,7 +72,16 @@ void Scacchiera::replayPromo(Pedina *p, string special, bool player)
 		temp = new Re(x, y, player, special[0]);
 	changePiece(x, y, temp);
 }
-
+/**
+ * @brief gestisce l'arrocco: si esegue indicando prima la posizione del re, poi della torre con cui
+ * si vuole fare l'arrocco
+ * 
+ * @param xi ascissa iniziale (del re)
+ * @param yi ordinata iniziale (del re)
+ * @param xf ascissa finale (della torre)
+ * @param yf ordinata finale (della torre)
+ * @throws invalid position se le coordinate non sono valide
+ */
 void Scacchiera::arrocco(int xi, int yi, int xf, int yf)
 {
 	if (xi == 4 && yi == 0 && yf == 0) // arrocco del nero
@@ -79,7 +89,7 @@ void Scacchiera::arrocco(int xi, int yi, int xf, int yf)
 		if (xf == 0) // arrocco lungo
 		{
 			// verifica condizioni
-			if (isScacco() == 2) // arrocco non si puo' fare se re e' sotto scacco
+			if (isScaccoNero()) // arrocco non si puo' fare se re e' sotto scacco
 			{
 				throw InvalidPosition();
 			}
@@ -107,9 +117,8 @@ void Scacchiera::arrocco(int xi, int yi, int xf, int yf)
 		}
 		else if (xf == 7) // arrocco corto
 		{
-
 			// verifica condizioni
-			if (isScacco() == 2) // arrocco non si puo' fare se re e' sotto scacco
+			if (isScaccoNero()) // arrocco non si puo' fare se re e' sotto scacco
 			{
 				throw InvalidPosition();
 			}
@@ -144,9 +153,8 @@ void Scacchiera::arrocco(int xi, int yi, int xf, int yf)
 	{
 		if (xf == 0) // arrocco lungo
 		{
-
 			// verifica condizioni
-			if (isScacco() == 1) // arrocco non si puo' fare se re e' sotto scacco
+			if (isScaccoBianco()) // arrocco non si puo' fare se re e' sotto scacco
 			{
 				throw InvalidPosition();
 			}
@@ -170,15 +178,12 @@ void Scacchiera::arrocco(int xi, int yi, int xf, int yf)
 			torre->setPos(3, 7);
 			setPedina(torre);
 			setPtr(0, 7);
-			/* matrice[3][7] = torre; // sposta torre
-			matrice[0][7] = nullptr; */
 			return;
 		}
 		else if (xf == 7) // arrocco corto
 		{
-
 			// verifica condizioni
-			if (isScacco() == 1) // arrocco non si puo' fare se re e' sotto scacco
+			if (isScaccoBianco()) // arrocco non si puo' fare se re e' sotto scacco
 			{
 				throw InvalidPosition();
 			}
@@ -202,8 +207,6 @@ void Scacchiera::arrocco(int xi, int yi, int xf, int yf)
 			torre->setPos(5, 7);
 			setPedina(torre);
 			setPtr(7, 7);
-			/* matrice[5][7] = torre; // sposta torre
-			matrice[7][7] = nullptr; */
 			return;
 		}
 		else

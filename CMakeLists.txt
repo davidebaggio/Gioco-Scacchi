@@ -1,18 +1,20 @@
 cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
 
 add_definitions(-std=c++11)
-set(CMAKE_BUILD_TYPE RelWithDebInfo)
+#set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
 project (Progetto)
 
 include_directories(include)
 
 add_library(ScacchieraL
+    include/Game.h
     include/Scacchiera.h
     include/Pezzi.h
     src/Scacchiera.cpp
     src/Pezzi.cpp
     src/MosseSpeciali.cpp
+    src/Game.cpp
 )
 
 add_library(PedinaL

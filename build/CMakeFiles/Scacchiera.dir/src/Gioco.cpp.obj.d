@@ -1,5 +1,5 @@
 CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj: \
- C:\Users\david\Universita\Lezioni\ programmazione\Gioco-Scacchi\src\Gioco.cpp \
+ C:\Users\david\Desktop\Gioco-Scacchi\src\Gioco.cpp \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/os_defines.h \
@@ -166,10 +166,12 @@ CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj: \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward/auto_ptr.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/sstream \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/sstream.tcc \
- C:/Users/david/Universita/Lezioni\ programmazione/Gioco-Scacchi/include/Scacchiera.h \
+ C:/Users/david/Desktop/Gioco-Scacchi/include/Scacchiera.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/vector \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_vector.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/stl_bvector.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/bits/vector.tcc \
- C:/Users/david/Universita/Lezioni\ programmazione/Gioco-Scacchi/include/Pezzi.h \
- C:/Users/david/Universita/Lezioni\ programmazione/Gioco-Scacchi/include/Scacchiera.h
+ C:/Users/david/Desktop/Gioco-Scacchi/include/Pezzi.h \
+ C:/Users/david/Desktop/Gioco-Scacchi/include/Scacchiera.h \
+ C:/Users/david/Desktop/Gioco-Scacchi/include/Game.h \
+ C:/Users/david/Desktop/Gioco-Scacchi/include/Pezzi.h

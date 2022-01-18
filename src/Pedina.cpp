@@ -1,17 +1,7 @@
 // Melissa Maistro
 
 #include "../include/Scacchiera.h"
-
-/*
-Pedina::Pedina()
-{
-	x = -1;
-	y = -1;
-	color = false;
-	name = 'e';
-	firstMove = true;
-}
-*/
+using namespace std;
 
 Pedina::Pedina(int l, int n, bool c, char na)
 {
@@ -21,14 +11,6 @@ Pedina::Pedina(int l, int n, bool c, char na)
 	setName(na);
 	moveCount = 0;
 }
-
-/* Pedina::Pedina(const Pedina &ped)
-{
-	x = ped.getX();
-	y = ped.getY();
-	color = ped.getColor();
-	name = ped.getName();
-} */
 
 void Pedina::setPos(int l, int n)
 {

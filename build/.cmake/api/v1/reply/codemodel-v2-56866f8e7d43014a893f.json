@@ -6,7 +6,7 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-RelWithDebInfo-d0094a50bb2071803777.json",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.2"
@@ -22,7 +22,7 @@
 					]
 				}
 			],
-			"name" : "RelWithDebInfo",
+			"name" : "Debug",
 			"projects" : 
 			[
 				{
@@ -45,28 +45,28 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "PedinaL::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-PedinaL-RelWithDebInfo-02718af31630febb6ffe.json",
+					"jsonFile" : "target-PedinaL-Debug-f1e41b393a1601ff12b6.json",
 					"name" : "PedinaL",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Replay::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Replay-RelWithDebInfo-497678064c72c6f5ec34.json",
+					"jsonFile" : "target-Replay-Debug-972561c9499bd0241b5d.json",
 					"name" : "Replay",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "Scacchiera::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Scacchiera-RelWithDebInfo-9e5a799fea93d94d8e4d.json",
+					"jsonFile" : "target-Scacchiera-Debug-4d59af88370f052c8cf2.json",
 					"name" : "Scacchiera",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ScacchieraL::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ScacchieraL-RelWithDebInfo-fa609fa702d376539932.json",
+					"jsonFile" : "target-ScacchieraL-Debug-1828f4eeb0a5df2ea05b.json",
 					"name" : "ScacchieraL",
 					"projectIndex" : 0
 				}
@@ -76,8 +76,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build",
-		"source" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi"
+		"build" : "C:/Users/david/Desktop/Gioco-Scacchi/build",
+		"source" : "C:/Users/david/Desktop/Gioco-Scacchi"
 	},
 	"version" : 
 	{

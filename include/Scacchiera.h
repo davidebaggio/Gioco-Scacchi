@@ -7,9 +7,6 @@
 #include <cctype>
 #include <vector>
 
-using namespace std;
-
-// class Scacchiera;
 //_________________________________ PEDINA ______________________________
 class Pedina
 {
@@ -21,9 +18,8 @@ private:
 	int moveCount;
 
 public:
-	// Pedina();
 	Pedina(int, int, bool, char); // pos x, pos y, colore(true bianco, false nero), lettera ref
-	virtual ~Pedina() {}
+	// virtual ~Pedina() {}
 
 	int getX() const { return x; }
 	int getY() const { return y; }
@@ -35,10 +31,9 @@ public:
 	int getMoveCount() const { return moveCount; }
 	void increaseCount() { moveCount++; }
 
-	// virtual bool move(int, int, Scacchiera &);
 	virtual bool checkPos(int destX, int destY, Pedina *matrice[8][8]) = 0;
 
-	friend ostream &operator<<(ostream &os, const Pedina &);
+	friend std::ostream &operator<<(std::ostream &os, const Pedina &);
 
 	Pedina(const Pedina &) = delete;
 	Pedina &operator=(const Pedina &) = delete;
@@ -49,11 +44,8 @@ class Scacchiera
 {
 private:
 	Pedina *matrice[8][8];
-
-	int hasValidPositions(); // 0 se entrambi hanno pos valide
-							 // 1 se bianco ha pos valida e nero no
-							 // 2 se nero ha pos valida e bianco no
-							 // 3 se nessuno ha pos valide
+	bool neroHasValidPositions();
+	bool biancoHasValidPositions();
 
 public:
 	Scacchiera();
@@ -66,26 +58,35 @@ public:
 	void changePiece(int, int, Pedina *);
 	void setPtr(int, int);
 	void move(Pedina *, int, int); // lancia InvalidPosition se la posizione non e' valida
-								   // o se la mossa provoca uno scacco al giocatore che l'ha eseguita
-	// ritornano 0 se non e' scacco, 1 se bianco e' sotto scacco, 2 se nero e' sotto scacco
-	int isScacco();
-	int isScaccoMatto();
-	bool isPatta(vector<string> &);
+								   // e InvalidMove se la mossa causa uno scacco al giocatore che l'ha eseguita
+
+	bool isScaccoNero();
+	bool isScaccoBianco();
+	bool isScaccoMattoNero();
+	bool isScaccoMattoBianco();
+	int isPatta(std::vector<std::string> &); // restituisce 0 se non e'patta
+											 //			  1 se bianco e' in stallo
+											 //			  2 se nero e' in stallo
+											 //			  3 se e' patta per mosse ripetute
 
 	// MOSSE SPECIALI
-	void replayPromo(Pedina *, string, bool);
-	void promozione(ofstream &, Pedina *, bool);
+	void replayPromo(Pedina *, std::string, bool);
+	void promozione(std::ofstream &, Pedina *, bool);
 	void arrocco(int, int, int, int);
 	void enPassant(Pedina *, int, int);
 };
 
-ostream &operator<<(ostream &os, const Scacchiera &);
+std::ostream &operator<<(std::ostream &os, const Scacchiera &);
 
 class InvalidIndex
 {
 };
 
 class InvalidPosition
+{
+};
+
+class InvalidMove
 {
 };
 

@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build"
+			"value" : "c:/Users/david/Desktop/Gioco-Scacchi/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -647,7 +647,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi"
+			"value" : "C:/Users/david/Desktop/Gioco-Scacchi"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1267,7 +1267,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/build"
+			"value" : "C:/Users/david/Desktop/Gioco-Scacchi/build"
 		},
 		{
 			"name" : "Progetto_IS_TOP_LEVEL",
@@ -1291,7 +1291,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi"
+			"value" : "C:/Users/david/Desktop/Gioco-Scacchi"
 		}
 	],
 	"kind" : "cache",

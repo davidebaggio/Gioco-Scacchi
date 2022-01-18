@@ -56,10 +56,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi"
+CMAKE_SOURCE_DIR = C:\Users\david\Desktop\Gioco-Scacchi
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build"
+CMAKE_BINARY_DIR = C:\Users\david\Desktop\Gioco-Scacchi\build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -86,9 +86,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\david\Desktop\Gioco-Scacchi\build\CMakeFiles C:\Users\david\Desktop\Gioco-Scacchi\build\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\david\Universita\Lezioni programmazione\Gioco-Scacchi\build\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\david\Desktop\Gioco-Scacchi\build\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -166,6 +166,30 @@ Replay: cmake_check_build_system
 Replay/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Replay.dir\build.make CMakeFiles/Replay.dir/build
 .PHONY : Replay/fast
+
+src/Game.obj: src/Game.cpp.obj
+.PHONY : src/Game.obj
+
+# target to build an object file
+src/Game.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/Game.cpp.obj
+.PHONY : src/Game.cpp.obj
+
+src/Game.i: src/Game.cpp.i
+.PHONY : src/Game.i
+
+# target to preprocess a source file
+src/Game.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/Game.cpp.i
+.PHONY : src/Game.cpp.i
+
+src/Game.s: src/Game.cpp.s
+.PHONY : src/Game.s
+
+# target to generate assembly for a file
+src/Game.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/Game.cpp.s
+.PHONY : src/Game.cpp.s
 
 src/Gioco.obj: src/Gioco.cpp.obj
 .PHONY : src/Gioco.obj
@@ -323,6 +347,9 @@ help:
 	@echo ... Replay
 	@echo ... Scacchiera
 	@echo ... ScacchieraL
+	@echo ... src/Game.obj
+	@echo ... src/Game.i
+	@echo ... src/Game.s
 	@echo ... src/Gioco.obj
 	@echo ... src/Gioco.i
 	@echo ... src/Gioco.s

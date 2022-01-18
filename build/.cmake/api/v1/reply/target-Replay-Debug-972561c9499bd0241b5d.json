@@ -29,19 +29,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 27,
+				"line" : 29,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 34,
+				"line" : 36,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 35,
+				"line" : 37,
 				"parent" : 0
 			},
 			{
@@ -58,14 +58,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-O2 -g -DNDEBUG   -std=c++11"
+					"fragment" : "-g   -std=c++11"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/david/Universita/Lezioni programmazione/Gioco-Scacchi/include"
+					"path" : "C:/Users/david/Desktop/Gioco-Scacchi/include"
 				}
 			],
 			"language" : "CXX",
@@ -92,7 +92,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-O2 -g -DNDEBUG",
+				"fragment" : "-g",
 				"role" : "flags"
 			},
 			{

@@ -1,7 +1,4 @@
 // Melissa Maistro
-/*
-    operator << di tutte le pedine sono inutili (?) perche' c'e' quello di pedina
-*/
 
 #ifndef PEZZI_H
 #define PEZZI_H
@@ -68,7 +65,7 @@ public:
     bool checkPos(int destX, int destY, Pedina *matrice[8][8]) override;
 };
 
-// HELPER FUNCTION
+// HELPER FUNCTIONS
 bool checkBoundaries(int i, int j);
 bool emptyBox(Pedina *matrice[8][8], int x, int y);
 
