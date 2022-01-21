@@ -1,7 +1,21 @@
 // Davide Baggio
 
-#include "../include/Game.h"
+#include <iostream>
+#include <fstream>
+#include <chrono>
+#include <thread>
+#include <cstdlib>
+#include <time.h>
+#include <vector>
 
+#include "../include/Game.h"
+using namespace std;
+
+/**
+ * @brief Funzione che estrae un comando casuale per il Computer
+ *
+ * @return string Comando per il movimento
+ */
 string Game::randomCommand()
 {
 	char c1;
@@ -20,7 +34,14 @@ string Game::randomCommand()
 	return commandPC;
 }
 
-bool Game::isValid(const string &cmd) // funzione che controlla se il comando inserito è formattato in modo corretto
+/**
+ * @brief Controlla che il comando inserito abbia il formato corretto
+ *
+ * @param cmd Comando inserito
+ * @return true Comando corretto es: A6 C5 (XX XX)
+ * @return false Comando errato
+ */
+bool Game::isValid(const string &cmd)
 {
 	if (cmd.length() != 5 || (int)cmd[0] < 65 || (int)cmd[0] > 72 || (int)cmd[1] < 49 || (int)cmd[1] > 57 ||
 		(int)cmd[3] < 65 || (int)cmd[3] > 72 || (int)cmd[4] < 49 || (int)cmd[4] > 57 || cmd[2] != ' ')
@@ -32,6 +53,16 @@ bool Game::isValid(const string &cmd) // funzione che controlla se il comando in
 		return true;
 }
 
+/**
+ * @brief Funzione che controlla se è possibile fare la mossa speciale enPassant
+ *
+ * @param sca
+ * @param p
+ * @param xf
+ * @param yf
+ * @return true
+ * @return false
+ */
 bool Game::canEnPassant(Scacchiera &sca, Pedina *p, int xf, int yf)
 {
 	// controllo se destinazione e' occupata da un pedone
@@ -73,6 +104,17 @@ bool Game::canEnPassant(Scacchiera &sca, Pedina *p, int xf, int yf)
 	return false;
 }
 
+/**
+ * @brief Funzione che computa il comando inserito in movimento par la pedina interessata
+ *
+ * @param spec
+ * @param sca
+ * @param cmd
+ * @param col
+ * @param err
+ * @return true se è avvenuto il movimento
+ * @return false altrimenti
+ */
 bool Game::computeCommand(ofstream &spec, Scacchiera &sca, const string &cmd, bool col, bool err) // funzione che trasforma il comado 'stringa' in coordinate di partenza e arrivo della pedina
 {
 	if (!isValid(cmd))
@@ -146,7 +188,13 @@ bool Game::computeCommand(ofstream &spec, Scacchiera &sca, const string &cmd, bo
 	return true;
 }
 
-void Game::startPC()
+/**
+ * @brief Starter del gioco Player vs Computer
+ *
+ * @param outputFile File di log delle mosse
+ * @param spec File di log delle mosse speciali
+ */
+void Game::startPC(ofstream &outputFile, ofstream &spec)
 {
 	Scacchiera s{};
 	cout << "Scacchiera iniziale: \n"
@@ -154,10 +202,6 @@ void Game::startPC()
 		 << s << "\n";
 
 	// Apertura di file di log dove verranno salvate tutte le mosse.
-	ofstream outputFile("logPC.txt");
-	ofstream spec("spec.txt");
-	outputFile.clear();
-	spec.clear();
 
 	vector<string> cmd{};
 
@@ -169,7 +213,7 @@ void Game::startPC()
 		if (s.isScaccoBianco())
 		{
 			cout << "Giocatore sotto scacco\n";
-			outputFile << "Giocatore sotto scacco\n";
+			// outputFile << "Giocatore sotto scacco\n";
 		}
 		if (s.isPatta(cmd) == 1)
 		{
@@ -211,7 +255,7 @@ void Game::startPC()
 		if (s.isScaccoNero())
 		{
 			cout << "Computer sotto scacco\n";
-			outputFile << "Computer sotto scacco\n";
+			// outputFile << "Computer sotto scacco\n";
 		}
 		if (s.isPatta(cmd) == 2)
 		{
@@ -248,12 +292,15 @@ void Game::startPC()
 			break;
 		}
 	}
-
-	spec.close();
-	outputFile.close();
 }
 
-void Game::startCC()
+/**
+ * @brief Starter del gioco Computer vs Computer
+ *
+ * @param outputFile File di log delle mosse
+ * @param spec File di log delle mosse speciali
+ */
+void Game::startCC(ofstream &outputFile, ofstream &spec)
 {
 	Scacchiera s{};
 	cout << "Scacchiera iniziale: \n"
@@ -264,10 +311,6 @@ void Game::startCC()
 	int mosseMax = 50;
 
 	// Apertura di file di log dove verranno salvate tutte le mosse.
-	ofstream outputFile("logCC.txt");
-	ofstream spec("spec.txt");
-	outputFile.clear();
-	spec.clear();
 
 	vector<string> cmd{};
 	// Ciclo per la partita, continua finchè una delle condizioni non sia verificata
@@ -278,7 +321,7 @@ void Game::startCC()
 		if (s.isScaccoBianco())
 		{
 			cout << "PC1 sotto scacco\n";
-			outputFile << "PC1 sotto scacco\n";
+			// outputFile << "PC1 sotto scacco\n";
 		}
 		if (s.isPatta(cmd) == 1)
 		{
@@ -316,12 +359,12 @@ void Game::startCC()
 		}
 
 		//--------------------------- turno del nero ---------------------------------
-		// sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
+		this_thread::sleep_for(chrono::seconds(1)); // 1 secondo da una giocata all'altra
 
 		if (s.isScaccoNero())
 		{
 			cout << "PC2 sotto scacco\n";
-			outputFile << "PC2 sotto scacco\n";
+			// outputFile << "PC2 sotto scacco\n";
 		}
 		if (s.isPatta(cmd) == 2)
 		{
@@ -331,8 +374,6 @@ void Game::startCC()
 
 		cout << "computer 2 (nero): \n";
 		string commandPC2 = "";
-
-		// controlla se PC2 e' sotto scacco
 
 		// Estrazione casuale del comando da parte del PC affinchè non sia valido.
 		do
@@ -362,7 +403,7 @@ void Game::startCC()
 
 		mosseMax--;
 
-		// sleep_for(seconds(1)); // 1 secondo da una giocata all'altra
+		this_thread::sleep_for(chrono::seconds(1)); // 1 secondo da una giocata all'altra
 	}
 	if (mosseMax == 0)
 	{

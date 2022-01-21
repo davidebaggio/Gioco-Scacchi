@@ -7,7 +7,16 @@ using namespace std;
 
 //_______________________________________PEDONE___________________________________________
 
-bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' muoversi nella posizione data
+/**
+ * @brief controlla se il pedone puo' muoversi nella posizione data
+ * 
+ * @param j ascissa della cella
+ * @param i ordinata della cella
+ * @param matrice matrice della scacchiera contenente le pedine
+ * @return true se puo' muoversi nella cella
+ * @return false altrimenti
+ */
+bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8])  
 {
     if (getColor()) // se bianco
     {
@@ -56,7 +65,15 @@ bool Pedone::checkPos(int j, int i, Pedina *matrice[8][8]) // controlla se puo' 
 }
 
 //_______________________________________CAVALLO___________________________________________
-
+/**
+ * @brief controlla se il cavallo puo' muoversi nella posizione data
+ * 
+ * @param j ascissa della cella
+ * @param i ordinata della cella
+ * @param matrice matrice della scacchiera contenente le pedine
+ * @return true se puo' muoversi nella cella
+ * @return false altrimenti
+ */
 bool Cavallo::checkPos(int j, int i, Pedina *matrice[8][8]) // si sposta a L in tutte le direzioni anche se ci sono pedine
 {                                                           // j colonne, i righe
 
@@ -64,8 +81,6 @@ bool Cavallo::checkPos(int j, int i, Pedina *matrice[8][8]) // si sposta a L in 
     if (!emptyBox(matrice, j, i) && (matrice[j][i]->getColor() == getColor()))
         return false;
 
-    // if (j == getX() && (i == getY() - 1 || i == getY() - 2 || i == getY() + 1 || i == getY() + 2))
-    //     return true;
     if (j == getX() - 1 && (i == getY() - 2 || i == getY() + 2))
         return true;
     if (j == getX() - 2 && (i == getY() - 1 || i == getY() + 1))
@@ -78,7 +93,15 @@ bool Cavallo::checkPos(int j, int i, Pedina *matrice[8][8]) // si sposta a L in 
 }
 
 //_______________________________________ALFIERE___________________________________________
-
+/**
+ * @brief controlla se l'alfiere puo' muoversi nella posizione data
+ * 
+ * @param j ascissa della cella
+ * @param i ordinata della cella
+ * @param matrice matrice della scacchiera contenente le pedine
+ * @return true se puo' muoversi nella cella
+ * @return false altrimenti
+ */
 bool Alfiere::checkPos(int j, int i, Pedina *matrice[8][8]) // si muove nelle 4 diagonali
 {
     for (int n = 1; n < 8; n++) // diagonale nord-ovest
@@ -145,7 +168,15 @@ bool Alfiere::checkPos(int j, int i, Pedina *matrice[8][8]) // si muove nelle 4 
 }
 
 //_______________________________________TORRE___________________________________________
-
+/**
+ * @brief controlla se la torre puo' muoversi nella posizione data
+ * 
+ * @param j ascissa della cella
+ * @param i ordinata della cella
+ * @param matrice matrice della scacchiera contenente le pedine
+ * @return true se puo' muoversi nella cella
+ * @return false altrimenti
+ */
 bool Torre::checkPos(int j, int i, Pedina *matrice[8][8])
 {
     for (int n = 1; n < 8; n++) // sinistra
@@ -220,7 +251,15 @@ bool Torre::checkPos(int j, int i, Pedina *matrice[8][8])
 }
 
 //_______________________________________RE___________________________________________
-
+/**
+ * @brief controlla se il re puo' muoversi nella posizione data
+ * 
+ * @param j ascissa della cella
+ * @param i ordinata della cella
+ * @param matrice matrice della scacchiera contenente le pedine
+ * @return true se puo' muoversi nella cella
+ * @return false altrimenti
+ */
 bool Re::checkPos(int j, int i, Pedina *matrice[8][8])
 {
     if (j == getX() && (i == getY() - 1 || i == getY() + 1))
@@ -245,7 +284,15 @@ bool Re::checkPos(int j, int i, Pedina *matrice[8][8])
 }
 
 // //_______________________________________REGINA___________________________________________
-
+/**
+ * @brief controlla se la regina puo' muoversi nella posizione data
+ * 
+ * @param j ascissa della cella
+ * @param i ordinata della cella
+ * @param matrice matrice della scacchiera contenente le pedine
+ * @return true se puo' muoversi nella cella
+ * @return false altrimenti
+ */
 bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
 {
     for (int n = 1; n < 8; n++) // diagonale nord-ovest
@@ -380,12 +427,27 @@ bool Regina::checkPos(int j, int i, Pedina *matrice[8][8])
 }
 
 //-------------------------------------------- HELPER FUNCTIONS --------------------------------------------
-
-bool checkBoundaries(int j, int i)
+/**
+ * @brief controlla se l'indice e' fuori dalla scacchiera
+ * 
+ * @param j ascissa della cella
+ * @param i ordinata della cella
+ * @return true se l'indice e' interno alla scacchiera
+ * @return false altrimenti
+ */
+bool checkBoundaries(int j, int i)  
 {
     return (i >= 0 && i <= 7 && j >= 0 && j <= 7);
 }
-
+/**
+ * @brief controlla se la cella di coordinate (x,y) non contiene nessuna pedina
+ * 
+ * @param matrice matrice della scacchiera contenente le pedine
+ * @param x ascissa della cella
+ * @param y ordinata della cella
+ * @return true se cella e' vuota
+ * @return false se cella non e' vuota
+ */
 bool emptyBox(Pedina *matrice[8][8], int x, int y)
 {
     return matrice[x][y] == nullptr;

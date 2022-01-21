@@ -19,14 +19,14 @@ using namespace std;
 class Game
 {
 public:
-	string randomCommand();
-	bool isValid(const string &);
-	bool computeCommand(ofstream &, Scacchiera &, const string &, bool, bool);
+	std::string randomCommand();
+	bool isValid(const std::string &);
+	bool computeCommand(std::ofstream &, Scacchiera &, const std::string &, bool, bool);
 
 	bool canEnPassant(Scacchiera &, Pedina *, int, int);
 
-	void startPC();
-	void startCC();
+	void startPC(ofstream &, ofstream &);
+	void startCC(ofstream &, ofstream &);
 };
 
 #endif // GAME_H

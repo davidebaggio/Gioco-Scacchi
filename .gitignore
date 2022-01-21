@@ -14,3 +14,7 @@ build/Replay
 
 .vscode
 
+#.bat
+
+build.bat
+buildDebug.bat

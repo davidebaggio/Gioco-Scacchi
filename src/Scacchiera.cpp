@@ -228,9 +228,6 @@ bool Scacchiera::isScaccoNero()
 			}
 		}
 	}
-	// verifica di aver trovato i re
-	if (reNeroX < 0 || reNeroY < 0)
-		throw InvalidIndex();
 
 	// controlla se le altre pedine potrebbero muoversi nella casella del re (e quindi catturarlo)
 	for (int i = 0; i < 8; i++)
@@ -277,9 +274,6 @@ bool Scacchiera::isScaccoBianco()
 			}
 		}
 	}
-	// verifica di aver trovato i re
-	if (reBiancoX < 0 || reBiancoY < 0)
-		throw InvalidIndex();
 
 	// controlla se le altre pedine potrebbero muoversi nella casella del re (e quindi catturarlo)
 	for (int i = 0; i < 8; i++)

@@ -18,8 +18,8 @@ using namespace std;
  * @brief Entry point dell'eseguibile Scacchiera. Gestisce le partite
  *
  * @param argc Accetta al massimo 2 argomenti: l'eseguibile e gli argomenti da riga di comando
- *             -pc: per le partite giocatore vs PC
- *             -cc: per le partite PC vs PC
+ *             pc: per le partite giocatore vs PC
+ *             cc: per le partite PC vs PC
  * @param argv
  * @return int 0.
  */
@@ -27,12 +27,6 @@ int main(int argc, char *argv[])
 {
     srand(time(NULL));
 
-    /**
-     * @brief std::this_thread e std::chrono verranno usati
-     * per far passare il tempo di 1 secondo da ogni giocata PC vs PC.
-     */
-    using namespace std::this_thread;
-    using namespace std::chrono;
     Game game = Game();
 
     // Se si avvia Scacchiera senza argomenti
@@ -59,13 +53,30 @@ int main(int argc, char *argv[])
         cout << "Partita giocatore (Bianco) vs computer (Nero)\n";
         cout << "Per giocare inserire la posizione di cella iniziale e finale separati da uno spazio. Es: A2 C3\n";
 
-        game.startPC();
+        ofstream outputFile("logPC.txt");
+        ofstream spec("spec.txt");
+        outputFile.clear();
+        spec.clear();
+
+        game.startPC(outputFile, spec);
+
+        outputFile.close();
+        spec.close();
     }
     //---------------------------------- Se si avvia Scacchiera.exe -cc (Partita PC vs PC) ----------------------------------
     else
     {
         cout << "Partita computer vs computer\n";
-        game.startCC();
+
+        ofstream outputFile("logCC.txt");
+        ofstream spec("spec.txt");
+        outputFile.clear();
+        spec.clear();
+
+        game.startCC(outputFile, spec);
+
+        outputFile.close();
+        spec.close();
     }
     return 0;
 }

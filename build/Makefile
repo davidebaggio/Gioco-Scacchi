@@ -215,29 +215,53 @@ src/Gioco.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Scacchiera.dir\build.make CMakeFiles/Scacchiera.dir/src/Gioco.cpp.s
 .PHONY : src/Gioco.cpp.s
 
-src/MosseSpeciali.obj: src/MosseSpeciali.cpp.obj
-.PHONY : src/MosseSpeciali.obj
+src/MosseSpeciali1.obj: src/MosseSpeciali1.cpp.obj
+.PHONY : src/MosseSpeciali1.obj
 
 # target to build an object file
-src/MosseSpeciali.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj
-.PHONY : src/MosseSpeciali.cpp.obj
+src/MosseSpeciali1.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali1.cpp.obj
+.PHONY : src/MosseSpeciali1.cpp.obj
 
-src/MosseSpeciali.i: src/MosseSpeciali.cpp.i
-.PHONY : src/MosseSpeciali.i
+src/MosseSpeciali1.i: src/MosseSpeciali1.cpp.i
+.PHONY : src/MosseSpeciali1.i
 
 # target to preprocess a source file
-src/MosseSpeciali.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.i
-.PHONY : src/MosseSpeciali.cpp.i
+src/MosseSpeciali1.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali1.cpp.i
+.PHONY : src/MosseSpeciali1.cpp.i
 
-src/MosseSpeciali.s: src/MosseSpeciali.cpp.s
-.PHONY : src/MosseSpeciali.s
+src/MosseSpeciali1.s: src/MosseSpeciali1.cpp.s
+.PHONY : src/MosseSpeciali1.s
 
 # target to generate assembly for a file
-src/MosseSpeciali.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.s
-.PHONY : src/MosseSpeciali.cpp.s
+src/MosseSpeciali1.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali1.cpp.s
+.PHONY : src/MosseSpeciali1.cpp.s
+
+src/MosseSpeciali2.obj: src/MosseSpeciali2.cpp.obj
+.PHONY : src/MosseSpeciali2.obj
+
+# target to build an object file
+src/MosseSpeciali2.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali2.cpp.obj
+.PHONY : src/MosseSpeciali2.cpp.obj
+
+src/MosseSpeciali2.i: src/MosseSpeciali2.cpp.i
+.PHONY : src/MosseSpeciali2.i
+
+# target to preprocess a source file
+src/MosseSpeciali2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali2.cpp.i
+.PHONY : src/MosseSpeciali2.cpp.i
+
+src/MosseSpeciali2.s: src/MosseSpeciali2.cpp.s
+.PHONY : src/MosseSpeciali2.s
+
+# target to generate assembly for a file
+src/MosseSpeciali2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/MosseSpeciali2.cpp.s
+.PHONY : src/MosseSpeciali2.cpp.s
 
 src/Pedina.obj: src/Pedina.cpp.obj
 .PHONY : src/Pedina.obj
@@ -286,6 +310,30 @@ src/Pezzi.s: src/Pezzi.cpp.s
 src/Pezzi.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.s
 .PHONY : src/Pezzi.cpp.s
+
+src/RepGame.obj: src/RepGame.cpp.obj
+.PHONY : src/RepGame.obj
+
+# target to build an object file
+src/RepGame.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/RepGame.cpp.obj
+.PHONY : src/RepGame.cpp.obj
+
+src/RepGame.i: src/RepGame.cpp.i
+.PHONY : src/RepGame.i
+
+# target to preprocess a source file
+src/RepGame.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/RepGame.cpp.i
+.PHONY : src/RepGame.cpp.i
+
+src/RepGame.s: src/RepGame.cpp.s
+.PHONY : src/RepGame.s
+
+# target to generate assembly for a file
+src/RepGame.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\ScacchieraL.dir\build.make CMakeFiles/ScacchieraL.dir/src/RepGame.cpp.s
+.PHONY : src/RepGame.cpp.s
 
 src/Replay.obj: src/Replay.cpp.obj
 .PHONY : src/Replay.obj
@@ -353,15 +401,21 @@ help:
 	@echo ... src/Gioco.obj
 	@echo ... src/Gioco.i
 	@echo ... src/Gioco.s
-	@echo ... src/MosseSpeciali.obj
-	@echo ... src/MosseSpeciali.i
-	@echo ... src/MosseSpeciali.s
+	@echo ... src/MosseSpeciali1.obj
+	@echo ... src/MosseSpeciali1.i
+	@echo ... src/MosseSpeciali1.s
+	@echo ... src/MosseSpeciali2.obj
+	@echo ... src/MosseSpeciali2.i
+	@echo ... src/MosseSpeciali2.s
 	@echo ... src/Pedina.obj
 	@echo ... src/Pedina.i
 	@echo ... src/Pedina.s
 	@echo ... src/Pezzi.obj
 	@echo ... src/Pezzi.i
 	@echo ... src/Pezzi.s
+	@echo ... src/RepGame.obj
+	@echo ... src/RepGame.i
+	@echo ... src/RepGame.s
 	@echo ... src/Replay.obj
 	@echo ... src/Replay.i
 	@echo ... src/Replay.s

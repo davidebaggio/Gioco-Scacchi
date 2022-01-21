@@ -9,8 +9,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/david/Desktop/Gioco-Scacchi/src/Game.cpp" "CMakeFiles/ScacchieraL.dir/src/Game.cpp.obj" "gcc" "CMakeFiles/ScacchieraL.dir/src/Game.cpp.obj.d"
-  "C:/Users/david/Desktop/Gioco-Scacchi/src/MosseSpeciali.cpp" "CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj" "gcc" "CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj.d"
+  "C:/Users/david/Desktop/Gioco-Scacchi/src/MosseSpeciali1.cpp" "CMakeFiles/ScacchieraL.dir/src/MosseSpeciali1.cpp.obj" "gcc" "CMakeFiles/ScacchieraL.dir/src/MosseSpeciali1.cpp.obj.d"
+  "C:/Users/david/Desktop/Gioco-Scacchi/src/MosseSpeciali2.cpp" "CMakeFiles/ScacchieraL.dir/src/MosseSpeciali2.cpp.obj" "gcc" "CMakeFiles/ScacchieraL.dir/src/MosseSpeciali2.cpp.obj.d"
   "C:/Users/david/Desktop/Gioco-Scacchi/src/Pezzi.cpp" "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.obj" "gcc" "CMakeFiles/ScacchieraL.dir/src/Pezzi.cpp.obj.d"
+  "C:/Users/david/Desktop/Gioco-Scacchi/src/RepGame.cpp" "CMakeFiles/ScacchieraL.dir/src/RepGame.cpp.obj" "gcc" "CMakeFiles/ScacchieraL.dir/src/RepGame.cpp.obj.d"
   "C:/Users/david/Desktop/Gioco-Scacchi/src/Scacchiera.cpp" "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj" "gcc" "CMakeFiles/ScacchieraL.dir/src/Scacchiera.cpp.obj.d"
   )
 

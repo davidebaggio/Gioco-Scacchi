@@ -1,5 +1,5 @@
-CMakeFiles/ScacchieraL.dir/src/MosseSpeciali.cpp.obj: \
- C:\Users\david\Desktop\Gioco-Scacchi\src\MosseSpeciali.cpp \
+CMakeFiles/ScacchieraL.dir/src/MosseSpeciali2.cpp.obj: \
+ C:\Users\david\Desktop\Gioco-Scacchi\src\MosseSpeciali2.cpp \
  C:/Users/david/Desktop/Gioco-Scacchi/include/Scacchiera.h \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/iostream \
  C:/PROGRA~1/MINGW-~1/X86_64~1.0-P/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \

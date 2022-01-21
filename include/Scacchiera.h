@@ -1,3 +1,4 @@
+//Luca Mainardi
 
 #ifndef SCACCHIERA_H
 #define SCACCHIERA_H
@@ -19,7 +20,7 @@ private:
 
 public:
 	Pedina(int, int, bool, char); // pos x, pos y, colore(true bianco, false nero), lettera ref
-	// virtual ~Pedina() {}
+	virtual ~Pedina() {}
 
 	int getX() const { return x; }
 	int getY() const { return y; }
@@ -78,9 +79,6 @@ public:
 
 std::ostream &operator<<(std::ostream &os, const Scacchiera &);
 
-class InvalidIndex
-{
-};
 
 class InvalidPosition
 {

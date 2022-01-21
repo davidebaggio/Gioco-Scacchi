@@ -2,10 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Replay.exe"
+			"path" : "Scacchiera.exe"
 		},
 		{
-			"path" : "Replay.pdb"
+			"path" : "Scacchiera.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -29,7 +29,7 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 29,
+				"line" : 28,
 				"parent" : 0
 			},
 			{
@@ -58,7 +58,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g   -std=c++11"
+					"fragment" : "-O2 -g -DNDEBUG   -std=c++11"
 				}
 			],
 			"includes" : 
@@ -86,13 +86,13 @@
 			"id" : "PedinaL::@6890427a1f51a3e7e1df"
 		}
 	],
-	"id" : "Replay::@6890427a1f51a3e7e1df",
+	"id" : "Scacchiera::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-O2 -g -DNDEBUG",
 				"role" : "flags"
 			},
 			{
@@ -116,8 +116,8 @@
 		],
 		"language" : "CXX"
 	},
-	"name" : "Replay",
-	"nameOnDisk" : "Replay.exe",
+	"name" : "Scacchiera",
+	"nameOnDisk" : "Scacchiera.exe",
 	"paths" : 
 	{
 		"build" : ".",
@@ -138,7 +138,7 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/Replay.cpp",
+			"path" : "src/Gioco.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],
