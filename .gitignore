@@ -2,14 +2,10 @@
 #file da ignorare sono gli eseguibili che dipendono dal tipo di compilatore
 #i vari file di testo generati dai programmi
 
-build/*.txt
-build/*.exe
-build/*.json
-build/Makefile
-build/*.a
-build/Scacchiera
-build/Replay
+build/*
 
 #editor di testo
 
 .vscode
+
+
