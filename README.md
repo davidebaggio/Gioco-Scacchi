@@ -8,7 +8,7 @@ $cmake ..
 
 $make
 
-In caso il "cmake .." non funzionasse perchè non trova il generatore corretto (a causa dell'implementazione su vari sistemi operativi differenti):
+In caso il "cmake .." non funzionasse perchè non trova il generatore corretto (a causa dell'implementazione su sistemi operativi differenti):
 
 $rm CMakeCache.txt
 
