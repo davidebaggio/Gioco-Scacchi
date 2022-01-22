@@ -73,15 +73,15 @@ CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj: CMakeFiles/Scacchiera.dir/includes_
 CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj: ../src/Gioco.cpp
 CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj: CMakeFiles/Scacchiera.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\david\Desktop\Gioco-Scacchi\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj -MF CMakeFiles\Scacchiera.dir\src\Gioco.cpp.obj.d -o CMakeFiles\Scacchiera.dir\src\Gioco.cpp.obj -c C:\Users\david\Desktop\Gioco-Scacchi\src\Gioco.cpp
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Scacchiera.dir/src/Gioco.cpp.obj -MF CMakeFiles\Scacchiera.dir\src\Gioco.cpp.obj.d -o CMakeFiles\Scacchiera.dir\src\Gioco.cpp.obj -c C:\Users\david\Desktop\Gioco-Scacchi\src\Gioco.cpp
 
 CMakeFiles/Scacchiera.dir/src/Gioco.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Scacchiera.dir/src/Gioco.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\david\Desktop\Gioco-Scacchi\src\Gioco.cpp > CMakeFiles\Scacchiera.dir\src\Gioco.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\david\Desktop\Gioco-Scacchi\src\Gioco.cpp > CMakeFiles\Scacchiera.dir\src\Gioco.cpp.i
 
 CMakeFiles/Scacchiera.dir/src/Gioco.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Scacchiera.dir/src/Gioco.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\david\Desktop\Gioco-Scacchi\src\Gioco.cpp -o CMakeFiles\Scacchiera.dir\src\Gioco.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\david\Desktop\Gioco-Scacchi\src\Gioco.cpp -o CMakeFiles\Scacchiera.dir\src\Gioco.cpp.s
 
 # Object files for target Scacchiera
 Scacchiera_OBJECTS = \

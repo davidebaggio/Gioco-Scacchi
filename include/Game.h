@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <time.h>
 #include <vector>
+#include <algorithm>
 
 #include "Scacchiera.h"
 #include "Pezzi.h"

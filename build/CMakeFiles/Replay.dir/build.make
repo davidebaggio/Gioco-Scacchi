@@ -73,15 +73,15 @@ CMakeFiles/Replay.dir/src/Replay.cpp.obj: CMakeFiles/Replay.dir/includes_CXX.rsp
 CMakeFiles/Replay.dir/src/Replay.cpp.obj: ../src/Replay.cpp
 CMakeFiles/Replay.dir/src/Replay.cpp.obj: CMakeFiles/Replay.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\david\Desktop\Gioco-Scacchi\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Replay.dir/src/Replay.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Replay.dir/src/Replay.cpp.obj -MF CMakeFiles\Replay.dir\src\Replay.cpp.obj.d -o CMakeFiles\Replay.dir\src\Replay.cpp.obj -c C:\Users\david\Desktop\Gioco-Scacchi\src\Replay.cpp
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/Replay.dir/src/Replay.cpp.obj -MF CMakeFiles\Replay.dir\src\Replay.cpp.obj.d -o CMakeFiles\Replay.dir\src\Replay.cpp.obj -c C:\Users\david\Desktop\Gioco-Scacchi\src\Replay.cpp
 
 CMakeFiles/Replay.dir/src/Replay.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Replay.dir/src/Replay.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\david\Desktop\Gioco-Scacchi\src\Replay.cpp > CMakeFiles\Replay.dir\src\Replay.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\david\Desktop\Gioco-Scacchi\src\Replay.cpp > CMakeFiles\Replay.dir\src\Replay.cpp.i
 
 CMakeFiles/Replay.dir/src/Replay.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Replay.dir/src/Replay.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\david\Desktop\Gioco-Scacchi\src\Replay.cpp -o CMakeFiles\Replay.dir\src\Replay.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\david\Desktop\Gioco-Scacchi\src\Replay.cpp -o CMakeFiles\Replay.dir\src\Replay.cpp.s
 
 # Object files for target Replay
 Replay_OBJECTS = \

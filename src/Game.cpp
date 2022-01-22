@@ -196,23 +196,24 @@ bool Game::computeCommand(ofstream &spec, Scacchiera &sca, const string &cmd, bo
  */
 void Game::startPC(ofstream &outputFile, ofstream &spec)
 {
+	cout << "\nGiocatore Nero: Pedine con carattere maiuscolo;\nGiocatore Bianco: Pedine con carattere minuscolo.\n";
 	Scacchiera s{};
 	cout << "Scacchiera iniziale: \n"
 		 << "\n"
 		 << s << "\n";
 
+	bool player = (bool)(rand() % 2);
 	// Apertura di file di log dove verranno salvate tutte le mosse.
 
 	vector<string> cmd{};
 
-	// Ciclo per la partita, continua finchè una delle condizioni non sia verificata
-	// while (s.isPatta(cmd) != 3 && !s.isScaccoMattoBianco() && !s.isScaccoMattoNero())
+	// ciclo partita
 	while (true)
 	{
 		//--------------------------- turno del bianco ---------------------------------
 		if (s.isScaccoBianco())
 		{
-			cout << "Giocatore sotto scacco\n";
+			cout << "Giocatore Bianco sotto scacco\n";
 			// outputFile << "Giocatore sotto scacco\n";
 		}
 		if (s.isPatta(cmd) == 1)
@@ -221,18 +222,32 @@ void Game::startPC(ofstream &outputFile, ofstream &spec)
 			break;
 		}
 
-		cout << "Player: \n";
-		string commandPL;
+		cout << "Giocatore Bianco: \n";
+		string commandW;
 
 		// Inserimento del comando attraverso std::istream affinchè non sia valido.
-		do
+		if (player)
 		{
-			getline(cin, commandPL);
-			// cout<<commandPL<<endl;
-		} while (!computeCommand(spec, s, commandPL, true, true));
+			do
+			{
+				getline(cin, commandW);
+				// trasforma il comando in toUpperCase;
+				transform(commandW.begin(), commandW.end(), commandW.begin(), ::toupper);
+			} while (!computeCommand(spec, s, commandW, player, player));
+		}
+		else
+		{
+			do
+			{
+				commandW = randomCommand();
+				// trasforma il comando in toUpperCase;
+				transform(commandW.begin(), commandW.end(), commandW.begin(), ::toupper);
+			} while (!computeCommand(spec, s, commandW, !player, player));
+			cout << commandW;
+		}
 
-		cmd.push_back(commandPL);
-		outputFile << commandPL << "\n";
+		cmd.push_back(commandW);
+		outputFile << commandW << "\n";
 
 		// stampa scacchiera
 		cout << "\n"
@@ -241,7 +256,7 @@ void Game::startPC(ofstream &outputFile, ofstream &spec)
 		// controlla se la partita e'finita
 		if (s.isScaccoMattoNero())
 		{
-			cout << "Computer sotto scacco matto\n";
+			cout << "Nero sotto scacco matto\n";
 			break;
 		}
 		if (s.isPatta(cmd) == 3)
@@ -254,7 +269,7 @@ void Game::startPC(ofstream &outputFile, ofstream &spec)
 		// controlla se computer e' sotto scacco
 		if (s.isScaccoNero())
 		{
-			cout << "Computer sotto scacco\n";
+			cout << "Nero sotto scacco\n";
 			// outputFile << "Computer sotto scacco\n";
 		}
 		if (s.isPatta(cmd) == 2)
@@ -263,19 +278,32 @@ void Game::startPC(ofstream &outputFile, ofstream &spec)
 			break;
 		}
 
-		cout << "Computer: \n";
-		string commandPC = "";
+		cout << "Giocatore Nero: \n";
+		string commandB = "";
 
 		// Estrazione casuale del comando da parte del PC affinchè non sia valido.
-		do
+		if (!player)
 		{
-			commandPC = randomCommand();
-		} while (!computeCommand(spec, s, commandPC, false, false));
-
+			do
+			{
+				getline(cin, commandB);
+				// trasforma il comando in toUpperCase;
+				transform(commandB.begin(), commandB.end(), commandB.begin(), ::toupper);
+			} while (!computeCommand(spec, s, commandB, player, !player));
+		}
+		else
+		{
+			do
+			{
+				commandB = randomCommand();
+				// trasforma il comando in toUpperCase;
+				transform(commandB.begin(), commandB.end(), commandB.begin(), ::toupper);
+			} while (!computeCommand(spec, s, commandB, !player, !player));
+			cout << commandB;
+		}
 		// stampa comando
-		cmd.push_back(commandPC);
-		cout << commandPC << "\n";
-		outputFile << commandPC << "\n";
+		cmd.push_back(commandB);
+		outputFile << commandB << "\n";
 
 		// stampa scacchiera
 		cout << s << "\n";
@@ -283,7 +311,7 @@ void Game::startPC(ofstream &outputFile, ofstream &spec)
 		// controlla se la partita e'finita
 		if (s.isScaccoMattoBianco())
 		{
-			cout << "Giocatore sotto scacco matto\n";
+			cout << "Bianco sotto scacco matto\n";
 			break;
 		}
 		if (s.isPatta(cmd) == 3)
@@ -302,13 +330,14 @@ void Game::startPC(ofstream &outputFile, ofstream &spec)
  */
 void Game::startCC(ofstream &outputFile, ofstream &spec)
 {
+	// PC vs PC ha un massimo di mosse
+	int mosseMax = 50;
+	cout << "\nNumero massimo di mosse: " << mosseMax << " per giocatore\n";
+
 	Scacchiera s{};
 	cout << "Scacchiera iniziale: \n"
 		 << "\n"
 		 << s << "\n";
-
-	// PC vs PC ha un massimo di mosse
-	int mosseMax = 50;
 
 	// Apertura di file di log dove verranno salvate tutte le mosse.
 

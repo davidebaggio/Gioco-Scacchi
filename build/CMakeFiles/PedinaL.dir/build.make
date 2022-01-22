@@ -73,15 +73,15 @@ CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj: CMakeFiles/PedinaL.dir/includes_CXX.r
 CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj: ../src/Pedina.cpp
 CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj: CMakeFiles/PedinaL.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\david\Desktop\Gioco-Scacchi\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj -MF CMakeFiles\PedinaL.dir\src\Pedina.cpp.obj.d -o CMakeFiles\PedinaL.dir\src\Pedina.cpp.obj -c C:\Users\david\Desktop\Gioco-Scacchi\src\Pedina.cpp
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/PedinaL.dir/src/Pedina.cpp.obj -MF CMakeFiles\PedinaL.dir\src\Pedina.cpp.obj.d -o CMakeFiles\PedinaL.dir\src\Pedina.cpp.obj -c C:\Users\david\Desktop\Gioco-Scacchi\src\Pedina.cpp
 
 CMakeFiles/PedinaL.dir/src/Pedina.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/PedinaL.dir/src/Pedina.cpp.i"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\david\Desktop\Gioco-Scacchi\src\Pedina.cpp > CMakeFiles\PedinaL.dir\src\Pedina.cpp.i
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\david\Desktop\Gioco-Scacchi\src\Pedina.cpp > CMakeFiles\PedinaL.dir\src\Pedina.cpp.i
 
 CMakeFiles/PedinaL.dir/src/Pedina.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/PedinaL.dir/src/Pedina.cpp.s"
-	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\X86_64~2.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\david\Desktop\Gioco-Scacchi\src\Pedina.cpp -o CMakeFiles\PedinaL.dir\src\Pedina.cpp.s
+	C:\PROGRA~1\MINGW-~1\X86_64~1.0-P\mingw64\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\david\Desktop\Gioco-Scacchi\src\Pedina.cpp -o CMakeFiles\PedinaL.dir\src\Pedina.cpp.s
 
 # Object files for target PedinaL
 PedinaL_OBJECTS = \
