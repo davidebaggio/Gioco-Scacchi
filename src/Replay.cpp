@@ -26,23 +26,23 @@ int main(int argc, char *argv[])
 	RepGame repGame = RepGame();
 
 	// Se si avvia Replay.exe con argomenti non corretti.
-	if (argc <= 1 || argc > 3)
+	if (argc <= 2 || argc > 4)
 	{
 		cout << "[Error] Incorrect arguments. Type: " << endl
-			 << "\t [input_file_name]: to watch the replay of the match." << endl
-			 << "\t [input_file_name] [output_file_name]: to watch the replay on the output file." << endl;
+			 << "\t v [input_file_name]: to watch the replay of the match." << endl
+			 << "\t f [input_file_name] [output_file_name]: to watch the replay on the output file." << endl;
 		return 0;
 	}
 
 	// Se si avvia Replay [input_file_name]
-	else if (argc == 2)
+	else if (argc == 3 && strcmp(argv[1], "v") == 0)
 	{
 		// Apertura di file di log dove verranno lette tutte le mosse.
-		ifstream inputFile(argv[1]);
+		ifstream inputFile(argv[2]);
 		ifstream spec("spec.txt");
 		if (!inputFile.is_open())
 		{
-			cout << "[Error] File = " << argv[1] << " not found\n";
+			cout << "[Error] File = " << argv[2] << " not found\n";
 			return 0;
 		}
 		else
@@ -55,21 +55,21 @@ int main(int argc, char *argv[])
 	}
 
 	// Se si avvia Replay.exe [input_file_name] [output_file_name]
-	else
+	else if (strcmp(argv[1], "f") == 0)
 	{
 		// Apertura dei file di log dove verranno lette tutte le mosse e stampato il replay della partita.
-		ifstream inputFile(argv[1]);
-		ofstream outputFile(argv[2]);
+		ifstream inputFile(argv[2]);
+		ofstream outputFile(argv[3]);
 		ifstream spec("spec.txt");
 		if (!inputFile.is_open() || !outputFile.is_open())
 		{
-			cout << "[Error] Cannot open argument files. Check file names again.\n";
+			cout << "[Error] Cannot open [argument files] or file name not provided. Check file names again.\n";
 			return 0;
 		}
 		else
 		{
 			outputFile.clear();
-			cout << "Replay on [file] = " << argv[2] << "\n";
+			cout << "Replay on [file] = " << argv[3] << "\n";
 
 			repGame.ReplayLogToLog(inputFile, outputFile, spec);
 
