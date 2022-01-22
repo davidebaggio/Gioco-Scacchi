@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 		else
 		{
 			outputFile.clear();
-			cout << "Replay on [file] = " << argv[2];
+			cout << "Replay on [file] = " << argv[2] << "\n";
 
 			repGame.ReplayLogToLog(inputFile, outputFile, spec);
 
