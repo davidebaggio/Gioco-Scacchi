@@ -13,8 +13,3 @@ build/Replay
 #editor di testo
 
 .vscode
-
-#.bat
-
-build.bat
-buildDebug.bat

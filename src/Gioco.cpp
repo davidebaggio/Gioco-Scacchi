@@ -1,13 +1,6 @@
 // Baggio Davide
 
-#include <iostream>
-#include <fstream>
 #include <string.h>
-#include <chrono>
-#include <thread>
-#include <cstdlib>
-#include <time.h>
-#include <sstream>
 #include "../include/Scacchiera.h"
 #include "../include/Pezzi.h"
 #include "../include/Game.h"
@@ -47,7 +40,7 @@ int main(int argc, char *argv[])
         return 0;
     }
 
-    //---------------------------------- Se si avvia Scacchiera -pc (Partita Giocatore vs PC) ----------------------------------
+    //---------------------------------- Se si avvia Scacchiera pc (Partita Giocatore vs PC) ----------------------------------
     else if (strcmp(argv[1], "pc") == 0)
     {
         cout << "Partita giocatore (Bianco) vs computer (Nero)\n";
@@ -63,7 +56,7 @@ int main(int argc, char *argv[])
         outputFile.close();
         spec.close();
     }
-    //---------------------------------- Se si avvia Scacchiera.exe -cc (Partita PC vs PC) ----------------------------------
+    //---------------------------------- Se si avvia Scacchiera cc (Partita PC vs PC) ----------------------------------
     else
     {
         cout << "Partita computer vs computer\n";

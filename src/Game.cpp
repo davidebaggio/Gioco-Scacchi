@@ -1,13 +1,5 @@
 // Davide Baggio
 
-#include <iostream>
-#include <fstream>
-#include <chrono>
-#include <thread>
-#include <cstdlib>
-#include <time.h>
-#include <vector>
-
 #include "../include/Game.h"
 using namespace std;
 
@@ -306,7 +298,8 @@ void Game::startPC(ofstream &outputFile, ofstream &spec)
 		outputFile << commandB << "\n";
 
 		// stampa scacchiera
-		cout << s << "\n";
+		cout << "\n"
+			 << s << "\n";
 
 		// controlla se la partita e'finita
 		if (s.isScaccoMattoBianco())
@@ -388,8 +381,9 @@ void Game::startCC(ofstream &outputFile, ofstream &spec)
 			break;
 		}
 
-		//--------------------------- turno del nero ---------------------------------
 		this_thread::sleep_for(chrono::seconds(1)); // 1 secondo da una giocata all'altra
+
+		//--------------------------- turno del nero ---------------------------------
 
 		if (s.isScaccoNero())
 		{
@@ -439,7 +433,4 @@ void Game::startCC(ofstream &outputFile, ofstream &spec)
 	{
 		cout << "Raggiunto limite di mosse\n";
 	}
-
-	spec.close();
-	outputFile.close();
 }
