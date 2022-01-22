@@ -3,6 +3,7 @@
 #i vari file di testo generati dai programmi
 
 build/*
+!build/.gitkeep
 
 #editor di testo
 
