@@ -164,7 +164,7 @@ bool Game::computeCommand(ofstream &spec, Scacchiera &sca, const string &cmd, bo
 			// promozione
 			if ((temp->getName() == 'p' && temp->getY() == 0) || (temp->getName() == 'P' && temp->getY() == 7))
 			{
-				sca.promozione(spec, temp, err);
+				sca.promozione(spec, temp, col, err);
 			}
 			else
 			{
@@ -206,9 +206,9 @@ void Game::startPC(ofstream &outputFile, ofstream &spec)
 	// Apertura di file di log dove verranno salvate tutte le mosse.
 
 	vector<string> cmd{};
-
+	int mosse = 10;
 	// ciclo partita
-	while (true)
+	while (mosse > 0)
 	{
 		//--------------------------- turno del bianco ---------------------------------
 		if (s.isScaccoBianco())
@@ -319,6 +319,7 @@ void Game::startPC(ofstream &outputFile, ofstream &spec)
 			cout << "Patta: Mosse ripetute\n";
 			break;
 		}
+		mosse--;
 	}
 }
 

@@ -72,7 +72,7 @@ public:
 
 	// MOSSE SPECIALI
 	void replayPromo(Pedina *, std::string, bool);
-	void promozione(std::ofstream &, Pedina *, bool);
+	void promozione(std::ofstream &, Pedina *, bool, bool);
 	void arrocco(int, int, int, int);
 	void enPassant(Pedina *, int, int);
 };

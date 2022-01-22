@@ -21,10 +21,14 @@ void RepGame::computeCommand(Scacchiera &sca, const string &cmd, const string &s
 		sca.move(temp, xf, yf);
 	else if (special == "ArroccoN" || special == "ArroccoB")
 		sca.arrocco(xi, yi, xf, yf);
-	else if ((int)special[0] < 64)
+	else if ((int)special[0] < 91){
+		sca.move(temp, xf, yf);
 		sca.replayPromo(temp, special, false);
-	else if ((int)special[0] > 64)
+	}
+	else if ((int)special[0] > 91){
+		sca.move(temp, xf, yf);
 		sca.replayPromo(temp, special, true);
+	}
 }
 
 /**

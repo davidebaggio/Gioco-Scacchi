@@ -9,54 +9,46 @@ using namespace std;
  * @param p pedone che viene promosso
  * @param player colore del pedone che viene promosso
  */
-void Scacchiera::promozione(ofstream &spec, Pedina *p, bool player)
+void Scacchiera::promozione(ofstream &spec, Pedina *p, bool player, bool pl)
 {
-	if (p->getColor())
+	if (p->getColor() == player && pl)	// colore del  giocatore e partita PC
 	{
-		cout << "\nPromozione del Pedone Bianco\n";
-		if (player)
+		cout << "\nPromozione del Pedone del Giocatore\n";
+		cout << "Inserire la pedina con il quale vogliamo promuovere:\n";
+		char name;
+		do
 		{
-			cout << "Inserire la pedina con il quale vogliamo promuovere:\n";
-			char name;
-			do
-			{
-				cin >> name;
-			} while (name != 't' && name != 'c' && name != 'a' && name != 'd' && name != 'r');
-			int x = p->getX();
-			int y = p->getY();
-			Pedina *temp;
-			if (name == 't')
-				temp = new Torre(x, y, player, name);
-			if (name == 'c')
-				temp = new Cavallo(x, y, player, name);
-			if (name == 'a')
-				temp = new Alfiere(x, y, player, name);
-			if (name == 'd')
-				temp = new Regina(x, y, player, name);
-			if (name == 'r')
-				temp = new Re(x, y, player, name);
-			changePiece(x, y, temp);
-			spec << temp->getName() << "\n";
-		}
-		else
-		{
-			int x = p->getX();
-			int y = p->getY();
-			Pedina *temp;
-			if (y == 0)
-				temp = new Regina(x, y, true, 'd');
-			else
-				temp = new Regina(x, y, false, 'd');
-			changePiece(x, y, temp);
-			spec << temp->getName() << "\n";
-		}
-	}
-	else
-	{
-		cout << "\nPromozione del pedone Nero\n";
+			cin >> name;
+		} while (name != 't' && name != 'c' && name != 'a' && name != 'd' && name != 'r');
 		int x = p->getX();
 		int y = p->getY();
-		Pedina *temp = new Regina(x, y, false, 'd');
+		Pedina *temp;
+		if (name == 't')
+			temp = new Torre(x, y, player, name);
+		if (name == 'c')
+			temp = new Cavallo(x, y, player, name);
+		if (name == 'a')
+			temp = new Alfiere(x, y, player, name);
+		if (name == 'd')
+			temp = new Regina(x, y, player, name);
+		if (name == 'r')
+			temp = new Re(x, y, player, name);
+		changePiece(x, y, temp);
+		spec << temp->getName() << "\n";
+	}
+	else if(p->getColor() == player)
+	{
+		cout << "\nPromozione del Pedone del Computer\n";
+		int x = p->getX();
+		int y = p->getY();
+		Pedina *temp = new Regina(x, y, player, 'd');
+		changePiece(x, y, temp);
+		spec << temp->getName() << "\n";
+	}else{
+		cout << "\nPromozione del Pedone del Computer\n";
+		int x = p->getX();
+		int y = p->getY();
+		Pedina *temp = new Regina(x, y, !player, 'd');
 		changePiece(x, y, temp);
 		spec << temp->getName() << "\n";
 	}
