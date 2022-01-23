@@ -39,8 +39,12 @@ int main(int argc, char *argv[])
 	{
 		// Apertura di file di log dove verranno lette tutte le mosse.
 		ifstream inputFile(argv[2]);
-		ifstream spec("spec.txt");
-		if (!inputFile.is_open())
+		ifstream spec;
+		if (strcmp(argv[2], "logPC.txt") == 0)
+			spec.open("specPC.txt");
+		else
+			spec.open("specCC.txt");
+		if (!inputFile.is_open() || !spec.is_open())
 		{
 			cout << "[Error] File = " << argv[2] << " not found\n";
 			return 0;
@@ -60,8 +64,12 @@ int main(int argc, char *argv[])
 		// Apertura dei file di log dove verranno lette tutte le mosse e stampato il replay della partita.
 		ifstream inputFile(argv[2]);
 		ofstream outputFile(argv[3]);
-		ifstream spec("spec.txt");
-		if (!inputFile.is_open() || !outputFile.is_open())
+		ifstream spec;
+		if (strcmp(argv[2], "logPC.txt") == 0)
+			spec.open("specPC.txt");
+		else
+			spec.open("specCC.txt");
+		if (!inputFile.is_open() || !outputFile.is_open() || !spec.is_open())
 		{
 			cout << "[Error] Cannot open [argument files] or file name not provided. Check file names again.\n";
 			return 0;

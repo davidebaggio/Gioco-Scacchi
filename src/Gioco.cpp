@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
         cout << "Per giocare inserire la posizione di cella iniziale e finale separati da uno spazio. Es: A2 C3\n";
 
         ofstream outputFile("logPC.txt");
-        ofstream spec("spec.txt");
+        ofstream spec("specPC.txt");
         outputFile.clear();
         spec.clear();
 
@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
         cout << "Partita computer vs computer\n";
 
         ofstream outputFile("logCC.txt");
-        ofstream spec("spec.txt");
+        ofstream spec("specCC.txt");
         outputFile.clear();
         spec.clear();
 
